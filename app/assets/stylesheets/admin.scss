@@ -40,6 +40,34 @@ nav {
         width: 20%;
         height: 100vh;
         border-right: 1px solid #f0f;
+
+        a {
+            color: #c4c4c4;
+        }
+
+        a:hover {
+            text-decoration: none;
+            color: #ff0;
+        }
+
+        a:focus {
+            outline: none;
+        }
+
+        .dropdown-menu {
+            background-color: transparent;
+            background-clip: none;
+            border: none;
+
+            .dropdown-item {
+                color: #c4c4c4;
+            }
+
+            .dropdown-item:hover {
+                color: #ff0;
+                background-color: transparent;
+            }
+        }
         
     } 
 
