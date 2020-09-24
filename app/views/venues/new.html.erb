@@ -1,0 +1,15 @@
+<h1>Create Venue</h1>
+<br>
+<%= form_with model: Venue.new do |f| %>
+    <%= f.label :name, "Venue Name" %><br>
+    <%= f.text_field :name, required: true %><br>
+    <%= f.label :configuration, "Configuration" %><br>
+    <%= f.text_field :configuration, required: true %><br>
+    <%= f.label :seats, "Seats" %><br>
+    <%= f.number_field :seats, required: true %><br>
+    <%= f.label :greenrooms, "Greenrooms" %><br>
+    <%= f.number_field :greenrooms, required: true %><br>
+    <%= f.label :dressing_rooms, "Dressing Rooms" %><br>
+    <%= f.number_field :dressing_rooms, required: true %><br><br>
+    <%= f.submit "Create Venue" %>
+<% end %>

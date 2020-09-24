@@ -5,7 +5,7 @@
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" integrity="sha384-JcKb8q3iqJ61gNV9KGb8thSsNjpSL0n8PARn9HuZOnIxN0hoP+VmmDGMN5t9UJ0Z" crossorigin="anonymous"> 
     <link href="https://fonts.googleapis.com/css2?family=Lato&family=Lexend+Deca&family=Lexend+Giga&display=swap" rel="stylesheet">
 
     <%= stylesheet_link_tag 'admin', media: 'all', 'data-turbolinks-track': 'reload' %>
@@ -29,10 +29,10 @@
       <%= content_tag(:div, class: 'quick-link-bar') do %>
       <h4>Quick Links</h4>
               <%= content_tag(:div, class: 'link-list') do %>
-              <div class = "dropdown show">
-                  <a class = "dropdown-toggle" href = "#" id = "dropdownMenuLink" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >Create a Resource</a>
-                  <div class = "dropdown-menu" aria-labelledby = "dropdownMenuLink">
-                      <a class = "dropdown-item" href = "#">Venue</a>
+              <div class = "dropdown">
+                  <button class = "dropdown-toggle" type = "button" id = "dropdownMenuButton" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >Create a Resource</button>
+                  <div class = "dropdown-menu" aria-labelledby = "dropdownMenuButton">
+                      <a class = "dropdown-item" href = <%= new_venue_path %>>Venue</a>
                   </div>
               </div>
           <% end %>
@@ -51,7 +51,6 @@
 
     <script src="https://code.jquery.com/jquery-3.5.1.slim.min.js" integrity="sha384-DfXdz2htPH0lsSSs5nCTpuj/zy4C+OGpamoFVy38MVBnE+IbbVYUew+OrCXaRkfj" crossorigin="anonymous"></script>
     <script src="https://cdn.jsdelivr.net/npm/popper.js@1.16.1/dist/umd/popper.min.js" integrity="sha384-9/reFTGAW83EW2RDu2S0VKaIzap3H66lZH81PoYlFhbGU+6BZp6G7niu735Sk7lN" crossorigin="anonymous"></script>
-    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script>
-
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js" integrity="sha384-B4gt1jrGC7Jh4AgTPSdUtOBvfO8shuf57BaghqFfPlYxofvL8/KUEfYiJOMMV+rV" crossorigin="anonymous"></script> 
   </body>
 </html>
