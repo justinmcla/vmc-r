@@ -1,11 +1,17 @@
 body {
     background-color: #2D2D2D;
     color: #c4c4c4;
+    overflow: hidden;
 }
 
 nav {
 
-    border-bottom: 2px solid #000;
+    border-bottom: 2px solid #0ff;
+    font-family: 'Lexend Deca', sans-serif;
+
+    .navbar-brand {
+        font-family: 'Lexend Giga', sans-serif;
+    }
 
     a {
         color: #0ff;
@@ -15,7 +21,39 @@ nav {
     }
 
     .navbar-toggler-icon {
-        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,255,255, 0.5)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
+        background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
       }
 
+}
+
+.console-bars {
+    display: flex;
+    margin: 10px;
+
+    h1, h2, h3, h4 {
+        font-family: 'Lexend Deca', sans-serif;
+    }
+
+    .quick-link-bar {
+        padding: 10px;
+        margin-right: 30px;
+        width: 20%;
+        height: 100vh;
+        border-right: 1px solid #f0f;
+        
+    } 
+
+    .venue-overiew {
+        padding: 10px;
+        width: 60%;
+    }
+    
+    .feature-bar {
+        padding: 10px;
+        width: 20%;
+        height: 100vh;
+        position: absolute;
+        right: 0;
+        border-left: 1px solid #f0f;
+    }
 }
