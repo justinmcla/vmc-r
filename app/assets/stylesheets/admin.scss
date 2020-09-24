@@ -5,7 +5,6 @@ body {
 }
 
 nav {
-
     border-bottom: 2px solid #0ff;
     font-family: 'Lexend Deca', sans-serif;
 
@@ -16,19 +15,24 @@ nav {
     a {
         color: #0ff;
     }
+
     a:hover {
         color: #c4c4c4;
     }
 
     .navbar-toggler-icon {
         background-image: url("data:image/svg+xml;charset=utf8,%3Csvg viewBox='0 0 32 32' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath stroke='rgba(0,255,255)' stroke-width='2' stroke-linecap='round' stroke-miterlimit='10' d='M4 8h24M4 16h24M4 24h24'/%3E%3C/svg%3E");
-      }
+    }
 
 }
 
 .console-bars {
     display: flex;
     margin: 10px;
+
+    @media screen and (max-width: 575.98px) {
+        flex-direction: column;
+    }
 
     h1, h2, h3, h4 {
         font-family: 'Lexend Deca', sans-serif;
@@ -38,6 +42,7 @@ nav {
         padding: 10px;
         margin-right: 30px;
         width: 20%;
+        min-width: 200px;
         height: 100vh;
         border-right: 1px solid #f0f;
 
@@ -72,11 +77,19 @@ nav {
                 }
             }
         }
+
+        @media screen and (max-width: 575.98px) {
+            display: none;
+        }
     } 
 
     .venue-overiew {
         padding: 10px;
         width: 60%;
+
+        @media screen and (max-width: 575.98px) {
+            width: 100%;
+        }
     }
     
     .feature-bar {
@@ -86,5 +99,9 @@ nav {
         position: absolute;
         right: 0;
         border-left: 1px solid #f0f;
+
+        @media screen and (max-width: 900px) {
+            display: none;
+        }
     }
 }
