@@ -30,7 +30,17 @@
 
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-                SIGN UP FORM HERE
+                <%= form_with model: User.new do |f| %>
+                    <%= f.label :name, "Name", class: "sr-only" %><br>
+                    <%= f.text_field :name, placeholder: "Name" %><br>
+                    <%= f.label :email, "Email Address", class: "sr-only" %><br>
+                    <%= f.text_field :email, placeholder: "Email Address" %><br>
+                    <%= f.label :password, "Password", class: "sr-only" %><br>
+                    <%= f.text_field :password, placeholder: "Password" %><br>
+                    <%= f.label :password_confirmation, "Confirm Password", class: "sr-only" %><br>
+                    <%= f.text_field :password_confirmation, placeholder: "Confirm Password" %><br><br>
+                    <%= f.submit "Sign Up", class: "submit-button" %>
+                <% end %>
             </div>
         </div>
 
