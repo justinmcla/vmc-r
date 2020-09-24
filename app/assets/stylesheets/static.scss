@@ -47,3 +47,19 @@ body {
     text-decoration: none;
     color: #0ff;
 }
+
+input {
+    background-color: transparent;
+    border-top: transparent;
+    border-left: transparent;
+    border-right: transparent;
+    color: #e1e1e1;
+}
+
+.submit-button {
+    border: transparent;
+}
+
+.submit-button:hover {
+    color: #0ff;
+}
