@@ -5,17 +5,45 @@ body {
     overflow: hidden;
     background: url(landing.png) no-repeat center center fixed;
     background-size: cover;
+
+    @media (max-width: 991.98px) {
+        display: flex;
+        justify-content: center;
+    }
 }
 
 .banner {
     display: flex;
+    flex-direction: column;
     align-items: center;
-    background-color: #000;
-    color: #fff;
+    background-color: rgba(0,0,0,0.75);
+    color: #e1e1e1;
     height: 100%;
     width: 300px;
-    position: absolute;
+    position: fixed;
     margin-left: 70%;
     justify-content: center;
     
+    h1 {
+        color: #0ff;
+    }
+
+    @media (max-width: 991.98px) {
+        height: 100%;
+        margin: auto;
+    }
+}
+
+#accordion {
+    display: flex-block;
+    width: 100%;
+    text-align: center;
+}
+
+.btn-link {
+    color: #e1e1e1;
+}
+.btn-link:hover {
+    text-decoration: none;
+    color: #0ff;
 }
