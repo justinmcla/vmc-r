@@ -60,6 +60,11 @@ input {
     font-family: "Lato", sans-serif;
 }
 
+input:focus {
+    outline: none;
+    border: 1px solid #f0f;
+}
+
 .submit-button {
     border: transparent;
 }
