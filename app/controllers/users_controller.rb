@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(post_params)
     if @user.save
       session[:user_id] = @user.id
-      redirect_to static_test_path
+      redirect_to home_path
     else
       redirect_to root_path
     end
