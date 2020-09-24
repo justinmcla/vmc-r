@@ -16,9 +16,9 @@
             <div class="card-body">
                 <%= form_with url: sessions_path, method: 'post' do |f| %>
                     <%= f.label :email, "Email Address", class: "sr-only" %><br>
-                    <%= f.text_field :email, placeholder: "Email Address" %><br>
+                    <%= f.email_field :email, placeholder: "Email Address", required: true %><br>
                     <%= f.label :password, "Password", class: "sr-only" %><br>
-                    <%= f.text_field :password, placeholder: "Password" %><br><br>
+                    <%= f.password_field :password, placeholder: "Password", required: true %><br><br>
                     <%= f.submit "Log In", class: "submit-button" %>
                 <% end %>
             </div>
@@ -38,13 +38,13 @@
             <div class="card-body">
                 <%= form_with model: User.new do |f| %>
                     <%= f.label :name, "Name", class: "sr-only" %><br>
-                    <%= f.text_field :name, placeholder: "Name" %><br>
+                    <%= f.text_field :name, placeholder: "Name", required: true %><br>
                     <%= f.label :email, "Email Address", class: "sr-only" %><br>
-                    <%= f.text_field :email, placeholder: "Email Address" %><br>
+                    <%= f.email_field :email, placeholder: "Email Address", required: true %><br>
                     <%= f.label :password, "Password", class: "sr-only" %><br>
-                    <%= f.text_field :password, placeholder: "Password" %><br>
+                    <%= f.password_field :password, placeholder: "Password", required: true %><br>
                     <%= f.label :password_confirmation, "Confirm Password", class: "sr-only" %><br>
-                    <%= f.text_field :password_confirmation, placeholder: "Confirm Password" %><br><br>
+                    <%= f.password_field :password_confirmation, placeholder: "Confirm Password", required: true %><br><br>
                     <%= f.submit "Sign Up", class: "submit-button" %>
                 <% end %>
             </div>

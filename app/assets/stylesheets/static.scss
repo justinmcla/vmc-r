@@ -10,6 +10,7 @@ body {
         display: flex;
         justify-content: center;
     }
+    font-family: "Lexend Deca", sans-serif;
 }
 
 .banner {
@@ -25,6 +26,8 @@ body {
     justify-content: center;
     
     h1 {
+        font-family: "Lexend Giga", sans-serif;
+        font-size: 4rem;
         color: #0ff;
     }
 
@@ -54,6 +57,7 @@ input {
     border-left: transparent;
     border-right: transparent;
     color: #e1e1e1;
+    font-family: "Lato", sans-serif;
 }
 
 .submit-button {
