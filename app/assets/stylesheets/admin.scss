@@ -54,21 +54,24 @@ nav {
             outline: none;
         }
 
-        .dropdown-menu {
-            background-color: transparent;
-            background-clip: none;
-            border: none;
+        .link-list {
+            margin-left: 15px;
 
-            .dropdown-item {
-                color: #c4c4c4;
-            }
-
-            .dropdown-item:hover {
-                color: #ff0;
+            .dropdown-menu {
                 background-color: transparent;
+                background-clip: none;
+                border: none;
+    
+                .dropdown-item {
+                    color: #c4c4c4;
+                }
+    
+                .dropdown-item:hover {
+                    color: #ff0;
+                    background-color: transparent;
+                }
             }
         }
-        
     } 
 
     .venue-overiew {
