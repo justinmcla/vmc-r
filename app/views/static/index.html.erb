@@ -1,27 +1,42 @@
 <%= content_tag(:div, class: "banner") do %>
 <h1>VMC</h1>
 <br><br>
-<ul class="accordion" data-accordion>
-  <li class="accordion-item is-active" data-accordion-item>
-    <!-- Accordion tab title -->
-    <a href="#" class="accordion-title">Accordion 1</a>
 
-    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-    <div class="accordion-content" data-tab-content>
-      <p>Panel 1. Lorem ipsum dolor</p>
-      <a href="#">Nowhere to Go</a>
-    </div>
-  </li>
-    <li class="accordion-item" data-accordion-item>
-    <!-- Accordion tab title -->
-    <a href="#" class="accordion-title">Accordion 2</a>
 
-    <!-- Accordion tab content: it would start in the open state due to using the `is-active` state class. -->
-    <div class="accordion-content" data-tab-content>
-      <p>Panel 1. Lorem ipsum dolor</p>
-      <a href="#">Nowhere to Go</a>
+
+<div id="accordion">
+
+    <div>
+
+        <div class="card-header" id="headingOne">
+            <h5 class="mb-0">
+                <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">LOGIN</button>
+            </h5>
+        </div>
+
+        <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+            <div class="card-body">
+                LOG IN FORM HERE 
+            </div>
+        </div>
+
     </div>
-  </li>
-  <!-- ... -->
-</ul>
+
+    <div>
+
+        <div class="card-header" id="headingTwo">
+            <h5 class="mb-0">
+                <button class="btn btn-link collapsed" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="false" aria-controls="collapseTwo">SIGN UP</button>
+            </h5>
+        </div>
+
+        <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
+            <div class="card-body">
+                SIGN UP FORM HERE
+            </div>
+        </div>
+
+    </div>
+
+</div>
 <% end %>
