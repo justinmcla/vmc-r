@@ -1,6 +1,6 @@
 <h1>Create Venue</h1>
 <br>
-<%= form_with model: Venue.new do |f| %>
+<%= form_with model: @venue do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :name, "Venue Name", class: ['col-sm-4', 'col-form-label'] %>
         <%= content_tag(:div, class: ['col-sm-8']) do %>
@@ -29,6 +29,38 @@
         <%= f.label :dressing_rooms, "Dressing Rooms", class: ['col-sm-4', 'col-form-label'] %>
         <%= content_tag(:div, class: ['col-sm-8']) do %>
             <%= f.number_field :dressing_rooms, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= f.fields_for :addresses, @venue.addresses.build do |af| %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= af.label :address_1, "Address Line 1", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :address_1, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= f.label :address_2, "Address Line 2", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :address_2, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= f.label :city, "City", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :city, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= f.label :state, "State", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :state, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= f.label :zip, "Zip Code", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :zip, required: true, class: 'form-control' %>
+            <% end %>
         <% end %>
     <% end %>
     <%= f.submit "Create Venue" %>
