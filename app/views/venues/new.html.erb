@@ -1,15 +1,35 @@
 <h1>Create Venue</h1>
 <br>
 <%= form_with model: Venue.new do |f| %>
-    <%= f.label :name, "Venue Name" %><br>
-    <%= f.text_field :name, required: true %><br>
-    <%= f.label :configuration, "Configuration" %><br>
-    <%= f.text_field :configuration, required: true %><br>
-    <%= f.label :seats, "Seats" %><br>
-    <%= f.number_field :seats, required: true %><br>
-    <%= f.label :greenrooms, "Greenrooms" %><br>
-    <%= f.number_field :greenrooms, required: true %><br>
-    <%= f.label :dressing_rooms, "Dressing Rooms" %><br>
-    <%= f.number_field :dressing_rooms, required: true %><br><br>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :name, "Venue Name", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.text_field :name, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :configuration, "Configuration", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.text_field :configuration, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :seats, "Seats", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.number_field :seats, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :greenrooms, "Greenrooms", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.number_field :greenrooms, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :dressing_rooms, "Dressing Rooms", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.number_field :dressing_rooms, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
     <%= f.submit "Create Venue" %>
 <% end %>
