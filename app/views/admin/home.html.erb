@@ -2,6 +2,9 @@
 
 <%= content_tag (:div) do %>
     <% current_user.venues.each do |venue| %>
-        <%= venue.name %><br>
+        <h3><%= venue.name %></h3>
+        <p><%= venue.addresses.first.address_1 %><br>
+        <%= venue.addresses.first.address_2 if !venue.addresses.first.address_2.nil? %>
+        <%= venue.addresses.first.city %>, <%= venue.addresses.first.state %> <%= venue.addresses.first.zip %></p>
     <% end %>
 <% end %>
