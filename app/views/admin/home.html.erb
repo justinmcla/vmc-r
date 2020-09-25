@@ -1,1 +1,7 @@
 <h1>Venues Overview</h1>
+
+<%= content_tag (:div) do %>
+    <% current_user.venues.each do |venue| %>
+        <%= venue.name %><br>
+    <% end %>
+<% end %>
