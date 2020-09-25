@@ -4,4 +4,5 @@ class Venue < ApplicationRecord
     validates :configuration, presence: true
     validates :greenrooms, presence: true
     validates :dressing_rooms, presence: true
+    belongs_to :user
 end
