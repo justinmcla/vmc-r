@@ -1,4 +1,4 @@
 class Organizer < ApplicationRecord
-    has_many :addresses, as: :addressable
-    accepts_nested_attributes_for :addresses
+    has_one :address, as: :addressable
+    accepts_nested_attributes_for :address
 end
