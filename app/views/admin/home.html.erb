@@ -1,15 +1,24 @@
 <h1>Venues Overview</h1>
-
-<%= content_tag (:div) do %>
-    <% current_user.venues.each do |venue| %>
-        <h3><%= link_to venue.name, edit_admin_venue_path(venue) %></h3>
-        <% if venue.address %>
-            <p><%= venue.address.address_1 %><br>
-            <% if venue.address.address_2 %>
-                <%= venue.address.address_2 %>
-                <br>
+<br>
+<% current_user.venues.each do |venue| %>
+    <%= content_tag(:div, class: 'row') do %>
+        <%= content_tag(:div, class: ['col-3', 'venue-block-1']) do %>
+            <h3><%= link_to venue.name, edit_admin_venue_path(venue) %></h3>
+            <% if venue.address %>
+                <p><%= venue.address.address_1 %><br>
+                <% if !venue.address.address_2.blank? %>
+                    <%= venue.address.address_2 %>
+                    <br>
+                <% end %>
+                <%= venue.address.city %>, <%= venue.address.state %> <%= venue.address.zip %></p>
             <% end %>
-            <%= venue.address.city %>, <%= venue.address.state %> <%= venue.address.zip %></p>
+        <% end %>
+
+        <%= content_tag(:div, class: ['col-3', 'venue-block-2']) do %>
+            <p>Configuration: <%= venue.configuration %><br>
+                Seats: <%= venue.seats %><br>
+                Dressing Rooms: <%= venue.dressing_rooms %><br>
+                Greenrooms: <%= venue.greenrooms %></p>
         <% end %>
     <% end %>
 <% end %>
