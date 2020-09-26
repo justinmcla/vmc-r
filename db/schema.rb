@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_152150) do
+ActiveRecord::Schema.define(version: 2020_09_26_194712) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_1"
@@ -20,6 +20,29 @@ ActiveRecord::Schema.define(version: 2020_09_26_152150) do
     t.string "zip"
     t.integer "addressable_id"
     t.string "addressable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "bookings", force: :cascade do |t|
+    t.string "name", null: false
+    t.string "event_type", null: false
+    t.date "date", null: false
+    t.time "event_time", null: false
+    t.time "access_time", null: false
+    t.time "exit_time", null: false
+    t.boolean "recurring?"
+    t.text "description"
+    t.integer "attendance", null: false
+    t.boolean "catering"
+    t.boolean "alcohol"
+    t.boolean "lighting"
+    t.boolean "spotlight"
+    t.boolean "sound"
+    t.boolean "microphones"
+    t.boolean "security"
+    t.boolean "road_closure"
+    t.decimal "daily_rate", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
