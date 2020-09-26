@@ -4,4 +4,5 @@ class User < ApplicationRecord
     validates :email, presence: true, uniqueness: true, format: { with: /.+@.+\..+/ }
     has_and_belongs_to_many :organizers
     has_many :venues
+    has_many :bookings, through: :venues
 end

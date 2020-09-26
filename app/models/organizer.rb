@@ -7,6 +7,8 @@ class Organizer < ApplicationRecord
     accepts_nested_attributes_for :contacts
     has_one :address, as: :addressable
     accepts_nested_attributes_for :address, reject_if: :blank_address
+    has_many :bookings
+    has_many :venues, through: :bookings
 
     def blank_point_of_contact(attributes)
         attributes[:name].blank?
