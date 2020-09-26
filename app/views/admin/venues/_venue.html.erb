@@ -1,63 +1,73 @@
-<%= form_with(model: [ :admin, @venue ]) do |f| %>
+<% if @venue.errors.full_messages.any? %>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+        <% @venue.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for [ :admin, @venue ] do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :name, "Venue Name", class: ['col-sm-4', 'col-form-label'] %>
-        <%= content_tag(:div, class: ['col-sm-8']) do %>
-            <%= f.text_field :name, required: true, class: 'form-control' %>
+        <%= f.label :name, "Venue Name", class: ['col-sm-6', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-6']) do %>
+            <%= f.text_field :name, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :configuration, "Configuration", class: ['col-sm-4', 'col-form-label'] %>
-        <%= content_tag(:div, class: ['col-sm-8']) do %>
-            <%= f.text_field :configuration, required: true, class: 'form-control' %>
+        <%= f.label :configuration, "Configuration", class: ['col-sm-6', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-6']) do %>
+            <%= f.text_field :configuration, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :seats, "Seats", class: ['col-sm-4', 'col-form-label'] %>
-        <%= content_tag(:div, class: ['col-sm-8']) do %>
-            <%= f.number_field :seats, required: true, class: 'form-control' %>
+        <%= f.label :seats, "Seats", class: ['col-sm-6', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-6']) do %>
+            <%= f.number_field :seats, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :greenrooms, "Greenrooms", class: ['col-sm-4', 'col-form-label'] %>
-        <%= content_tag(:div, class: ['col-sm-8']) do %>
-            <%= f.number_field :greenrooms, required: true, class: 'form-control' %>
+        <%= f.label :greenrooms, "Greenrooms", class: ['col-sm-6', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-6']) do %>
+            <%= f.number_field :greenrooms, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :dressing_rooms, "Dressing Rooms", class: ['col-sm-4', 'col-form-label'] %>
-        <%= content_tag(:div, class: ['col-sm-8']) do %>
-            <%= f.number_field :dressing_rooms, required: true, class: 'form-control' %>
+        <%= f.label :dressing_rooms, "Dressing Rooms", class: ['col-sm-6', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-6']) do %>
+            <%= f.number_field :dressing_rooms, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= f.fields_for :address, @venue.address do |af| %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :address_1, "Address Line 1", class: ['col-sm-4', 'col-form-label'] %>
-            <%= content_tag(:div, class: ['col-sm-8']) do %>
-                <%= af.text_field :address_1, required: true, class: 'form-control' %>
+            <%= af.label :address_1, "Address Line 1", class: ['col-sm-6', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-6']) do %>
+                <%= af.text_field :address_1, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :address_2, "Address Line 2", class: ['col-sm-4', 'col-form-label'] %>
-            <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= af.label :address_2, "Address Line 2", class: ['col-sm-6', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-6']) do %>
                 <%= af.text_field :address_2, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :city, "City", class: ['col-sm-4', 'col-form-label'] %>
-            <%= content_tag(:div, class: ['col-sm-8']) do %>
-                <%= af.text_field :city, required: true, class: 'form-control' %>
+            <%= af.label :city, "City", class: ['col-sm-6', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-6']) do %>
+                <%= af.text_field :city, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :state, "State", class: ['col-sm-4', 'col-form-label'] %>
-            <%= content_tag(:div, class: ['col-sm-8']) do %>
-                <%= af.text_field :state, required: true, class: 'form-control' %>
+            <%= af.label :state, "State", class: ['col-sm-6', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-6']) do %>
+                <%= af.text_field :state, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :zip, "Zip Code", class: ['col-sm-4', 'col-form-label'] %>
-            <%= content_tag(:div, class: ['col-sm-8']) do %>
-                <%= af.text_field :zip, required: true, class: 'form-control' %>
+            <%= af.label :zip, "Zip Code", class: ['col-sm-6', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-6']) do %>
+                <%= af.text_field :zip, class: 'form-control' %>
             <% end %>
         <% end %>
     <% end %>
