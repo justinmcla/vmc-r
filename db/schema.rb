@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_014055) do
+ActiveRecord::Schema.define(version: 2020_09_26_152150) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_1"
@@ -20,6 +20,15 @@ ActiveRecord::Schema.define(version: 2020_09_26_014055) do
     t.string "zip"
     t.integer "addressable_id"
     t.string "addressable_type"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
+  end
+
+  create_table "contacts", force: :cascade do |t|
+    t.string "via", null: false
+    t.string "value", null: false
+    t.integer "contactable_id"
+    t.string "contactable_type"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
@@ -34,6 +43,13 @@ ActiveRecord::Schema.define(version: 2020_09_26_014055) do
   create_table "organizers_users", force: :cascade do |t|
     t.integer "organizer_id"
     t.integer "user_id"
+  end
+
+  create_table "point_of_contacts", force: :cascade do |t|
+    t.string "name", null: false
+    t.integer "organizer_id"
+    t.datetime "created_at", precision: 6, null: false
+    t.datetime "updated_at", precision: 6, null: false
   end
 
   create_table "users", force: :cascade do |t|
