@@ -2,7 +2,7 @@
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :name, "Organization Name", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :name, required: true, class: 'form-control' %>
+            <%= f.text_field :name, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -12,11 +12,11 @@
         <% end %>
     <% end %>
     
-    <%= f.fields_for :address do |af| %>
+    <%= f.fields_for :address, @organizer.address do |af| %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= af.label :address_1, "Address Line 1", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :address_1, required: true, class: 'form-control' %>
+                <%= af.text_field :address_1, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -28,21 +28,46 @@
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= af.label :city, "City", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :city, required: true, class: 'form-control' %>
+                <%= af.text_field :city, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= af.label :state, "State", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :state, required: true, class: 'form-control' %>
+                <%= af.text_field :state, class: 'form-control' %>
             <% end %>
         <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= af.label :zip, "Zip Code", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :zip, required: true, class: 'form-control' %>
+                <%= af.text_field :zip, class: 'form-control' %>
             <% end %>
         <% end %>
     <% end %>
+
+    <%= f.fields_for :contacts, @organizer.contacts do |c| %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= c.label :via, "Contact Method", class: ['col-md-2'] %>
+            <%= content_tag(:div, class: ['col-md-3']) do %>
+                <%= c.text_field :via, class: 'form-control' %>
+            <% end %>
+        <% end %>
+            <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= c.label :value, "Address/Phone", class: ['col-md-2'] %>
+            <%= content_tag(:div, class: ['col-md-3']) do %>
+                <%= c.text_field :value, class: 'form-control' %>
+            <% end %>
+        <% end %>
+    <% end %>
+
+    <%= f.fields_for :point_of_contacts @organizer.point_of_contacts do |pcf| %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= pcf.label :name, "Contact Name", class: ['col-md-2'] %>
+            <%= content_tag(:div, class: ['col-md-3']) do %>
+                <%= pcf.text_field :name, class: 'form-control' %>
+            <% end %>
+        <% end %>
+    <% end %>
+
     <%= f.submit %>
 <% end %>
