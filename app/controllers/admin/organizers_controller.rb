@@ -4,6 +4,9 @@ class Admin::OrganizersController < AdminController
     def new
         @organizer = Organizer.new
         @organizer.build_address
+        @organizer.contacts.build
+        @organizer.point_of_contacts.build
+        @organizer.point_of_contacts.last.contacts.build
     end
 
     def create
@@ -50,6 +53,13 @@ class Admin::OrganizersController < AdminController
                                                 :address_1,
                                                 :address_2,
                                                 :city, :state, :zip
+                                            ], point_of_contacts_attributes: [
+                                                :id,
+                                                :name
+                                            ], contacts_attributes: [
+                                                :id,
+                                                :via,
+                                                :value
                                             ])
     end
 
