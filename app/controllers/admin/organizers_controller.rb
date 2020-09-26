@@ -15,7 +15,7 @@ class Admin::OrganizersController < AdminController
             current_user.organizers << @organizer
             redirect_to home_path
         else
-            redirect_to new_admin_organizer_path
+            render :new
         end
     end
 
@@ -31,7 +31,7 @@ class Admin::OrganizersController < AdminController
         if @organizer.save
             redirect_to admin_organizers_path
         else
-            redirect_to edit_admin_organizers_path
+            render :edit
         end
     end
 
@@ -55,7 +55,12 @@ class Admin::OrganizersController < AdminController
                                                 :city, :state, :zip
                                             ], point_of_contacts_attributes: [
                                                 :id,
-                                                :name
+                                                :name,
+                                                contacts_attributes: [
+                                                    :id,
+                                                    :via,
+                                                    :value
+                                                ]
                                             ], contacts_attributes: [
                                                 :id,
                                                 :via,
