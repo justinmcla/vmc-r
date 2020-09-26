@@ -2,9 +2,12 @@
 
 <%= content_tag (:div) do %>
     <% current_user.venues.each do |venue| %>
-        <h3><%= venue.name %></h3>
-        <p><%= venue.addresses.first.address_1 %><br>
-        <%= venue.addresses.first.address_2 if !venue.addresses.first.address_2.nil? %>
-        <%= venue.addresses.first.city %>, <%= venue.addresses.first.state %> <%= venue.addresses.first.zip %></p>
+        <h3><%= link_to venue.name, edit_venue_path(venue) %></h3>
+        <p><%= venue.address.address_1 %><br>
+        <% if venue.address.address_2 %>
+            <%= venue.address.address_2 %>
+            <br>
+        <% end %>
+        <%= venue.address.city %>, <%= venue.address.state %> <%= venue.address.zip %></p>
     <% end %>
 <% end %>
