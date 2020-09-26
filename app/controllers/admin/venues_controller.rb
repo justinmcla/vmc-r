@@ -12,7 +12,7 @@ class Admin::VenuesController < AdminController
         if @venue.save
             redirect_to home_path
         else
-            redirect_to new_admin_venue_path
+            render :new
         end
     end
 
@@ -24,7 +24,7 @@ class Admin::VenuesController < AdminController
         if @venue.save
             redirect_to home_path
         else
-            redirect_to edit_admin_venue_path
+            render :edit
         end
     end
 
