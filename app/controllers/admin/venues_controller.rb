@@ -1,4 +1,4 @@
-class VenuesController < ApplicationController
+class Admin::VenuesController < AdminController
     layout 'admin'
     before_action :set_venue, only: [:edit, :update, :destroy]
 
@@ -13,7 +13,7 @@ class VenuesController < ApplicationController
             current_user.venues << @venue
             redirect_to home_path
         else
-            redirect_to new_venue_path
+            redirect_to new_admin_venue_path
         end
     end
 
@@ -25,7 +25,7 @@ class VenuesController < ApplicationController
         if @venue.save
             redirect_to home_path
         else
-            redirect_to edit_venue_path
+            redirect_to edit_admin_venue_path
         end
     end
 

@@ -2,7 +2,7 @@
 
 <%= content_tag (:div) do %>
     <% current_user.venues.each do |venue| %>
-        <h3><%= link_to venue.name, edit_venue_path(venue) %></h3>
+        <h3><%= link_to venue.name, edit_admin_venue_path(venue) %></h3>
         <p><%= venue.address.address_1 %><br>
         <% if venue.address.address_2 %>
             <%= venue.address.address_2 %>

@@ -1,4 +1,4 @@
-<%= form_with model: @venue do |f| %>
+<%= form_with(model: [ :admin, @venue ]) do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :name, "Venue Name", class: ['col-sm-4', 'col-form-label'] %>
         <%= content_tag(:div, class: ['col-sm-8']) do %>
