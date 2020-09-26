@@ -12,7 +12,7 @@
         <% end %>
     <% end %>
     
-    <%= f.fields_for :address, @organizer.address do |af| %>
+    <%= f.fields_for :address do |af| %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= af.label :address_1, "Address Line 1", class: ['col-sm-4', 'col-form-label'] %>
             <%= content_tag(:div, class: ['col-sm-8']) do %>
