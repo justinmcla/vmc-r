@@ -1,0 +1,14 @@
+<h1>Organizers</h1>
+
+<%= content_tag (:div) do %>
+    <% current_user.organizers.each do |organizer| %>
+        <h3><%= link_to organizer.name, edit_admin_organizer_path(organizer) %></h3>
+        <p><%= organizer.address.address_1 %><br>
+        <% if organizer.address.address_2 %>
+            <%= organizer.address.address_2 %>
+            <br>
+        <% end %>
+        <%= organizer.address.city %>, <%= organizer.address.state %> <%= organizer.address.zip %><br>
+        URL: <%= organizer.url %>
+    <% end %>
+<% end %>

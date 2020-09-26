@@ -1,0 +1,48 @@
+<%= form_with(model: [ :admin, @organizer ]) do |f| %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :name, "Organization Name", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.text_field :name, required: true, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :url, "Website", class: ['col-sm-4', 'col-form-label'] %>
+        <%= content_tag(:div, class: ['col-sm-8']) do %>
+            <%= f.text_field :url, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    
+    <%= f.fields_for :address, @organizer.address do |af| %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= af.label :address_1, "Address Line 1", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :address_1, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= af.label :address_2, "Address Line 2", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :address_2, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= af.label :city, "City", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :city, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= af.label :state, "State", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :state, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+            <%= af.label :zip, "Zip Code", class: ['col-sm-4', 'col-form-label'] %>
+            <%= content_tag(:div, class: ['col-sm-8']) do %>
+                <%= af.text_field :zip, required: true, class: 'form-control' %>
+            <% end %>
+        <% end %>
+    <% end %>
+    <%= f.submit %>
+<% end %>
