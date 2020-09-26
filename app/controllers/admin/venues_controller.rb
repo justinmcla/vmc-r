@@ -10,7 +10,6 @@ class Admin::VenuesController < AdminController
     def create
         @venue = current_user.venues.build(post_params)
         if @venue.save
-            current_user.venues << @venue
             redirect_to home_path
         else
             redirect_to new_admin_venue_path
