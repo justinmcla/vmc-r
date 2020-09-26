@@ -1,4 +1,14 @@
-<%= form_with(model: [ :admin, @organizer ]) do |f| %>
+<% if @organizer.errors.full_messages.any? %>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+        <% @organizer.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for [ :admin, @organizer ] do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :name, "Organization Name", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
@@ -12,7 +22,7 @@
         <% end %>
     <% end %>
     
-    <%= f.fields_for :address, @organizer.address do |af| %>
+    <%= f.fields_for :address do |af| %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= af.label :address_1, "Address Line 1", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
@@ -45,7 +55,7 @@
         <% end %>
     <% end %>
 
-    <%= f.fields_for :contacts, @organizer.contacts do |c| %>
+    <%= f.fields_for :contacts do |c| %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= c.label :via, "Contact Method", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
@@ -60,11 +70,26 @@
         <% end %>
     <% end %>
 
-    <%= f.fields_for :point_of_contacts @organizer.point_of_contacts do |pcf| %>
+    <%= f.fields_for :point_of_contacts do |pcf| %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= pcf.label :name, "Contact Name", class: ['col-md-2'] %>
+            <%= pcf.label :name, "Popint of Contact Name", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
                 <%= pcf.text_field :name, class: 'form-control' %>
+            <% end %>
+        <% end %>
+
+        <%= pcf.fields_for :contacts do |pcfc| %>
+            <%= content_tag(:div, class: ['form-group', 'row']) do %>
+                <%= pcfc.label :via, "Point of Contact - Method", class: ['col-md-2'] %>
+                <%= content_tag(:div, class: ['col-md-3']) do %>
+                    <%= pcfc.text_field :via, class: 'form-control' %>
+                <% end %>
+            <% end %>
+                <%= content_tag(:div, class: ['form-group', 'row']) do %>
+                <%= pcfc.label :value, "Address/Phone", class: ['col-md-2'] %>
+                <%= content_tag(:div, class: ['col-md-3']) do %>
+                    <%= pcfc.text_field :value, class: 'form-control' %>
+                <% end %>
             <% end %>
         <% end %>
     <% end %>
