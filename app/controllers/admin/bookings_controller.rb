@@ -1,4 +1,5 @@
 class Admin::BookingsController < AdminController
+    before_action :set_booking, only: [:edit, :update, :destroy]
 
     def new
         @booking = Booking.new
@@ -22,7 +23,7 @@ class Admin::BookingsController < AdminController
 
     def update
         @booking.assign_attributes(post_params)
-        if @organizer.save
+        if @booking.save
             redirect_to home_path
         else
             render :edit
@@ -36,13 +37,17 @@ class Admin::BookingsController < AdminController
 
     private
 
+    def set_booking
+        @booking = Booking.find_by_id(params[:id])
+    end
+
     def post_params
         params.require(:booking).permit(:name, :event_type, :date, :event_time,
-                                        :access_time, :exit_time, :recurring?,
+                                        :access_time, :exit_time, :recurring,
                                         :description, :attendance, :catering, :alcohol,
                                         :lighting, :spotlight, :sound, :microphones, 
                                         :security, :road_closure, :daily_rate, :venue_id,
-                                        :tenant_id)
+                                        :organizer_id)
     end
 
 
