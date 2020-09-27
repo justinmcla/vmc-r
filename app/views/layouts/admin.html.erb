@@ -10,6 +10,7 @@
     </button>
     <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
       <div class="navbar-nav">
+        <%= link_to "Bookings", admin_bookings_path, :class => 'nav-link' %>
         <%= link_to "Organizers", admin_organizers_path, :class => 'nav-link' %>
         <%= link_to "Logout", session_path(session[:user_id]), :method => 'delete', :class => 'nav-link' %>
       </div>
@@ -25,6 +26,7 @@
               <div class = "dropdown-menu" aria-labelledby = "dropdownMenuButton">
                 <a class = "dropdown-item" href = <%= new_admin_venue_path %>>Venue</a>
                 <a class = "dropdown-item" href = <%= new_admin_organizer_path %>>Organizer</a>
+                <a class = "dropdown-item" href = <%= new_admin_booking_path %>>Booking</a>
               </div>
           </div>
         <% end %>
