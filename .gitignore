@@ -39,3 +39,7 @@
 /yarn-error.log
 yarn-debug.log*
 .yarn-integrity
+
+SPECS.md 
+NOTES.md 
+USER_STORIES.md 
