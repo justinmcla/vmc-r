@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_09_26_194712) do
+ActiveRecord::Schema.define(version: 2020_09_27_025046) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_1"
@@ -31,7 +31,7 @@ ActiveRecord::Schema.define(version: 2020_09_26_194712) do
     t.time "event_time", null: false
     t.time "access_time", null: false
     t.time "exit_time", null: false
-    t.boolean "recurring?"
+    t.boolean "recurring"
     t.text "description"
     t.integer "attendance", null: false
     t.boolean "catering"
@@ -45,6 +45,8 @@ ActiveRecord::Schema.define(version: 2020_09_26_194712) do
     t.decimal "daily_rate", null: false
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.integer "venue_id"
+    t.integer "organizer_id"
   end
 
   create_table "contacts", force: :cascade do |t|
