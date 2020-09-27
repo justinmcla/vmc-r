@@ -1,0 +1,7 @@
+<h1>Bookings</h1>
+
+<%= content_tag (:div) do %>
+    <% current_user.bookings.each do |booking| %>
+        <h3><%= link_to booking.name, edit_admin_booking_path(booking) %></h3>
+    <% end %>
+<% end %>

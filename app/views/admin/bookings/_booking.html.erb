@@ -1,0 +1,131 @@
+<% if @booking.errors.full_messages.any? %>
+    <div class="alert alert-danger" role="alert">
+        <ul>
+        <% @booking.errors.full_messages.each do |msg| %>
+            <li><%= msg %></li>
+        <% end %>
+        </ul>
+    </div>
+<% end %>
+
+<%= form_for [ :admin, @booking ] do |f| %>
+
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :venue_id, "Select Venue", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.select :venue_id, options_from_collection_for_select(current_user.venues.all, :id, :name, @booking.venue_id) %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :organizer_id, "Select Organizer", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.select :organizer_id, options_from_collection_for_select(current_user.organizers.all, :id, :name, @booking.organizer_id), include_blank: true %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :name, "Event Name", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.text_field :name, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :event_type, "Event Type", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.text_field :event_type, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :date, "Date", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.date_field :date, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :event_time, "Event Time", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.time_field :event_time, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :access_time, "Access Time", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.time_field :access_time, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :exit_time, "Exit Time", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.time_field :exit_time, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :recurring, "Recurring?", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :recurring, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :attendance, "Attendance", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.number_field :attendance, class: 'form-control' %>
+        <% end %>
+    <% end %>
+
+
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :catering, "Catering", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :catering, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :alcohol, "Alcohol", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :alcohol, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :lighting, "Lighting", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :lighting, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :spotlight, "Spotlight", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :spotlight, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :sound, "Sound", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :sound, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :microphones, "Microphones", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :microphones, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :security, "Security", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :security, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :road_closure, "Road Closure", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.check_box :road_closure, class: 'form-control' %>
+        <% end %>
+    <% end %>
+        <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :daily_rate, "Daily Rate", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.number_field :daily_rate, class: 'form-control' %>
+        <% end %>
+    <% end %>
+
+    <%= f.submit %>
+<% end %>
