@@ -102,6 +102,8 @@ nav {
         
         .venue-block-1, .venue-block-2, .venue-block-3 {
             border-right: 1px solid #c4c4c4;
+            min-width: 300px;
+
         }
 
         @media screen and (max-width: 575.98px) {
