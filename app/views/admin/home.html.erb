@@ -3,7 +3,7 @@
 <% current_user.venues.each do |venue| %>
     <%= content_tag(:div, class: 'row') do %>
         <%= content_tag(:div, class: ['col-md-3', 'venue-block-1']) do %>
-            <h3><%= link_to venue.name, edit_admin_venue_path(venue) %></h3>
+            <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
             <% if venue.address %>
                 <p><%= venue.address.address_1 %><br>
                 <% if !venue.address.address_2.blank? %>
