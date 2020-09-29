@@ -1,6 +1,6 @@
 class Admin::VenuesController < AdminController
     layout 'admin'
-    before_action :set_venue, only: [:edit, :update, :destroy]
+    before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
     def new
         @venue = Venue.new
@@ -14,6 +14,9 @@ class Admin::VenuesController < AdminController
         else
             render :new
         end
+    end
+
+    def show
     end
 
     def edit
