@@ -32,3 +32,5 @@
         <%= link_to inventory.name, admin_inventory_path(inventory) %><br>
     <% end %>
 <% end %>
+<br>
+<%= button_to "Create Inventory", new_admin_inventory_path, method: 'get', class: 'btn' %>
