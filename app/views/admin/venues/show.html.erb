@@ -13,7 +13,7 @@
     Dressing Rooms: <%= @venue.dressing_rooms %><br>
     Greenrooms: <%= @venue.greenrooms %></p>
 
-<%= button_to "Edit Venue Settings", edit_admin_venue_path(@venue), method: 'get' %>
+<%= button_to "Edit Venue Settings", edit_admin_venue_path(@venue), method: 'get', class: 'btn' %>
 <br>
 
 <h3>Bookings</h3>
@@ -23,4 +23,4 @@
     <% end %>
 <% end %>
 <br>
-<%= button_to "Create Booking", new_admin_booking_path, method: 'get' %>
+<%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>

@@ -144,3 +144,15 @@ nav {
 .alert {
     max-width: 400px;
 }
+
+.btn {
+    background-color: none;
+    color: #c4c4c4;
+    border-color: #c4c4c4;
+    border-radius: 0;
+}
+
+.btn:hover {
+    color: #ff0;
+    border-color: #ff0;
+}
