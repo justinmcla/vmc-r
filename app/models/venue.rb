@@ -9,4 +9,5 @@ class Venue < ApplicationRecord
     accepts_nested_attributes_for :address, reject_if: :blank_address
     has_many :bookings
     has_many :organizers, through: :bookings
+    has_many :inventories
 end
