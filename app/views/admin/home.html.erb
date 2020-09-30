@@ -23,9 +23,11 @@
 
         <%= content_tag(:div, class: ['col-md-3', 'venue-block-3']) do %>
             <p>Next Booking:<br>
-            Some content.<br>
+            <% next_booking = venue.bookings.select { |b| b.date > Date.today }.sort_by { |b| b.date }.first %>
+            <% last_booking = venue.bookings.select { |b| b.date < Date.today }.sort_by { |b| b.date }.last %>
+            <%= "#{next_booking.name} on #{next_booking.date.strftime("%B %e, %Y")}" if next_booking %><br>
             Last Booking:<br>
-            Some more content.</p>
+            <%= "#{last_booking.name} on #{last_booking.date.strftime("%B %e, %Y")}" if last_booking %></p>
         <% end %>
     <% end %>
 <% end %>
