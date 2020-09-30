@@ -2,7 +2,10 @@ Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
   namespace :admin do
-    resources :venues, :organizers, :bookings, :inventories
+    resources :organizers, :bookings
+    resources :venues do
+      resources :inventories
+    end
   end
   get '/home', to: 'admin#home'
   root 'static#index'
