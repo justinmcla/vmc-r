@@ -1,7 +1,7 @@
 class Admin::InventoriesController < AdminController
     before_action :set_venue
     def new
-        @venue.inventories.build
+        @inventory = @venue.inventories.build
     end
 
     def create
