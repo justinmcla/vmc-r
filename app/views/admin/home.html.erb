@@ -20,5 +20,12 @@
                 Dressing Rooms: <%= venue.dressing_rooms %><br>
                 Greenrooms: <%= venue.greenrooms %></p>
         <% end %>
+
+        <%= content_tag(:div, class: ['col-md-3', 'venue-block-3']) do %>
+            <p>Next Booking:<br>
+            Some content.<br>
+            Last Booking:<br>
+            Some more content.</p>
+        <% end %>
     <% end %>
 <% end %>
