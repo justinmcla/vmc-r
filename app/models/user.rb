@@ -6,4 +6,5 @@ class User < ApplicationRecord
     has_many :venues
     has_many :bookings, through: :venues
     has_many :tasks
+    has_many :employees
 end
