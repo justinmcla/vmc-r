@@ -29,7 +29,7 @@
 <h3>Inventories</h3>
 <% if @venue.inventories.any? %>
     <% @venue.inventories.each do |inventory| %>
-        <%= link_to inventory.name, admin_inventory_path(inventory) %><br>
+        <%= link_to inventory.name, admin_venue_inventory_path(@venue, inventory) %><br>
     <% end %>
 <% end %>
 <br>
