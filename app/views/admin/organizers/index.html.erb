@@ -2,7 +2,7 @@
 
 <%= content_tag (:div) do %>
     <% current_user.organizers.each do |organizer| %>
-        <h3><%= link_to organizer.name, edit_admin_organizer_path(organizer) %></h3>
+        <h3><%= link_to organizer.name, admin_organizer_path(organizer) %></h3>
         <% if organizer.address %>
             <p><%= organizer.address.address_1 %><br>
             <% if !organizer.address.address_2.blank? %>
