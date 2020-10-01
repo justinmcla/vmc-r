@@ -23,7 +23,7 @@
       <h4>Quick Links</h4>
         <%= content_tag(:div, class: 'link-list') do %>
           <div class = "dropdown">
-              <a class = "dropdown-toggle" href = "#" id = "dropdownMenuButton" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >Add Resource</a>
+              <a class = "dropdown-toggle" href = "#" id = "dropdownMenuButton" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >New Resource</a>
               <div class = "dropdown-menu" aria-labelledby = "dropdownMenuButton">
                 <a class = "dropdown-item" href = <%= new_admin_venue_path %>>Venue</a>
                 <a class = "dropdown-item" href = <%= new_admin_employee_path %>>Employee</a>
@@ -48,7 +48,21 @@
       <%= button_to "New Task", new_admin_task_path, method: 'get', class: 'btn' %>
       <br>
       <h4>Next Booking</h4>
+      <% next_booking = current_user.bookings.select { |b| b.date > Date.today }.sort_by { |b| b.date }.first %>
+      <% if next_booking %>
+        <%= link_to next_booking.name, admin_booking_path(next_booking) %><br>
+        <%= next_booking.venue.name %><br>
+        <%= next_booking.date.strftime("%-m/%-d/%Y") %><br>
+      <% end %>
+      <br>
       <h4>Last Booking</h4>
+      <% last_booking = current_user.bookings.select { |b| b.date < Date.today }.sort_by { |b| b.date }.last %>
+      <% if last_booking %>
+        <%= link_to last_booking.name, admin_booking_path(last_booking) %><br>
+        <%= last_booking.venue.name %><br>
+        <%= last_booking.date.strftime("%-m/%-d/%Y") %><br>
+      <% end %>
+      <br>
     <% end %>
   </div>
 <% end %>
