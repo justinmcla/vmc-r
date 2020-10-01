@@ -20,6 +20,6 @@ class Admin::InventoriesController < AdminController
     end
 
     def post_params
-        params.permit(:name, :venue_id)
+        params.require(:inventory).permit(:name, :venue_id)
     end
 end
