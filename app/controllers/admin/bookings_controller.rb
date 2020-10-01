@@ -1,5 +1,5 @@
 class Admin::BookingsController < AdminController
-    before_action :set_booking, only: [:edit, :update, :destroy]
+    before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
     def new
         @booking = Booking.new
@@ -8,7 +8,7 @@ class Admin::BookingsController < AdminController
     def create
         @booking = current_user.bookings.build(post_params)
         if @booking.save
-            redirect_to home_path
+            redirect_to admin_bookings_path
         else
             render :new
         end
@@ -18,13 +18,16 @@ class Admin::BookingsController < AdminController
         @bookings = current_user.bookings.all
     end
 
+    def show
+    end
+
     def edit
     end
 
     def update
         @booking.assign_attributes(post_params)
         if @booking.save
-            redirect_to home_path
+            redirect_to admin_booking_path(@booking)
         else
             render :edit
         end
