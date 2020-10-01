@@ -1,0 +1,23 @@
+<h1><%= @venue.name %></h1>
+<% if @venue.address %>
+    <p><%= @venue.address.address_1 %><br>
+    <% if !@venue.address.address_2.blank? %>
+        <%= @venue.address.address_2 %>
+        <br>
+    <% end %>
+    <%= @venue.address.city %>, <%= @venue.address.state %> <%= @venue.address.zip %></p>
+<% end %>
+
+<br><br>
+
+<h3><%= @venue.configuration %></h3>
+<p>Configuration</p>
+<h3><%= @venue.seats %></h3>
+<p>Seats</p>
+<h3><%= @venue.dressing_rooms %></h3>
+<p>Dressing Rooms</p>
+<h3><%= @venue.greenrooms %></h3>
+<p>Greenrooms</p>
+
+<br><br>
+
