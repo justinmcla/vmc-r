@@ -1,5 +1,5 @@
 class Admin::OrganizersController < AdminController
-    before_action :set_organizer, only: [:edit, :update, :destroy, :add_poc]
+    before_action :set_organizer, only: [:show, :edit, :update, :destroy, :add_poc]
 
     def new
         @organizer = Organizer.new
@@ -23,13 +23,16 @@ class Admin::OrganizersController < AdminController
         @organizers = current_user.organizers.all
     end
 
+    def show
+    end
+
     def edit
     end
 
     def update
         @organizer.assign_attributes(post_params)
         if @organizer.save
-            redirect_to admin_organizers_path
+            redirect_to admin_organizer_path(@organizer)
         else
             render :edit
         end
