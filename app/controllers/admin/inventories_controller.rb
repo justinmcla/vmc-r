@@ -1,5 +1,6 @@
 class Admin::InventoriesController < AdminController
     before_action :set_venue
+    before_action :set_inventory, only: [:show, :edit, :update, :destroy]
     def new
         @inventory = @venue.inventories.build
     end
@@ -13,10 +14,34 @@ class Admin::InventoriesController < AdminController
         end
     end
 
+    def show
+    end
+
+    def edit
+    end
+
+    def update
+        @inventory.assign_attributes(post_params)
+        if @inventory.save
+            redirect_to admin_venue_inventory_path(@venue, @inventory)
+        else
+            render :edit
+        end
+    end
+
+    def destroy
+        @inventory.destroy
+        redirect_to admin_venue_path(@venue)
+    end
+
     private
 
     def set_venue
         @venue = current_user.venues.find_by_id(params[:venue_id])
+    end
+
+    def set_inventory
+        @inventory = @venue.inventories.find_by_id(params[:id])
     end
 
     def post_params
