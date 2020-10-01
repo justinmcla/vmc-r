@@ -1,4 +1,4 @@
-<h1><%= @inventory.name %></h1>
+<h1><%= link_to @inventory.venue.name, admin_venue_path(@inventory.venue) %> > <%= @inventory.name %></h1>
 <br>
 <%= button_to "Edit Settings", edit_admin_venue_inventory_path(@venue, @inventory), method: 'get', class: 'btn' %>
 <%= button_to "Delete Inventory", admin_venue_inventory_path(@venue, @inventory), method: 'delete', class: 'btn' %>
