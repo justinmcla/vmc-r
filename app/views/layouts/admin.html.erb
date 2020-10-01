@@ -44,7 +44,9 @@
         <%= link_to task.name, edit_admin_task_path(task) %><br>
         - <%= task.notes %><br>
       <% end %>
+      <br>
       <%= button_to "New Task", new_admin_task_path, method: 'get', class: 'btn' %>
+      <br>
       <h4>Next Booking</h4>
       <h4>Last Booking</h4>
     <% end %>
