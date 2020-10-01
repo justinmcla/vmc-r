@@ -100,8 +100,13 @@ nav {
             text-decoration: none;
         }
         
-        .venue-block-1, .venue-block-2, .venue-block-3 {
+        .venue-block-1, .venue-block-2 {
             min-width: 300px;
+            margin-bottom: 15px;
+        }
+
+        .venue-block-3 {
+            min-width: 400px;
             margin-bottom: 15px;
         }
 
