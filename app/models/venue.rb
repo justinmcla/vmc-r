@@ -15,11 +15,12 @@ class Venue < ApplicationRecord
     private
 
     def set_slug
-        self.slug = self.name.downcase.split.join('-')
+        slugged = self.name.downcase.split.join('-')
+        counter = 1
         loop do
             break unless Venue.where(slug: slug).exists?
-            counter = 1
-            self.slug = self.slug << counter
+            self.slug = slugged + counter.to_s
+            counter += 1
         end
     end
 end
