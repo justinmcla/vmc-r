@@ -4,7 +4,7 @@ Rails.application.routes.draw do
   resources :venues, only: [:show]
   namespace :admin do
     resources :tasks,  only: [:new, :create, :edit, :update, :destroy]
-    resources :organizers, :bookings
+    resources :organizers, :bookings, :employees
     resources :venues do
       resources :inventories do
         resources :items, only: [:new, :create, :edit, :update, :destroy]
