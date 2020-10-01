@@ -2,3 +2,28 @@
 <br>
 <%= button_to "Edit Settings", edit_admin_venue_inventory_path(@venue, @inventory), method: 'get', class: 'btn' %>
 <%= button_to "Delete Inventory", admin_venue_inventory_path(@venue, @inventory), method: 'delete', class: 'btn' %>
+
+<br><br>
+
+<%= button_to "Add Item", new_admin_venue_inventory_item_path(@venue, @inventory), method: 'get', class: 'btn' %>
+
+<br><br>
+
+<table>
+    <thead>
+        <th>Name</th>
+        <th>Quantity</th>
+        <th>Category</th>
+        <th>Notes</th>
+    </thead>
+    <tbody>
+        <% @inventory.items.each do |item| %>
+            <tr>
+                <td><%= item.name %></td>
+                <td><%= item.quantity %></td>
+                <td><%= item.category %></td>
+                <td><%= item.notes %></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
