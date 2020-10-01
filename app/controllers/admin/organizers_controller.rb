@@ -1,5 +1,5 @@
 class Admin::OrganizersController < AdminController
-    before_action :set_organizer, only: [:edit, :update, :destroy]
+    before_action :set_organizer, only: [:edit, :update, :destroy, :add_poc]
 
     def new
         @organizer = Organizer.new
@@ -38,6 +38,12 @@ class Admin::OrganizersController < AdminController
     def destroy
         @organizer.destroy
         redirect_to admin_organizers_path
+    end
+
+    def add_poc
+        @organizer.point_of_contacts.build
+        @organizer.point_of_contacts.last.contacts.build
+        render :edit
     end
 
     private
