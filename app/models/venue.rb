@@ -1,4 +1,5 @@
 class Venue < ApplicationRecord
+    before_create :set_slug
     validates :name, presence: true
     validates :seats, presence: true
     validates :configuration, presence: true
@@ -10,4 +11,15 @@ class Venue < ApplicationRecord
     has_many :bookings
     has_many :organizers, through: :bookings
     has_many :inventories
+
+    private
+
+    def set_slug
+        self.slug = self.name.downcase.split.join('-')
+        loop do
+            break unless Venue.where(slug: slug).exists?
+            counter = 1
+            self.slug = self.slug << counter
+        end
+    end
 end

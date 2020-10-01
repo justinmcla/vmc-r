@@ -1,4 +1,4 @@
-class VenuesController < ApplicationController
+class VenuesController < ApplicationController    
     def show
         @venue = Venue.find_by_id(params[:id])
     end
