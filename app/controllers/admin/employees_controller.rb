@@ -1,4 +1,6 @@
 class Admin::EmployeesController < AdminController
+    before_action :set_employee, only: [:edit, :update, :show, :destroy]
+
     def index
         @employees = current_user.employees.all 
     end
@@ -18,5 +20,9 @@ class Admin::EmployeesController < AdminController
 
     def post_params
         params.require(:employee).permit(:name, :start_date, :end_date, :active, :rate, :user_id)
+    end
+
+    def set_employee
+        @employee = current_user.employees.find_by_id(params[:id])
     end
 end
