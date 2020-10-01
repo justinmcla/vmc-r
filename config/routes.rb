@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   namespace :admin do
     resources :organizers, :bookings
     resources :venues do
-      resources :inventories
+      resources :inventories do
+        resources :items, only: [:new, :create, :edit, :update, :destroy]
+      end
     end
   end
   get '/home', to: 'admin#home'
