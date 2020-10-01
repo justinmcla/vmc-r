@@ -15,6 +15,20 @@ class Admin::EmployeesController < AdminController
             render :new
         end
     end
+    def edit
+    end
+    def update
+        @employee.assign_attributes(post_params)
+        if @employee.save
+            redirect_to admin_employee_path(@employee)
+        else
+            render :edit
+        end
+    end
+    def destroy
+        @employee.destroy
+        redirect_to admin_employees_path
+    end
 
     private
 
