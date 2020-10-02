@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_01_150110) do
+ActiveRecord::Schema.define(version: 2020_10_02_024551) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_1"
@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2020_10_01_150110) do
     t.string "password_digest"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
+    t.string "google_uid"
   end
 
   create_table "venues", force: :cascade do |t|
