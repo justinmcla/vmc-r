@@ -30,6 +30,19 @@ nav {
     display: flex;
     margin: 10px;
 
+    a {
+        color: #c4c4c4;
+    }
+
+    a:hover {
+        text-decoration: none;
+        color: #ff0;
+    }
+
+    a:focus {
+        outline: none;
+    }
+
     @media screen and (max-width: 575.98px) {
         flex-direction: column;
     }
@@ -45,19 +58,6 @@ nav {
         min-width: 200px;
         height: 100vh;
         border-right: 1px solid #f0f;
-
-        a {
-            color: #c4c4c4;
-        }
-
-        a:hover {
-            text-decoration: none;
-            color: #ff0;
-        }
-
-        a:focus {
-            outline: none;
-        }
 
         .link-list {
             margin-left: 15px;
