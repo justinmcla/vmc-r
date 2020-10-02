@@ -59,7 +59,7 @@
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
             <%= c.label :via, "Contact Method", class: ['col-md-2'] %>
             <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= c.text_field :via, class: 'form-control' %>
+                <%= c.select :via, %w(Email Phone), class: 'form-control' %>
             <% end %>
         <% end %>
             <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -82,7 +82,7 @@
             <%= content_tag(:div, class: ['form-group', 'row']) do %>
                 <%= pcfc.label :via, "Point of Contact - Method", class: ['col-md-2'] %>
                 <%= content_tag(:div, class: ['col-md-3']) do %>
-                    <%= pcfc.text_field :via, class: 'form-control' %>
+                    <%= pcfc.select :via, %w(Email Phone), class: 'form-control' %>
                 <% end %>
             <% end %>
                 <%= content_tag(:div, class: ['form-group', 'row']) do %>
