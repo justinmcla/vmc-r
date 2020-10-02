@@ -16,6 +16,7 @@ class Venue < ApplicationRecord
 
     def set_slug
         slugged = self.name.downcase.split.join('-')
+        self.slug = slugged
         counter = 1
         loop do
             break unless Venue.where(slug: slug).exists?
