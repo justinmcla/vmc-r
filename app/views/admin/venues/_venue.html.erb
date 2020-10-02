@@ -1,12 +1,4 @@
-<% if @venue.errors.full_messages.any? %>
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        <% @venue.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
+<%= render partial: 'shared/errors', locals: { resource: @venue } %>
 
 <%= form_for [ :admin, @venue ] do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -39,45 +31,6 @@
             <%= f.number_field :dressing_rooms, class: 'form-control' %>
         <% end %>
     <% end %>
-    <%= f.fields_for :address, @venue.address do |af| %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :address_1, "Address Line 1", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-2']) do %>
-                <%= af.text_field :address_1, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :address_2, "Address Line 2", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-2']) do %>
-                <%= af.text_field :address_2, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :city, "City", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-2']) do %>
-                <%= af.text_field :city, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :state, "State", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-2']) do %>
-                <%= af.select :state, %w(AL AK AZ AR CA CO 
-                                        CT DE FL GA HI ID 
-                                        IL IN IA KS KY LA 
-                                        ME MD MA MI MN MS 
-                                        MO MT NE NV NH NJ 
-                                        NM NY NC ND OH OK 
-                                        OR PA RI SC SD TN 
-                                        TX UT VT VA WA WV 
-                                        WI WY), class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :zip, "Zip Code", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-2']) do %>
-                <%= af.text_field :zip, class: 'form-control' %>
-            <% end %>
-        <% end %>
-    <% end %>
+    <%= render partial: 'shared/address', locals: { resource: @venue, f: f } %>
     <%= f.submit class: 'btn' %>
 <% end %>
