@@ -1,6 +1,6 @@
 class Address < ApplicationRecord
     validates :state, inclusion: { in: %w(AL AK AZ AR CA CO 
-        CT DE FL GA HI ID 
+        CT DC DE FL GA HI ID 
         IL IN IA KS KY LA 
         ME MD MA MI MN MS 
         MO MT NE NV NH NJ 

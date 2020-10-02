@@ -1,12 +1,12 @@
 class Booking < ApplicationRecord
     validates :name, presence: true
-    validates :event_type, presence: true
-    validates :date, presence: true
-    validates :event_time, presence: true
-    validates :access_time, presence: true
-    validates :exit_time, presence: true
-    validates :attendance, presence: true
-    validates :daily_rate, presence: true
+    validates :event_type, presence: true, inclusion: { in: %w(Performance Lecture/Workshop Concert Reception/Fundraiser) }
+    validates :date, presence: true, format: { with: /\d\d\d\d\-\d\d\-\d\d/ }
+    validates :event_time, presence: true, format: { with: /\d\d\:\d\d\:\d\d/ }
+    validates :access_time, presence: true, format: { with: /\d\d\:\d\d\:\d\d/ }
+    validates :exit_time, presence: true, format: { with: /\d\d\:\d\d\:\d\d/ }
+    validates :attendance, presence: true, numericality: { only_integer: true }
+    validates :daily_rate, presence: true, numericality: true
     belongs_to :venue
     belongs_to :organizer
 end
