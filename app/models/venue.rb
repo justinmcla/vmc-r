@@ -1,10 +1,10 @@
 class Venue < ApplicationRecord
     before_create :set_slug
     validates :name, presence: true
-    validates :seats, presence: true
-    validates :configuration, presence: true
-    validates :greenrooms, presence: true
-    validates :dressing_rooms, presence: true
+    validates :seats, presence: true, numericality: { only_integer: true }
+    validates :configuration, presence: true, inclusion: { in: ['Proscenium', 'Arena', 'Thrust', 'Black Box', 'Flexible', 'Studio'] }
+    validates :greenrooms, presence: true, numericality: { only_integer: true }
+    validates :dressing_rooms, presence: true, numericality: { only_integer: true }
     belongs_to :user
     has_one :address, as: :addressable, dependent: :destroy
     accepts_nested_attributes_for :address, reject_if: :blank_address
