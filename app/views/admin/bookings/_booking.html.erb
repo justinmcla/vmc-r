@@ -1,25 +1,17 @@
-<% if @booking.errors.full_messages.any? %>
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        <% @booking.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
+<%= render partial: 'shared/errors', locals: { resource: @booking } %>
 
 <%= form_for [ :admin, @booking ] do |f| %>
 
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :venue_id, "Select Venue", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.select :venue_id, options_from_collection_for_select(current_user.venues.all, :id, :name, @booking.venue_id) %>
+            <%= f.select :venue_id, options_from_collection_for_select(current_user.venues.all, :id, :name, @booking.venue_id), {}, class: 'form-control' %>
         <% end %>
     <% end %>
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :organizer_id, "Select Organizer", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.select :organizer_id, options_from_collection_for_select(current_user.organizers.all, :id, :name, @booking.organizer_id), include_blank: true %>
+            <%= f.select :organizer_id, options_from_collection_for_select(current_user.organizers.all, :id, :name, @booking.organizer_id), { include_blank: true}, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -127,5 +119,5 @@
         <% end %>
     <% end %>
 
-    <%= f.submit %>
+    <%= f.submit class: 'btn' %>
 <% end %>
