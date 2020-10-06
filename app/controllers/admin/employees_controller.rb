@@ -19,6 +19,7 @@ class Admin::EmployeesController < AdminController
     end
     def update
         @employee.assign_attributes(post_params)
+        params[:employee][:end_date].empty? ? (@employee.active = true) : (@employee.active = false)
         if @employee.save
             redirect_to admin_employee_path(@employee)
         else
