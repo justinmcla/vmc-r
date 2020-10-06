@@ -1,12 +1,4 @@
-<% if @employee.errors.full_messages.any? %>
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        <% @employee.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
+<%= render partial: 'shared/errors', locals: { resource: @employee } %>
 
 <%= form_for [ :admin, @employee ] do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
