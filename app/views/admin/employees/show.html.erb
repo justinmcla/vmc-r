@@ -1,4 +1,16 @@
 <h1><%= link_to "Employees", admin_employees_path %> > <%= @employee.name %></h1>
+<br><br>
+<h3><%= @employee.start_date.strftime("%-m/%-d/%Y") %></h3>
+<p>Start Date</p>
+
+<% if @employee.end_date %>
+  <h3><%= @employee.end_date.strftime("%-m/%-d/%Y") %></h3>
+  <p>End Date</p>
+<% end %>
+
+<h3>$<%= '%.2f' % @employee.rate %></h3>
+<p>Hourly Rate</p>
 
 <%= button_to "Edit Employee", edit_admin_employee_path(@employee), method: 'get', class: 'btn' %>
+<br>
 <%= button_to "Delete Employee", admin_employee_path(@employee), method: 'delete', class: 'btn' %>
