@@ -1,10 +1,17 @@
 <h1>Bookings</h1>
 
+<p>Filter by Organizer</p>
+<%= form_tag(admin_bookings_path, method: 'get') do %>
+    <%= text_field_tag ( :query ) %>
+    <%= submit_tag ("Filter") %>
+<% end %>
+<br><br>
+
 <%= content_tag (:div) do %>
     <% current_user.venues.each do |venue| %>
         <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
-        <% venue.bookings.each do |booking| %>
-            <p><%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", edit_admin_booking_path(booking) %></p>
+        <% @bookings.each do |booking| %>
+            <p><%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", edit_admin_booking_path(booking) if booking.venue == venue %></p>
         <% end %>
     <% end %>
 <% end %>
