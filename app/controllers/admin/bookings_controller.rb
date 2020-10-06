@@ -15,7 +15,7 @@ class Admin::BookingsController < AdminController
     end
 
     def index
-        @bookings = current_user.bookings.all
+        params[:query] ? (@bookings = current_user.bookings.by_organizer(params[:query]) ) : (@bookings = current_user.bookings.all )
     end
 
     def show
