@@ -1,0 +1,29 @@
+<%= render partial: 'shared/errors', locals: { resource: @employee } %>
+
+<%= form_for [ :admin, @employee ] do |f| %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :name, "Employee Name", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.text_field :name, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :start_date, "Start Date", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.date_field :start_date, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :end_date, "End Date", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.date_field :end_date, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= content_tag(:div, class: ['form-group', 'row']) do %>
+        <%= f.label :rate, "Hourly Rate", class: ['col-md-2'] %>
+        <%= content_tag(:div, class: ['col-md-3']) do %>
+            <%= f.text_field :rate, class: 'form-control' %>
+        <% end %>
+    <% end %>
+    <%= f.submit class: 'btn' %>
+<% end %>
