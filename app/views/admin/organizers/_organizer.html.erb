@@ -1,12 +1,4 @@
-<% if @organizer.errors.full_messages.any? %>
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        <% @organizer.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
+<%= render partial: 'shared/errors', locals: { resource: @organizer } %>
 
 <%= form_for [ :admin, @organizer ] do |f| %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -22,77 +14,11 @@
         <% end %>
     <% end %>
     
-    <%= f.fields_for :address do |af| %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :address_1, "Address Line 1", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :address_1, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :address_2, "Address Line 2", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :address_2, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :city, "City", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :city, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :state, "State", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :state, class: 'form-control' %>
-            <% end %>
-        <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= af.label :zip, "Zip Code", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= af.text_field :zip, class: 'form-control' %>
-            <% end %>
-        <% end %>
-    <% end %>
+    <%= render partial: 'shared/address', locals: { resource: @organizer, f: f } %>
 
-    <%= f.fields_for :contacts do |c| %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= c.label :via, "Contact Method", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= c.select :via, %w(Email Phone), class: 'form-control' %>
-            <% end %>
-        <% end %>
-            <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= c.label :value, "Address/Phone", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= c.text_field :value, class: 'form-control' %>
-            <% end %>
-        <% end %>
-    <% end %>
+    <%= render partial: 'shared/contact', locals: { f: f } %>
 
-    <%= f.fields_for :point_of_contacts do |pcf| %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-            <%= pcf.label :name, "Popint of Contact Name", class: ['col-md-2'] %>
-            <%= content_tag(:div, class: ['col-md-3']) do %>
-                <%= pcf.text_field :name, class: 'form-control' %>
-            <% end %>
-        <% end %>
+    <%= render partial: 'shared/point_of_contact', locals: { f: f} %>
 
-        <%= pcf.fields_for :contacts do |pcfc| %>
-            <%= content_tag(:div, class: ['form-group', 'row']) do %>
-                <%= pcfc.label :via, "Point of Contact - Method", class: ['col-md-2'] %>
-                <%= content_tag(:div, class: ['col-md-3']) do %>
-                    <%= pcfc.select :via, %w(Email Phone), class: 'form-control' %>
-                <% end %>
-            <% end %>
-                <%= content_tag(:div, class: ['form-group', 'row']) do %>
-                <%= pcfc.label :value, "Address/Phone", class: ['col-md-2'] %>
-                <%= content_tag(:div, class: ['col-md-3']) do %>
-                    <%= pcfc.text_field :value, class: 'form-control' %>
-                <% end %>
-            <% end %>
-        <% end %>
-    <% end %>
-
-    <%= f.submit %>
+    <%= f.submit class: 'btn' %>
 <% end %>
