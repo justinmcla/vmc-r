@@ -17,7 +17,7 @@ $(document).ready(function(){
         <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :organizer_id, "Select Organizer", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.select :organizer_id, options_from_collection_for_select(current_user.organizers.all, :id, :name, @booking.organizer_id), { include_blank: true}, class: 'form-control' %>
+            <%= f.select :organizer_id, options_from_collection_for_select(current_user.organizers.all, :id, :name, @booking.organizer_id), {}, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -29,7 +29,7 @@ $(document).ready(function(){
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :event_type, "Event Type", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :event_type, class: 'form-control' %>
+            <%= f.select :event_type, %w(Performance Lecture/Workshop Concert Reception/Fundraiser), {}, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
