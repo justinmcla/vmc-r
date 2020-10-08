@@ -5,7 +5,11 @@
     <%= text_field_tag ( :query ) %>
     <%= submit_tag ("Filter") %>
 <% end %>
-<br><br>
+<br>
+
+<%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>
+
+<br>
 
 <%= content_tag (:div) do %>
     <% current_user.venues.each do |venue| %>
