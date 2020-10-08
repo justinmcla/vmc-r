@@ -41,19 +41,19 @@ $(document).ready(function(){
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :event_time, "Event Time", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.time_field :event_time, class: 'form-control' %>
+            <%= f.text_field :event_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :access_time, "Access Time", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.time_field :access_time, class: 'form-control' %>
+            <%= f.text_field :access_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :exit_time, "Exit Time", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.time_field :exit_time, class: 'form-control' %>
+            <%= f.text_field :exit_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
