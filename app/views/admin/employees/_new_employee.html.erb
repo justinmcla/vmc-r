@@ -10,7 +10,7 @@
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :start_date, "Start Date", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.date_field :start_date, class: 'form-control' %>
+            <%= f.text_field :start_date, data: { behavior: 'flatpickr' }, class: 'form-control' %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
