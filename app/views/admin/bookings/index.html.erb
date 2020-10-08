@@ -14,8 +14,12 @@
 <%= content_tag (:div) do %>
     <% current_user.venues.each do |venue| %>
         <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
-        <% @bookings.each do |booking| %>
-            <p><%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", edit_admin_booking_path(booking) if booking.venue == venue %></p>
+        <p>
+        <% @bookings.sort_by { |b| b.date }.each do |booking| %>
+          <% if booking.venue == venue %>
+            <%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", admin_booking_path(booking) %><br>
+          <% end %>
         <% end %>
+        </p>
     <% end %>
 <% end %>
