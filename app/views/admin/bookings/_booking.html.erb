@@ -30,15 +30,15 @@
   <%= content_tag(:div, class: 'form-row') do %>
     <%= content_tag(:div, class: 'form-group col-md-2') do %>
       <%= f.label :access_time, "Access Time"%>
-      <%= f.text_field :access_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
+      <%= f.text_field :access_time, data: { behavior: 'timepickr' }, value: @booking.access_time.strftime("%H:%M:%S"), class: 'form-control' %>
     <% end %>
     <%= content_tag(:div, class: 'form-group col-md-2') do %>
       <%= f.label :event_time, "Event Time"%>
-      <%= f.text_field :event_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
+      <%= f.text_field :event_time, data: { behavior: 'timepickr' }, value: @booking.event_time.strftime("%H:%M:%S"), class: 'form-control' %>
     <% end %>
     <%= content_tag(:div, class: 'form-group col-md-2') do %>
       <%= f.label :exit_time, "Exit Time"%>
-      <%= f.text_field :exit_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
+      <%= f.text_field :exit_time, data: { behavior: 'timepickr' }, value: @booking.exit_time.strftime("%H:%M:%S"), class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
