@@ -50,7 +50,7 @@ class Admin::BookingsController < AdminController
                                         :description, :attendance, :catering, :alcohol,
                                         :lighting, :spotlight, :sound, :microphones, 
                                         :security, :road_closure, :daily_rate, :venue_id,
-                                        :organizer_id)
+                                        :organizer_id, :contract, :deposit, :paid)
     end
 
 
