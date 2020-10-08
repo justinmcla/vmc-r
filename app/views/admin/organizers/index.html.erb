@@ -1,5 +1,7 @@
 <h1>Organizers</h1>
-
+<br>
+<%= button_to "Create Organizer", new_admin_organizer_path, method: 'get', class: 'btn' %>
+<br>
 <%= content_tag (:div) do %>
     <% current_user.organizers.each do |organizer| %>
         <h3><%= link_to organizer.name, admin_organizer_path(organizer) %></h3>
