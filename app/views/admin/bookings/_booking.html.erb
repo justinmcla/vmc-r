@@ -1,5 +1,11 @@
 <%= render partial: 'shared/errors', locals: { resource: @booking } %>
 
+<script type = 'text/javascript'>
+$(document).ready(function(){
+    flatpickr('#flatpickr-input');
+});
+</script>
+
 <%= form_for [ :admin, @booking ] do |f| %>
 
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -29,7 +35,7 @@
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
         <%= f.label :date, "Date", class: ['col-md-2'] %>
         <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.date_field :date, class: 'form-control' %>
+            <%= f.text_field :date, data: { behavior: 'flatpickr' } %>
         <% end %>
     <% end %>
     <%= content_tag(:div, class: ['form-group', 'row']) do %>
@@ -118,3 +124,4 @@
     <% end %>
     <%= f.submit class: 'btn' %>
 <% end %>
+

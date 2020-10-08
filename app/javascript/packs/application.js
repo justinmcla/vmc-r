@@ -9,10 +9,17 @@ require("@rails/activestorage").start()
 require("channels")
 
 import "bootstrap"
+import flatpickr from "flatpickr"
+require('flatpickr/dist/flatpickr.css')
 
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip()
     $('[data-toggle="popover"]').popover()
+    flatpickr("[data-behavior='flatpickr']", {
+        altInput: true,
+        altFormat: "F j, Y",
+        dateFormat: "Y-m-d"
+    })
 })
 
 
@@ -22,3 +29,5 @@ document.addEventListener("turbolinks:load", () => {
 //
 // const images = require.context('../images', true)
 // const imagePath = (name) => images(name, true)
+
+import "controllers"
