@@ -20,6 +20,13 @@ document.addEventListener("turbolinks:load", () => {
         altFormat: "F j, Y",
         dateFormat: "Y-m-d"
     })
+    flatpickr("[data-behavior='timepickr']", {
+        altInput: true,
+        altFormat: 'h:i K',
+        enableTime: true,
+        noCalendar: true,
+        dateFormat: 'H:i:S'
+    })
 })
 
 
