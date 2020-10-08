@@ -1,7 +1,7 @@
 <h1>Employees</h1>
 <br>
 <%= button_to "Add Employee", new_admin_employee_path, method: 'get', class: 'btn' %>
-<br><br>
-<% current_user.employees.each do |employee| %>
+<br>
+<% current_user.employees.sort_by { |e| e.name }.each do |employee| %>
     <%= link_to employee.name, admin_employee_path(employee) %><br>
 <% end %>
