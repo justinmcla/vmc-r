@@ -3,8 +3,12 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :venues, only: [:show]
   namespace :admin do
+    resources :bookings, :employees
     resources :tasks,  only: [:new, :create, :edit, :update, :destroy]
-    resources :organizers, :bookings, :employees
+    resources :organizers do
+      resources :point_of_contacts, only: [:destroy]
+      resources :contacts, only: [:destroy]
+    end
     resources :venues do
       resources :inventories do
         resources :items, only: [:new, :create, :edit, :update, :destroy]
