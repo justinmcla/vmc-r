@@ -1,23 +1,23 @@
 <h3>Address</h3>
 <%= f.fields_for :address, resource.address do |af| %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-6') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
       <%= af.label :address_1, "Address Line 1" %>
       <%= af.text_field :address_1, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-6') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
       <%= af.label :address_2, "Address Line 2" %>
       <%= af.text_field :address_2, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= af.label :city, "City" %>
       <%= af.text_field :city, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-1') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-1') do %>
       <%= af.label :state, "State" %>
       <%= af.select( :state, %w(AL AK AZ AR CA 
                                 CO CT DC DE FL 
@@ -30,7 +30,7 @@
                                 SC SD TN TX UT 
                                 VT VA WA WV WI WY), {}, class: 'form-control' )%>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= af.label :zip, "Zip Code" %>
       <%= af.text_field :zip, class: 'form-control' %>
     <% end %>
