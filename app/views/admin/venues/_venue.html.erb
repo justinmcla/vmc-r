@@ -1,35 +1,31 @@
 <%= render partial: 'shared/errors', locals: { resource: @venue } %>
 <%= form_for [ :admin, @venue ] do |f| %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :name, "Venue Name", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :name, class: 'form-control' %>
-        <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :name, "Venue Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :configuration, "Configuration", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.select :configuration, ['Proscenium', 'Arena', 'Black Box', 'Flexible', 'Studio', 'Thrust'], {}, class: 'form-control' %>
-        <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
+      <%= f.label :configuration, "Configuration" %>
+      <%= f.select :configuration, ['Proscenium', 'Arena', 'Black Box', 'Flexible', 'Studio', 'Thrust'], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :seats, "Seats", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.number_field :seats, class: 'form-control' %>
-        <% end %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
+      <%= f.label :seats, "Seats" %>
+      <%= f.number_field :seats, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :greenrooms, "Greenrooms", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.number_field :greenrooms, class: 'form-control' %>
-        <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
+      <%= f.label :greenrooms, "Greenrooms" %>
+      <%= f.number_field :greenrooms, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :dressing_rooms, "Dressing Rooms", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.number_field :dressing_rooms, class: 'form-control' %>
-        <% end %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
+      <%= f.label :dressing_rooms, "Dressing Rooms" %>
+      <%= f.number_field :dressing_rooms, class: 'form-control' %>
     <% end %>
-    <%= render partial: 'shared/address', locals: { resource: @venue, f: f } %>
-    <%= f.submit class: 'btn' %>
+  <% end %>
+  <%= render partial: 'shared/address', locals: { resource: @venue, f: f } %>
+  <%= f.submit class: 'btn' %>
 <% end %>
