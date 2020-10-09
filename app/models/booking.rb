@@ -9,5 +9,6 @@ class Booking < ApplicationRecord
     validates :daily_rate, presence: true, numericality: true
     belongs_to :venue
     belongs_to :organizer
+    has_and_belongs_to_many :employees
     scope :by_organizer, -> (organizer) { joins(:organizer).where( "organizers.name LIKE ?", "%#{organizer}%" ) }
 end
