@@ -2,33 +2,33 @@
 <%= content_tag(:div, class: 'container') do %>
 <%= form_for [ :admin, @booking ] do |f| %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= f.label :venue_id, "Select Venue"%>
       <%= f.select :venue_id, options_from_collection_for_select(current_user.venues.all, :id, :name, @booking.venue_id), {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= f.label :organizer_id, "Select Organizer"%>
       <%= f.select :organizer_id, options_from_collection_for_select(current_user.organizers.all, :id, :name, @booking.organizer_id), {}, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-6') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
       <%= f.label :name, "Event Name"%>
       <%= f.text_field :name, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= f.label :event_type, "Event Type"%>
       <%= f.select :event_type, %w(Performance Lecture/Workshop Concert Reception/Fundraiser), {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= f.label :date, "Date"%>
       <%= f.text_field :date, data: { behavior: 'flatpickr' } %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :access_time, "Access Time"%>
       <% if @booking.access_time %>
         <%= f.text_field :access_time, data: { behavior: 'timepickr' }, value: @booking.access_time.strftime("%H:%M:%S"), class: 'form-control' %>
@@ -36,7 +36,7 @@
         <%= f.text_field :access_time, data: { behavior: 'timepickr' }, class: 'form-control' %>
       <% end %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :event_time, "Event Time"%>
       <% if @booking.event_time %>
         <%= f.text_field :event_time, data: { behavior: 'timepickr' }, value: @booking.event_time.strftime("%H:%M:%S"), class: 'form-control' %>
@@ -44,7 +44,7 @@
         <%= f.text_field :event_time, data: { behavior: 'timepickr' }, class: 'form-control' %>        
       <% end %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :exit_time, "Exit Time"%>
       <% if @booking.exit_time %>
         <%= f.text_field :exit_time, data: { behavior: 'timepickr' }, value: @booking.exit_time.strftime("%H:%M:%S"), class: 'form-control' %>
@@ -54,59 +54,59 @@
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= f.label :attendance, "Attendance"%>
       <%= f.number_field :attendance, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-3') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= f.label :daily_rate, "Daily Rate"%>
       <%= f.number_field :daily_rate, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-6') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
       <%= f.label :description, "Notes"%>
       <%= f.text_area :description, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :recurring, "Recurring?"%>
       <%= f.select :recurring, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :catering, "Catering"%>
       <%= f.select :catering, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :alcohol, "Alcohol"%>
       <%= f.select :alcohol, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :lighting, "Lighting"%>
       <%= f.select :lighting, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :spotlight, "Spotlight"%>
       <%= f.select :spotlight, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :sound, "Sound"%>
       <%= f.select :sound, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :microphones, "Microphones"%>
       <%= f.select :microphones, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :security, "Security"%>
       <%= f.select :security, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: 'form-group col-md-2') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= f.label :road_closure, "Road Closure"%>
       <%= f.select :road_closure, [['No', false], ['Yes', true]], {}, class: 'form-control' %>
     <% end %>

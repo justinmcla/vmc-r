@@ -1,26 +1,16 @@
-<% if @task.errors.full_messages.any? %>
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        <% @task.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
-
+<%= render partial: 'shared/errors', locals: { resource: @task} %>
 <%= form_for [ :admin, @task ] do |f| %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :name, "Name", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :name, class: 'form-control' %>
-        <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :name, "Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
     <% end %>
-        <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :notes, "Notes", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :notes, class: 'form-control' %>
-        <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :notes, "Notes" %>
+      <%= f.text_field :notes, class: 'form-control' %>
     <% end %>
-    <%= f.submit class: 'btn' %>
+  <% end %>
+  <%= f.submit class: 'btn' %>
 <% end %>
-    

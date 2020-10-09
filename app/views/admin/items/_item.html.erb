@@ -1,37 +1,28 @@
-<% if @item.errors.full_messages.any? %>
-    <div class="alert alert-danger" role="alert">
-        <ul>
-        <% @item.errors.full_messages.each do |msg| %>
-            <li><%= msg %></li>
-        <% end %>
-        </ul>
-    </div>
-<% end %>
-
+<%= render partial: 'shared/errors', locals: { resource: @item } %>
 <%= form_for [ :admin, @venue, @inventory, @item ] do |f| %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :name, "Item Name", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :name, class: 'form-control' %>
-        <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :name, "Item Name" %>
+      <%= f.text_field :name, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :category, "Item Category", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :category, class: 'form-control' %>
-        <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :category, "Item Category" %>
+      <%= f.text_field :category, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :quantity, "Quantity", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.number_field :quantity, class: 'form-control' %>
-        <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :quantity, "Quantity" %>
+      <%= f.number_field :quantity, class: 'form-control' %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :notes, "Notes", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_area :notes, class: 'form-control' %>
-        <% end %>
+  <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+      <%= f.label :notes, "Notes" %>
+      <%= f.text_area :notes, class: 'form-control' %>
     <% end %>
-    <%= f.submit class: 'btn' %>
+  <% end %>
+  <%= f.submit class: 'btn' %>
 <% end %>
