@@ -1,10 +1,13 @@
 <h1><%= link_to @inventory.venue.name, admin_venue_path(@inventory.venue) %> > <%= @inventory.name %></h1>
 <br>
-<%= button_to "Edit Settings", edit_admin_venue_inventory_path(@venue, @inventory), method: 'get', class: 'btn' %>
-<br>
-<%= button_to "Add Item", new_admin_venue_inventory_item_path(@venue, @inventory), method: 'get', class: 'btn' %>
-
-<br><br>
+<%= content_tag(:div, class: 'row') do %>
+  <%= content_tag(:div, class: 'col-md-2') do %>
+    <%= button_to "Edit Settings", edit_admin_venue_inventory_path(@venue, @inventory), method: 'get', class: 'btn' %><br>
+  <% end %>
+  <%= content_tag(:div, class: 'col-md-2') do %>
+    <%= button_to "Delete Inventory", admin_venue_inventory_path(@venue, @inventory), method: 'delete', class: 'btn' %>
+  <% end %>
+<% end %>
 
 <table>
     <thead>
@@ -26,5 +29,5 @@
         <% end %>
     </tbody>
 </table>
-<br><br>
-<%= button_to "Delete Inventory", admin_venue_inventory_path(@venue, @inventory), method: 'delete', class: 'btn' %>
+<br>
+<%= button_to "Add Item", new_admin_venue_inventory_item_path(@venue, @inventory), method: 'get', class: 'btn' %>
