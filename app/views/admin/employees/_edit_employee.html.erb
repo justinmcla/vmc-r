@@ -1,29 +1,32 @@
 <%= render partial: 'shared/errors', locals: { resource: @employee } %>
-
-<%= form_for [ :admin, @employee ] do |f| %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :name, "Employee Name", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :name, class: 'form-control' %>
-        <% end %>
+<%= content_tag(:div, class: 'container') do %>
+  <%= form_for [ :admin, @employee ] do |f| %>
+    <%= content_tag(:div, class: 'form-row') do %>
+      <%= content_tag(:div, class: 'form-group col-md-3') do %>
+        <%= f.label :name, "Employee Name" %>
+        <%= f.text_field :name, class: 'form-control' %>
+      <% end %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :start_date, "Start Date", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :start_date, data: { behavior: 'flatpickr' }, class: 'form-control' %>
-        <% end %>
+    <%= content_tag(:div, class: 'form-row') do %>
+      <%= content_tag(:div, class: 'form-group col-md-3') do %>
+        <%= f.label :start_date, "Start Date" %>
+        <%= f.text_field :start_date, data: { behavior: 'flatpickr' }, class: 'form-control' %>
+      <% end %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :end_date, "End Date", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :end_date, data: { behavior: 'flatpickr' }, class: 'form-control' %>
-        <% end %>
+    <%= content_tag(:div, class: 'form-row') do %>
+      <%= content_tag(:div, class: 'form-group col-md-3') do %>
+        <%= f.label :end_date, "End Date" %>
+        <%= f.text_field :end_date, data: { behavior: 'flatpickr' }, class: 'form-control' %>
+      <% end %>
     <% end %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= f.label :rate, "Hourly Rate", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= f.text_field :rate, class: 'form-control' %>
-        <% end %>
+    <%= content_tag(:div, class: 'form-row') do %>
+      <%= content_tag(:div, class: 'form-group col-md-3') do %>
+        <%= f.label :rate, "Hourly Rate" %>
+        <%= f.text_field :rate, class: 'form-control' %>
+      <% end %>
     <% end %>
+    <%= f.hidden_field :active, :value => true %>
+    <br>
     <%= f.submit class: 'btn' %>
+  <% end %>
 <% end %>
