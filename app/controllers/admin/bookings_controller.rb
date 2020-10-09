@@ -45,12 +45,16 @@ class Admin::BookingsController < AdminController
     end
 
     def post_params
-        params.require(:booking).permit(:name, :event_type, :date, :event_time,
-                                        :access_time, :exit_time, :recurring,
-                                        :description, :attendance, :catering, :alcohol,
-                                        :lighting, :spotlight, :sound, :microphones, 
-                                        :security, :road_closure, :daily_rate, :venue_id,
-                                        :organizer_id, :contract, :deposit, :paid)
+        params.require(:booking).permit(:name, :event_type, :date, 
+                                        :event_time, :access_time, 
+                                        :exit_time, :recurring,
+                                        :description, :attendance, 
+                                        :catering, :alcohol, :lighting, 
+                                        :spotlight, :sound, :microphones, 
+                                        :security, :road_closure, 
+                                        :daily_rate, :venue_id,
+                                        :organizer_id, :contract, :deposit, 
+                                        :paid, employee_ids: [])
     end
 
 
