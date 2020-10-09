@@ -1,13 +1,10 @@
 <h3>Point of Contact</h3>
-<br>
 <%= f.fields_for :point_of_contacts do |pcf| %>
-    <%= content_tag(:div, class: ['form-group', 'row']) do %>
-        <%= pcf.label :name, "Point of Contact Name", class: ['col-md-2'] %>
-        <%= content_tag(:div, class: ['col-md-3']) do %>
-            <%= pcf.text_field :name, class: 'form-control' %>
-        <% end %>
+  <%= content_tag(:div, class: 'form-row') do %>
+    <%= content_tag(:div, class: 'form-group col-md-6') do %>
+      <%= pcf.label :name, "Name" %>
+      <%= pcf.text_field :name, class: 'form-control' %>
     <% end %>
-
-    <%= render partial: 'shared/contact', locals: { f: pcf } %>
-
+  <% end %>
+  <%= render partial: 'shared/contact', locals: { f: pcf } %>
 <% end %>
