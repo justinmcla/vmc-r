@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_08_182239) do
+ActiveRecord::Schema.define(version: 2020_10_09_024257) do
 
   create_table "addresses", force: :cascade do |t|
     t.string "address_1"
@@ -50,6 +50,13 @@ ActiveRecord::Schema.define(version: 2020_10_08_182239) do
     t.boolean "contract"
     t.boolean "deposit"
     t.boolean "paid"
+  end
+
+  create_table "bookings_employees", force: :cascade do |t|
+    t.integer "booking_id"
+    t.integer "employee_id"
+    t.index ["booking_id"], name: "index_bookings_employees_on_booking_id"
+    t.index ["employee_id"], name: "index_bookings_employees_on_employee_id"
   end
 
   create_table "contacts", force: :cascade do |t|
