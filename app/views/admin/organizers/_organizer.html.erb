@@ -7,6 +7,12 @@
         <%= f.text_field :name, class: 'form-control' %>
       <% end %>
       <%= content_tag(:div, class: 'form-group col-lg-3') do %>
+        <%= f.label :organization_type, "Type" %>
+        <%= f.select :organization_type, %w(Commercial Non-Profit Internal), {}, class: 'form-control' %>
+      <% end %>
+    <% end %>
+    <%= content_tag(:div, class: 'form-row') do %>
+      <%= content_tag(:div, class: 'form-group col-lg-6') do %>
         <%= f.label :url, "Website" %>
         <%= f.text_field :url, class: 'form-control' %>
       <% end %>
