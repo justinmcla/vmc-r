@@ -1,24 +1,23 @@
-# README
+# vmc-r
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Venue Management Console - Rails edition
+This is a rebuild of Venue Manager, originally built in Sinatra.
+Manages venues, bookings, organizers, employees, etc.
 
-Things you may want to cover:
+Features coming soon:
+- budget management
+- employee scheduling
+- file uploads
+- messaging
 
 * Ruby version
+2.6.1
 
-* System dependencies
+* Rails version
+6.0.3
 
-* Configuration
+* Current deployment
+http://vmc-r.herokuapp.com
 
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+* Omniauth
+Google OAuth2 reliant on client ID and secret, not committed for obv reasons.
