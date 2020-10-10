@@ -1,38 +1,42 @@
 <h1><%= @venue.name %></h1>
-<% if @venue.address %>
-    <p><%= @venue.address.address_1 %><br>
-    <% if !@venue.address.address_2.blank? %>
-        <%= @venue.address.address_2 %>
-        <br>
+<%= content_tag(:div, class: 'row') do %>
+  <%= content_tag(:div, class: 'col') do %>
+    <% if @venue.address %>
+      <p><%= @venue.address.address_1 %><br>
+      <% if !@venue.address.address_2.blank? %>
+        <%= @venue.address.address_2 %><br>
+      <% end %>
+      <%= @venue.address.city %>, <%= @venue.address.state %> <%= @venue.address.zip %></p>
     <% end %>
-    <%= @venue.address.city %>, <%= @venue.address.state %> <%= @venue.address.zip %></p>
-<% end %>
-
-<p>Configuration: <%= @venue.configuration %><br>
+    <p>Configuration: <%= @venue.configuration %><br>
     Seats: <%= @venue.seats %><br>
     Dressing Rooms: <%= @venue.dressing_rooms %><br>
     Greenrooms: <%= @venue.greenrooms %></p>
-
-<%= button_to "Edit Venue Settings", edit_admin_venue_path(@venue), method: 'get', class: 'btn' %>
-<br>
-<%= button_to "Delete Venue", admin_venue_path(@venue), method: 'delete', class: 'btn' %>
-<br>
-
-<h3>Bookings</h3>
-<% if @venue.bookings.any? %>
-    <% @venue.bookings.sort_by { |b| b.date }.each do |booking| %>
+  <% end %>  
+  <%= content_tag(:div, class: 'col') do %>
+    <h3>Bookings</h3>
+    <% if @venue.bookings.any? %>
+      <% @venue.bookings.sort_by { |b| b.date }.each do |booking| %>
         <%= link_to "#{booking.organizer.name} - #{booking.date}", admin_booking_path(booking) %><br>
+      <% end %>
     <% end %>
-<% end %>
-<br>
-<%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>
-<br>
-
-<h3>Inventories</h3>
-<% if @venue.inventories.any? %>
-    <% @venue.inventories.each do |inventory| %>
+    <br>
+    <%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>
+  <% end %>
+  <%= content_tag(:div, class: 'col') do %>
+    <h3>Inventories</h3>
+    <% if @venue.inventories.any? %>
+      <% @venue.inventories.each do |inventory| %>
         <%= link_to inventory.name, admin_venue_inventory_path(@venue, inventory) %><br>
+      <% end %>
     <% end %>
+    <br>
+    <%= button_to "Create Inventory", new_admin_venue_inventory_path(@venue), method: 'get', class: 'btn' %>
+  <% end %>
+  <%= content_tag(:div, class: 'col') do %>
+    <%= button_to "Edit Venue Settings", edit_admin_venue_path(@venue), method: 'get', class: 'btn' %>
+    <br>
+    <%= button_to "Delete Venue", admin_venue_path(@venue), method: 'delete', class: 'btn' %>
+    <br>
+  <% end %>
 <% end %>
-<br>
-<%= button_to "Create Inventory", new_admin_venue_inventory_path(@venue), method: 'get', class: 'btn' %>

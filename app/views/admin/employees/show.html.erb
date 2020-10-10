@@ -1,16 +1,30 @@
 <h1><%= link_to "Employees", admin_employees_path %> > <%= @employee.name %></h1>
 <br>
-<h3><%= @employee.start_date.strftime("%-m/%-d/%Y") %></h3>
-<p>Start Date</p>
-
-<% if @employee.end_date %>
-  <h3><%= @employee.end_date.strftime("%-m/%-d/%Y") %></h3>
-  <p>End Date</p>
+<%= content_tag(:div, class: 'row') do %>
+<%= content_tag(:div, class: 'col') do %>
+  <h3>Shift History</h3>
+  <p>
+  <% @employee.bookings.sort_by { |b| b.date }.each do |booking| %>
+    <%= link_to "#{booking.date.strftime("%m/%d/%Y")} - #{booking.name}", admin_booking_path(booking) %><br>
+  <% end %>
+  <%= 'No shift history.' if @employee.bookings.empty? %>
+  </p>
 <% end %>
+<%= content_tag(:div, class: 'col') do %>
+  <h3><%= @employee.start_date.strftime("%-m/%-d/%Y") %></h3>
+  <p>Start Date</p>
 
-<h3>$<%= '%.2f' % @employee.rate %></h3>
-<p>Hourly Rate</p>
+  <% if @employee.end_date %>
+    <h3><%= @employee.end_date.strftime("%-m/%-d/%Y") %></h3>
+    <p>End Date</p>
+  <% end %>
 
-<%= button_to "Edit Employee", edit_admin_employee_path(@employee), method: 'get', class: 'btn' %>
-<br>
-<%= button_to "Delete Employee", admin_employee_path(@employee), method: 'delete', class: 'btn' %>
+  <h3>$<%= '%.2f' % @employee.rate %></h3>
+  <p>Hourly Rate</p>
+<% end %>
+<%= content_tag(:div, class: 'col') do %>
+  <%= button_to "Edit Employee", edit_admin_employee_path(@employee), method: 'get', class: 'btn' %>
+  <br>
+  <%= button_to "Delete Employee", admin_employee_path(@employee), method: 'delete', class: 'btn' %>
+<% end %>
+<% end %>
