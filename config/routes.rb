@@ -3,6 +3,7 @@ Rails.application.routes.draw do
   resources :sessions, only: [:new, :create, :destroy]
   resources :venues, only: [:show]
   namespace :admin do
+    get '/', to: 'admin#index'
     resources :bookings, :employees
     resources :tasks,  only: [:new, :create, :edit, :update, :destroy]
     resources :organizers do
@@ -16,7 +17,6 @@ Rails.application.routes.draw do
     end
   end
   get '/auth/:provider/callback', to: 'sessions#omniauth'
-  get '/home', to: 'admin#home'
   root 'static#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html
 end
