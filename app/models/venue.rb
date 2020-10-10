@@ -7,7 +7,7 @@ class Venue < ApplicationRecord
     validates :dressing_rooms, presence: true, numericality: { only_integer: true }
     belongs_to :user
     has_one :address, as: :addressable, dependent: :destroy
-    accepts_nested_attributes_for :address, reject_if: :blank_address
+    accepts_nested_attributes_for :address
     has_many :bookings
     has_many :organizers, through: :bookings
     has_many :inventories
