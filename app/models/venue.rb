@@ -12,6 +12,10 @@ class Venue < ApplicationRecord
     has_many :organizers, through: :bookings
     has_many :inventories
 
+    def to_param
+        slug
+    end
+
     private
 
     def set_slug
