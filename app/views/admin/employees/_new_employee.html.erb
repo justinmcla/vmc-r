@@ -4,19 +4,19 @@
     <%= content_tag(:div, class: 'form-row') do %>
       <%= content_tag(:div, class: 'form-group col-md-3') do %>
         <%= f.label :name, "Employee Name" %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
       <% end %>
     <% end %>
     <%= content_tag(:div, class: 'form-row') do %>
       <%= content_tag(:div, class: 'form-group col-md-3') do %>
         <%= f.label :start_date, "Start Date" %>
-        <%= f.text_field :start_date, data: { behavior: 'flatpickr' }, class: 'form-control' %>
+        <%= f.text_field :start_date, data: { behavior: 'flatpickr' }, class: 'form-control', required: true %>
       <% end %>
     <% end %>
     <%= content_tag(:div, class: 'form-row') do %>
       <%= content_tag(:div, class: 'form-group col-md-3') do %>
         <%= f.label :rate, "Hourly Rate" %>
-        <%= f.text_field :rate, class: 'form-control' %>
+        <%= f.text_field :rate, class: 'form-control', required: true %>
       <% end %>
     <% end %>
     <%= f.hidden_field :active, :value => true %>

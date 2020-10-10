@@ -3,7 +3,7 @@
   <%= content_tag(:div, class: 'form-row') do %>
     <%= content_tag(:div, class: 'form-group col-lg-6') do %>
       <%= af.label :address_1, "Address Line 1" %>
-      <%= af.text_field :address_1, class: 'form-control' %>
+      <%= af.text_field :address_1, class: 'form-control', required: true %>
     <% end %>
   <% end %>
   <%= content_tag(:div, class: 'form-row') do %>
@@ -15,7 +15,7 @@
   <%= content_tag(:div, class: 'form-row') do %>
     <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= af.label :city, "City" %>
-      <%= af.text_field :city, class: 'form-control' %>
+      <%= af.text_field :city, class: 'form-control', required: true %>
     <% end %>
     <%= content_tag(:div, class: 'form-group col-lg-1') do %>
       <%= af.label :state, "State" %>
@@ -28,11 +28,11 @@
                                 NJ NM NY NC ND 
                                 OH OK OR PA RI 
                                 SC SD TN TX UT 
-                                VT VA WA WV WI WY), {}, class: 'form-control' )%>
+                                VT VA WA WV WI WY), {}, class: 'form-control', required: true )%>
     <% end %>
     <%= content_tag(:div, class: 'form-group col-lg-2') do %>
       <%= af.label :zip, "Zip Code" %>
-      <%= af.text_field :zip, class: 'form-control' %>
+      <%= af.text_field :zip, class: 'form-control', required: true %>
     <% end %>
   <% end %>
 <% end %>
