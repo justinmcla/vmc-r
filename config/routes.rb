@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:new, :create, :destroy]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :venues, only: [:show]
+  resources :venues, only: [:show], param: :slug
   namespace :admin do
     get '/', to: 'admin#index'
     resources :bookings, :employees
@@ -10,7 +10,7 @@ Rails.application.routes.draw do
       resources :point_of_contacts, only: [:destroy]
       resources :contacts, only: [:destroy]
     end
-    resources :venues do
+    resources :venues, param: :slug do
       resources :inventories do
         resources :items, only: [:new, :create, :edit, :update, :destroy]
       end
