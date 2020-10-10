@@ -1,4 +1,4 @@
-class Admin::PointOfContactsController < AdminController
+class Admin::PointOfContactsController < Admin::AdminController
 
     def destroy
         @organizer = current_user.organizers.find_by_id(params[:organizer_id])

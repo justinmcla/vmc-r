@@ -1,4 +1,4 @@
-class Admin::InventoriesController < AdminController
+class Admin::InventoriesController < Admin::AdminController
     before_action :set_venue
     before_action :set_inventory, only: [:show, :edit, :update, :destroy]
     def new

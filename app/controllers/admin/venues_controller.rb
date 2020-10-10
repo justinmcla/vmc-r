@@ -1,4 +1,4 @@
-class Admin::VenuesController < AdminController
+class Admin::VenuesController < Admin::AdminController
     layout 'admin'
     before_action :set_venue, only: [:show, :edit, :update, :destroy]
 
@@ -10,7 +10,7 @@ class Admin::VenuesController < AdminController
     def create
         @venue = current_user.venues.build(post_params)
         if @venue.save
-            redirect_to home_path
+            redirect_to admin_path
         else
             render :new
         end
@@ -25,7 +25,7 @@ class Admin::VenuesController < AdminController
     def update
         @venue.assign_attributes(post_params)
         if @venue.save
-            redirect_to home_path
+            redirect_to admin_path
         else
             render :edit
         end
@@ -33,7 +33,7 @@ class Admin::VenuesController < AdminController
 
     def destroy
         @venue.destroy
-        redirect_to home_path
+        redirect_to admin_path
     end
 
     private

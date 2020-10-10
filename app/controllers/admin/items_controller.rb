@@ -1,4 +1,4 @@
-class Admin::ItemsController < AdminController
+class Admin::ItemsController < Admin::AdminController
     before_action :set_venue_and_inventory
     before_action :set_item, only: [:edit, :update, :destroy]
 

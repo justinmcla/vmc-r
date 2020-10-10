@@ -1,4 +1,4 @@
-class Admin::TasksController < AdminController
+class Admin::TasksController < Admin::AdminController
     before_action :set_task, only: [:edit, :update, :destroy]
 
     def new
@@ -8,7 +8,7 @@ class Admin::TasksController < AdminController
     def create
         @task = current_user.tasks.build(post_params)
         if @task.save
-            redirect_to home_path
+            redirect_to admin_path
         else
             render :new
         end
@@ -20,7 +20,7 @@ class Admin::TasksController < AdminController
     def update
         @task.assign_attributes(post_params)
         if @task.save
-            redirect_to home_path
+            redirect_to admin_path
         else
             render :edit
         end
@@ -28,7 +28,7 @@ class Admin::TasksController < AdminController
 
     def destroy
         @task.destroy
-        redirect_to home_path
+        redirect_to admin_path
     end
 
     private

@@ -1,4 +1,4 @@
-class Admin::OrganizersController < AdminController
+class Admin::OrganizersController < Admin::AdminController
     before_action :set_organizer, only: [:show, :edit, :update, :destroy, :add_poc]
 
     def new
@@ -13,7 +13,7 @@ class Admin::OrganizersController < AdminController
         @organizer = current_user.organizers.build(post_params)
         if @organizer.save
             current_user.organizers << @organizer
-            redirect_to home_path
+            redirect_to admin_path
         else
             render :new
         end
@@ -41,12 +41,6 @@ class Admin::OrganizersController < AdminController
     def destroy
         @organizer.destroy
         redirect_to admin_organizers_path
-    end
-
-    def add_poc
-        @organizer.point_of_contacts.build
-        @organizer.point_of_contacts.last.contacts.build
-        render :edit
     end
 
     private

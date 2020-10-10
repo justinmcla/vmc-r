@@ -6,7 +6,7 @@ class SessionsController < ApplicationController
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
       session[:user_id] = @user.id
-      redirect_to home_path
+      redirect_to admin_path
     else
       redirect_to root_path
     end
@@ -22,7 +22,7 @@ class SessionsController < ApplicationController
       @user = User.create(name: @auth[:info], email: @auth[:info][:email], google_uid: @auth[:uid], password: @auth[:uid])
       session[:user_id] = @user.id
     end
-    redirect_to home_path
+    redirect_to admin_path
   end
 
   def destroy

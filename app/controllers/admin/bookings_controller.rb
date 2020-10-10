@@ -1,4 +1,4 @@
-class Admin::BookingsController < AdminController
+class Admin::BookingsController < Admin::AdminController
     before_action :set_booking, only: [:show, :edit, :update, :destroy]
 
     def new
@@ -35,7 +35,7 @@ class Admin::BookingsController < AdminController
 
     def destroy
         @booking.destroy
-        redirect_to home_path
+        redirect_to admin_path
     end
 
     private
