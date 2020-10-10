@@ -1,25 +1,22 @@
 <h1>Bookings</h1>
-
+<br>
+<%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>
+<br>
 <p>Filter by Organizer</p>
 <%= form_tag(admin_bookings_path, method: 'get') do %>
     <%= text_field_tag ( :query ) %>
     <%= submit_tag ("Filter") %>
 <% end %>
 <br>
-
-<%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>
-
-<br>
-
 <%= content_tag (:div) do %>
-    <% current_user.venues.each do |venue| %>
-        <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
-        <p>
-        <% @bookings.sort_by { |b| b.date }.each do |booking| %>
-          <% if booking.venue == venue %>
-            <%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", admin_booking_path(booking) %><br>
-          <% end %>
-        <% end %>
-        </p>
+  <% current_user.venues.each do |venue| %>
+    <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
+    <p>
+    <% @bookings.sort_by { |b| b.date }.each do |booking| %>
+      <% if booking.venue == venue %>
+        <%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", admin_booking_path(booking) %><br>
+      <% end %>
     <% end %>
+    </p>
+  <% end %>
 <% end %>
