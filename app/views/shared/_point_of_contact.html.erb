@@ -3,7 +3,7 @@
   <%= content_tag(:div, class: 'form-row') do %>
     <%= content_tag(:div, class: 'form-group col-md-6') do %>
       <%= pcf.label :name, "Name" %>
-      <%= pcf.text_field :name, class: 'form-control' %>
+      <%= pcf.text_field :name, class: 'form-control', required: true %>
     <% end %>
   <% end %>
   <%= render partial: 'shared/contact', locals: { f: pcf } %>

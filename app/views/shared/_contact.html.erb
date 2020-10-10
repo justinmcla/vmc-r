@@ -2,11 +2,11 @@
   <%= content_tag(:div, class: 'form-row') do %>
     <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= c.label :via, "Contact Method" %>
-      <%= c.select :via, %w(Email Phone), {}, class: 'form-control' %>
+      <%= c.select :via, %w(Email Phone), {}, class: 'form-control', required: true %>
     <% end %>
     <%= content_tag(:div, class: 'form-group col-lg-3') do %>
       <%= c.label :value, "Address/Phone" %>
-      <%= c.text_field :value, class: 'form-control' %>
+      <%= c.text_field :value, class: 'form-control', required: true %>
     <% end %>
   <% end %>
 <% end %>
