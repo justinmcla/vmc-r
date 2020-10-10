@@ -4,7 +4,7 @@
     <%= content_tag(:div, class: 'form-row') do %>
       <%= content_tag(:div, class: 'form-group col-lg-6') do %>
         <%= f.label :name, "Venue Name" %>
-        <%= f.text_field :name, class: 'form-control' %>
+        <%= f.text_field :name, class: 'form-control', required: true %>
       <% end %>
     <% end %>
     <%= content_tag(:div, class: 'form-row') do %>
@@ -14,17 +14,17 @@
       <% end %>
       <%= content_tag(:div, class: 'form-group col-lg-3') do %>
         <%= f.label :seats, "Seats" %>
-        <%= f.number_field :seats, class: 'form-control' %>
+        <%= f.number_field :seats, class: 'form-control', required: true %>
       <% end %>
     <% end %>
     <%= content_tag(:div, class: 'form-row') do %>
       <%= content_tag(:div, class: 'form-group col-lg-3') do %>
         <%= f.label :greenrooms, "Greenrooms" %>
-        <%= f.number_field :greenrooms, class: 'form-control' %>
+        <%= f.number_field :greenrooms, class: 'form-control', required: true %>
       <% end %>
       <%= content_tag(:div, class: 'form-group col-lg-3') do %>
         <%= f.label :dressing_rooms, "Dressing Rooms" %>
-        <%= f.number_field :dressing_rooms, class: 'form-control' %>
+        <%= f.number_field :dressing_rooms, class: 'form-control', required: true %>
       <% end %>
     <% end %>
     <%= render partial: 'shared/address', locals: { resource: @venue, f: f } %>
