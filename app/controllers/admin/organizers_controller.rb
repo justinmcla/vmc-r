@@ -56,7 +56,7 @@ class Admin::OrganizersController < AdminController
     end
 
     def post_params
-        params.require(:organizer).permit(:name, :url,
+        params.require(:organizer).permit(:name, :organization_type, :url,
                                             address_attributes: [
                                                 :id,
                                                 :address_1,
