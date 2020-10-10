@@ -1,5 +1,5 @@
 class VenuesController < ApplicationController    
     def show
-        @venue = Venue.find_by_id(params[:id])
+        @venue = Venue.find_by(slug: params[:slug])
     end
 end

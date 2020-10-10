@@ -39,7 +39,7 @@ class Admin::VenuesController < Admin::AdminController
     private
 
     def set_venue
-        @venue = current_user.venues.find_by_id(params[:id])
+        @venue = current_user.venues.find_by(slug: params[:slug])
     end
 
     def post_params

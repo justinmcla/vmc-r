@@ -39,7 +39,7 @@ class Admin::ItemsController < Admin::AdminController
     end
 
     def set_venue_and_inventory
-        @venue = current_user.venues.find_by_id(params[:venue_id])
+        @venue = current_user.venues.find_by(slug: params[:venue_slug])
         @inventory = @venue.inventories.find_by_id(params[:inventory_id])
     end
 
