@@ -29,6 +29,13 @@
     <% end %>
     <%= render partial: 'shared/address', locals: { resource: @venue, f: f } %>
     <br>
+    <h3>Venue Images</h3>
+    <%= content_tag(:div, class: 'form-row') do %>
+      <%= content_tag(:div, class: 'form-group col-lg-6') do %>
+        <%= f.label :images, "Upload Images" %>
+        <%= f.file_field :images, multiple: true, class: 'form-control' %>
+      <% end %>
+    <% end %>
     <%= f.submit class: 'btn' %>
   <% end %>
 <% end %>
