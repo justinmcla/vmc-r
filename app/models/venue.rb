@@ -11,6 +11,8 @@ class Venue < ApplicationRecord
     has_many :bookings
     has_many :organizers, through: :bookings
     has_many :inventories
+    has_many_attached :images
+    validate :image_check
 
     def to_param
         slug
@@ -26,6 +28,12 @@ class Venue < ApplicationRecord
             break unless Venue.where(slug: slug).exists?
             self.slug = slugged + counter.to_s
             counter += 1
+        end
+    end
+
+    def image_check
+        images.each do |image|
+            errors[:images] << 'should be less than 1 MB' if image.byte_size > 1.megabytes
         end
     end
 end
