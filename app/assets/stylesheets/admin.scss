@@ -104,6 +104,17 @@ nav {
             color: #c4c4c4;
         }
 
+        ::-webkit-file-upload-button {
+            background-color: #2D2D2D;
+            color: #c4c4c4;
+            border: 1 px solid #c4c4c4;
+        }
+
+        ::-webkit-file-upload-button:hover {
+            color: #ff0;
+            border-color: #ff0;
+        }
+
         .col {
             max-width: 30%;
             min-width: 200px;
