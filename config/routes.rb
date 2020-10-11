@@ -15,6 +15,7 @@ Rails.application.routes.draw do
         resources :items, only: [:new, :create, :edit, :update, :destroy]
       end
     end
+    resources :attachments, only: [:destroy]
   end
   get '/auth/:provider/callback', to: 'sessions#omniauth'
   root 'static#index'
