@@ -43,7 +43,18 @@ class Admin::VenuesController < Admin::AdminController
     end
 
     def post_params
-        params.require(:venue).permit(:name, :configuration, :seats, :greenrooms, :dressing_rooms, 
-                                        address_attributes: [:id, :address_1, :address_2, :city, :state, :zip])
+        params.require(:venue).permit(:name, 
+                                      :configuration, 
+                                      :seats, 
+                                      :greenrooms, 
+                                      :dressing_rooms, 
+                                      images: [],
+                                      address_attributes: [
+                                          :id, 
+                                          :address_1, 
+                                          :address_2, 
+                                          :city, 
+                                          :state, 
+                                          :zip])
     end
 end
