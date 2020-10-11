@@ -12,6 +12,10 @@
     Seats: <%= @venue.seats %><br>
     Dressing Rooms: <%= @venue.dressing_rooms %><br>
     Greenrooms: <%= @venue.greenrooms %></p>
+    <h4>Attached Images</h4>
+    <% @venue.images.each do |image| %>
+      <%= link_to image.filename, image %><br>
+    <% end %>
   <% end %>  
   <%= content_tag(:div, class: 'col') do %>
     <h3>Bookings</h3>
