@@ -32,10 +32,11 @@
     <h3>Venue Images</h3>
     <%= content_tag(:div, class: 'form-row') do %>
       <%= content_tag(:div, class: 'form-group col-lg-6') do %>
-        <%= f.label :images, "Upload Images" %>
-        <%= f.file_field :images, multiple: true, class: 'form-control-file' %>
+        <%= f.label :images, "Upload Images (must be < 1 MB and .PNG, .JPG, or .JPEG" %>
+        <%= f.file_field :images, multiple: true, accept: 'image/png, image/jpeg', class: 'form-control-file' %>
       <% end %>
     <% end %>
+    <br>
     <%= f.submit class: 'btn' %>
   <% end %>
 <% end %>
