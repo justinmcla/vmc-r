@@ -19,7 +19,7 @@ class Admin::VenuesController < Admin::AdminController
 
   def update
     @venue.assign_attributes(update_params)
-    params[:venue][:images].each { |image| @venue.images.attach(image) }
+    params[:venue][:images].each { |image| @venue.images.attach(image) } if params[:venue][:images]
     @venue.save ? (redirect_to admin_path) : (render :edit)
   end
 
