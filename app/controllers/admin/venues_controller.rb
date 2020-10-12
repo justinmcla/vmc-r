@@ -18,7 +18,8 @@ class Admin::VenuesController < Admin::AdminController
   end
 
   def update
-    @venue.assign_attributes(post_params)
+    @venue.assign_attributes(update_params)
+    params[:venue][:images].each { |image| @venue.images.attach(image) }
     @venue.save ? (redirect_to admin_path) : (render :edit)
   end
 
@@ -47,5 +48,20 @@ class Admin::VenuesController < Admin::AdminController
                                           :city, 
                                           :state, 
                                           :zip])
+  end
+
+  def update_params
+    params.require(:venue).permit(:name,
+                                  :configuration,
+                                  :seats,
+                                  :greenrooms,
+                                  :dressing_rooms,
+                                  address_attributes: [
+                                      :id,
+                                      :address_1,
+                                      :address_2,
+                                      :city,
+                                      :state,
+                                      :zip])
   end
 end
