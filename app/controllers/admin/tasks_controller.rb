@@ -15,7 +15,7 @@ class Admin::TasksController < Admin::AdminController
 
   def update
     @task.assign_attributes(post_params)
-    @task.save ? (redirect_to admin_path) : render :edit
+    @task.save ? (redirect_to admin_path) : (render :edit)
   end
 
   def destroy
