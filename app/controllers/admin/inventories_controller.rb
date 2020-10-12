@@ -1,50 +1,43 @@
 class Admin::InventoriesController < Admin::AdminController
-    before_action :set_venue
-    before_action :set_inventory, only: [:show, :edit, :update, :destroy]
-    def new
-        @inventory = @venue.inventories.build
-    end
+  before_action :set_venue
+  before_action :set_inventory, only: [:show, :edit, :update, :destroy]
 
-    def create
-        @inventory = @venue.inventories.build(post_params)
-        if @inventory.save
-            redirect_to admin_venue_path(@venue)
-        else
-            render :new
-        end
-    end
+  def new
+    @inventory = @venue.inventories.build
+  end
 
-    def show
-    end
+  def create
+    @inventory = @venue.inventories.build(post_params)
+    @inventory.save ? (redirect_to admin_venue_path(@venue)) : (render :new)
+  end
 
-    def edit
-    end
+  def show
+  end
 
-    def update
-        @inventory.assign_attributes(post_params)
-        if @inventory.save
-            redirect_to admin_venue_inventory_path(@venue, @inventory)
-        else
-            render :edit
-        end
-    end
+  def edit
+  end
 
-    def destroy
-        @inventory.destroy
-        redirect_to admin_venue_path(@venue)
-    end
+  def update
+    @inventory.assign_attributes(post_params)
+    @inventory.save ? (redirect_to admin_venue_inventory_path(@venue, @inventory)) : (render :edit) 
+  end
 
-    private
+  def destroy
+    @inventory.destroy
+    redirect_to admin_venue_path(@venue)
+  end
 
-    def set_venue
-        @venue = current_user.venues.find_by(slug: params[:venue_slug])
-    end
+  private
 
-    def set_inventory
-        @inventory = @venue.inventories.find_by_id(params[:id])
-    end
+  def set_venue
+    @venue = current_user.venues.find_by(slug: params[:venue_slug])
+  end
 
-    def post_params
-        params.require(:inventory).permit(:name, :venue_id)
-    end
+  def set_inventory
+    @inventory = @venue.inventories.find_by_id(params[:id])
+  end
+
+  def post_params
+    params.require(:inventory).permit(:name, :venue_id)
+  end
 end
