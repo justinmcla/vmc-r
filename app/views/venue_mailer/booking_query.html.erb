@@ -1,19 +1,20 @@
-<!DOCTYPE html>
-<html>
-  <head>
-    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
-  </head>
-  <body>
-    <h1>Hi, <%= @admin.name %>!</h1>
-    <h3>You just received a query from someone on <a href="https://www.venuemc.com">VenueMC.com</a>!</h3>
-    <p>
-      Name: <%= @sender[:name] %><br>
-      Email: <%= @sender[:email] %><br>
-      In reference to: <%= @venue.name %>
-    </p>
-    <p>
-      Message: <%= @sender[:message] %>
-    </p>
-    <p>Thanks for continuing to use VenueMC!</p>
-  </body>
-</html>
+<div style = "margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+              border: 2px #0ff solid;
+              padding-left: 30px;
+              padding-right: 30px;">
+<h1 style = "text-align: center;
+             border-bottom: 2px #0ff solid;
+             padding-bottom: 15px;">BOOKING REQUEST</h1>
+<p>
+    NAME<br>
+    <%= @sender[:name] %><br><br>
+    EMAIL<br>
+    <%= @sender[:email] %><br><br>
+    VENUE<br>
+    <%= @venue.name %><br><br>
+    MESSAGE<br>
+    <%= @sender[:message] %>
+</p>
+</div>
