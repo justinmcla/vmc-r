@@ -1,0 +1,20 @@
+<div style = "margin-left: auto;
+              margin-right: auto;
+              width: 50%;
+              border: 2px #0ff solid;
+              padding-left: 30px;
+              padding-right: 30px;">
+<h1 style = "text-align: center;
+             border-bottom: 2px #0ff solid;
+             padding-bottom: 15px;">BOOKING REQUEST</h1>
+<p>
+    NAME<br>
+    <%= @sender[:name] %><br><br>
+    EMAIL<br>
+    <%= @sender[:email] %><br><br>
+    VENUE<br>
+    <%= @venue.name %><br><br>
+    MESSAGE<br>
+    <%= @sender[:message] %>
+</p>
+</div>

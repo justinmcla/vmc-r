@@ -7,7 +7,15 @@
     </style>
   </head>
 
-  <body>
+  <body style = "background-color: #2d2d2d; 
+                 color: #c4c4c4; 
+                 font-family: Helvetica, Arial, sans-serif;
+                 margin-top: 30px;
+                 margin-bottom: 30px;">
+  <div style = "text-align: center;">
+    <%= link_to image_tag(attachments['VMC.png'].url, :style => 'display: block; margin-left: auto; margin-right: auto; width: 50%;'), 'https://www.venuemc.com' %></div>
     <%= yield %>
+  <p style = "text-align: center;
+            font-size: smaller;">Thank you for using VMC.</p>
   </body>
 </html>
