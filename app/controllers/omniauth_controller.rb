@@ -10,6 +10,7 @@ class OmniauthController < ApplicationController
                           email: @auth[:info][:email], 
                           google_uid: @auth[:uid], 
                           password: @auth[:uid])
+      UserMailer.with(user: @user).welcome_letter.deliver_now
       session[:user_id] = @user.id
     end
       redirect_to admin_path
