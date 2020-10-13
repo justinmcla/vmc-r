@@ -1,7 +1,7 @@
 <%= content_tag(:div, class: "banner") do %>
 <h1>VMC</h1>
 <br><br>
-
+<%= render partial: 'shared/flash_errors', locals: { flash: flash } if flash[:error] %>
 <div id="accordion">
 
     <div>
@@ -38,7 +38,7 @@
 
         <div id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordion">
             <div class="card-body">
-                <%= form_with model: User.new do |f| %>
+                <%= form_for @user do |f| %>
                     <%= f.label :name, "Name", class: "sr-only" %><br>
                     <%= f.text_field :name, placeholder: "Name", required: true %><br>
                     <%= f.label :email, "Email Address", class: "sr-only" %><br>
