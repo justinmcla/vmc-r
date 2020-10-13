@@ -1,0 +1,9 @@
+<h1>Inventories</h1>
+<% @venues.each do | venue| %>
+  <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
+  <p>
+  <% venue.inventories.each do |inventory | %>
+    <%= link_to inventory.name, admin_venue_inventory_path(venue, inventory) %><br>
+  <% end %>
+  </p>
+<% end %>
