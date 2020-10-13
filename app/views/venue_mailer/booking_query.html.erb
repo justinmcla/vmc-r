@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
+  </head>
+  <body>
+    <h1>Hi, <%= @admin.name %>!</h1>
+    <h3>You just received a query from someone on <a href="https://www.venuemc.com">VenueMC.com</a>!</h3>
+    <p>
+      Name: <%= @sender[:name] %><br>
+      Email: <%= @sender[:email] %><br>
+      In reference to: <%= @venue.name %>
+    </p>
+    <p>
+      Message: <%= @sender[:message] %>
+    </p>
+    <p>Thanks for continuing to use VenueMC!</p>
+  </body>
+</html>
