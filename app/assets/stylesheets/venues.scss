@@ -10,3 +10,30 @@ body {
 p {
     font-size: 1.3rem;
 }
+
+.form-control {
+    background-color: transparent;
+    border-radius: 0;
+    border: none;
+    border-bottom: 1px solid #c4c4c4;
+    color: #c4c4c4;
+}
+
+.form-control:focus { 
+    background-color: transparent;
+    border-radius: 0;
+    outline: transparent;
+    border: 1px solid #f0f;
+    color: #c4c4c4;
+}
+
+.btn {
+    border: 1px solid #c4c4c4;
+    border-radius: 0;
+    color: #c4c4c4
+}
+
+.btn:hover {
+    border-color: #0ff;
+    color: #0ff;
+}
