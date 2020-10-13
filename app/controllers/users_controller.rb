@@ -9,6 +9,7 @@ class UsersController < ApplicationController
       session[:user_id] = @user.id
       redirect_to admin_path
     else
+      flash[:error] = @user.errors.to_a
       redirect_to root_path
     end
   end
