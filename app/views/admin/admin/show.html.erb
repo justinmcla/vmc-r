@@ -1,0 +1,12 @@
+<h1>Account Settings</h1>
+<br>
+<%= content_tag(:div, class: 'row') do %>
+  <%= content_tag(:div, class: 'col') do %>
+    <p>Name: <%= current_user.name %></p>
+    <p>Email: <%= current_user.email %></p>
+    <p>Member Since: <%= current_user.created_at.strftime("%B %Y") %></p>
+  <% end %>
+  <%= content_tag(:div, class: 'col') do %>
+    <%= button_to "Edit Settings", edit_admin_user_path(current_user), method: 'get', class: 'btn' %>
+  <% end %>
+<% end %>
