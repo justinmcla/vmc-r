@@ -5,6 +5,8 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
+      @user.slug ||= SecureRandom.uuid
+      @user.save
       session[:slug] = @user.slug
       redirect_to admin_path
     elsif @user && @user.google_uid

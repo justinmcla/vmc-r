@@ -4,6 +4,8 @@ class OmniauthController < ApplicationController
     @user = User.find_by(email: @auth[:info][:email])
     if @user
       @user.google_uid ||= @auth[:uid]
+      @user.slug ||= SecureRandom.uuid
+      @user.save
       session[:slug] = @user.slug
     else
       @user = User.create(name: @auth[:info][:name], 
