@@ -1,11 +1,18 @@
-Hi, <%= @admin.name %>!
+                       VMC
+##################################################
+                 BOOKING REQUEST
 
-You just received a query from someone on VenueMC.com!
+    NAME
+    <%= @sender[:name] %>
 
-    Name: <%= @sender[:name] %>
-    Email: <%= @sender[:email] %>
-    In reference to: <%= @venue.name %>
+    EMAIL
+    <%= @sender[:email] %>
 
-    Message: <%= @sender[:message] %>
+    VENUE
+    <%= @venue.name %>
 
-Thanks for continuing to use VenueMC!
+    MESSAGE 
+    <%= @sender[:message] %>
+
+##################################################
+             Thank you for using VMC.
