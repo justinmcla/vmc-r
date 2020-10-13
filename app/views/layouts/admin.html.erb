@@ -22,6 +22,7 @@
     <%= content_tag(:div, class: 'quick-link-bar') do %>
       <h4>Quick Links</h4>
         <%= content_tag(:div, class: 'link-list') do %>
+          <%= link_to "Inventories", admin_inventories_path %><br>
           <div class = "dropdown">
               <a class = "dropdown-toggle" href = "#" id = "dropdownMenuButton" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >New Resource</a>
               <div class = "dropdown-menu" aria-labelledby = "dropdownMenuButton">
