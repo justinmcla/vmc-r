@@ -1,7 +1,6 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <link href="https://fonts.googleapis.com/css2?family=Lato&family=Lexend+Deca&family=Lexend+Giga&display=swap" rel="stylesheet">
     <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
     <style>
       /* Email styles need to be inline */
@@ -14,11 +13,7 @@
                  margin-top: 30px;
                  margin-bottom: 30px;">
   <div style = "text-align: center;">
-    <a style = "text-decoration: none;
-                font-size: 4rem;
-                color: #0ff;
-                margin-bottom: 15px;
-                font-family: Lexend Giga, Helvetica;" href = "https://www.venuemc.com">VMC</a></div>
+    <%= link_to image_tag(attachments['VMC.png'].url, :style => 'display: block; margin-left: auto; margin-right: auto; width: 50%;'), 'https://www.venuemc.com' %></div>
     <%= yield %>
   <p style = "text-align: center;
             font-size: smaller;">Thank you for using VMC.</p>
