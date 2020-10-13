@@ -11,6 +11,10 @@ class Admin::InventoriesController < Admin::AdminController
     @inventory.save ? (redirect_to admin_venue_path(@venue)) : (render :new)
   end
 
+  def index
+    @venues = current_user.venues
+  end
+
   def show
   end
 
