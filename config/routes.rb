@@ -10,6 +10,7 @@ Rails.application.routes.draw do
       resources :point_of_contacts, only: [:destroy]
       resources :contacts, only: [:destroy]
     end
+    resources :inventories, only: [:index]
     resources :venues, param: :slug do
       resources :inventories do
         resources :items, only: [:new, :create, :edit, :update, :destroy]
