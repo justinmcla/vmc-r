@@ -60,11 +60,22 @@ Rails.application.configure do
   # config.active_job.queue_adapter     = :resque
   # config.active_job.queue_name_prefix = "vmc_r_production"
 
+  # Production Action Mailer settings
+  config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.asset_host = { host: 'venuemc.com', protocol: 'https' }
   config.action_mailer.perform_caching = false
+  config.action_mailer.perform_deliveries = true
+  config.action_mailer.default_url_options = { host: 'venuemc.com', protocol: 'https' }
+  config.action_mailer.delivery_method = :smtp
 
-  # Ignore bad email addresses and do not raise email delivery errors.
-  # Set this to true and configure the email server for immediate delivery to raise delivery errors.
-  # config.action_mailer.raise_delivery_errors = false
+  config.action_mailer.smtp_settings = {
+    address: ENV['AWS_SMTP_SERVER'],
+    port: 587,
+    user_name: ENV['AWS_SMTP_USERNAME'],
+    password: ENV['AWS_SMTP_PASSWORD'],
+    authentication: :login,
+    enable_starttls_auto: true
+  }
 
   # Enable locale fallbacks for I18n (makes lookups for any locale fall back to
   # the I18n.default_locale when a translation cannot be found).
