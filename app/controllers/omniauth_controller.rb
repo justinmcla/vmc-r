@@ -4,14 +4,14 @@ class OmniauthController < ApplicationController
     @user = User.find_by(email: @auth[:info][:email])
     if @user
       @user.google_uid ||= @auth[:uid]
-      session[:user_id] = @user.id
+      session[:slug] = @user.slug
     else
       @user = User.create(name: @auth[:info][:name], 
                           email: @auth[:info][:email], 
                           google_uid: @auth[:uid], 
-                          password: @auth[:uid])
+                          password: SecureRandom.uuid)
       UserMailer.with(user: @user).welcome_letter.deliver_now
-      session[:user_id] = @user.id
+      session[:slug] = @user.slug
     end
       redirect_to admin_path
   end

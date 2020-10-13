@@ -1,9 +1,11 @@
 Rails.application.routes.draw do
-  resources :users, only: [:new, :create, :destroy]
+  resources :users, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
   resources :venues, only: [:show, :update], param: :slug
   namespace :admin do
     get '/', to: 'admin#index'
+    get '/settings', to: 'admin#show'
+    resources :users, param: :slug, only: [:edit, :update, :destroy]
     resources :bookings, :employees
     resources :tasks,  only: [:new, :create, :edit, :update, :destroy]
     resources :organizers do

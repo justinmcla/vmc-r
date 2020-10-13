@@ -6,7 +6,7 @@ class UsersController < ApplicationController
     @user = User.new(post_params)
     if @user.save
       UserMailer.with(user: @user).welcome_letter.deliver_now
-      session[:user_id] = @user.id
+      session[:slug] = @user.slug
       redirect_to admin_path
     else
       flash[:error] = @user.errors.to_a

@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2020_10_11_041957) do
+ActiveRecord::Schema.define(version: 2020_10_13_215302) do
 
   create_table "active_storage_attachments", force: :cascade do |t|
     t.string "name", null: false
@@ -144,6 +144,8 @@ ActiveRecord::Schema.define(version: 2020_10_11_041957) do
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
     t.string "google_uid"
+    t.string "slug"
+    t.index ["slug"], name: "index_users_on_slug", unique: true
   end
 
   create_table "venues", force: :cascade do |t|

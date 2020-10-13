@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     if @user && @user.authenticate(params[:password])
-      session[:user_id] = @user.id
+      session[:slug] = @user.slug
       redirect_to admin_path
     elsif @user && @user.google_uid
       flash[:error] = 'This account was created with Google. Please sign in with Google.'
