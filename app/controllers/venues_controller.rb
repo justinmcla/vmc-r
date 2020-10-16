@@ -1,5 +1,9 @@
 class VenuesController < ApplicationController    
-  before_action :set_venue
+  before_action :set_venue, only: [:show, :update]
+
+  def index
+    @venues = venue_search.includes(:address)
+  end
 
   def show
     @images = @venue.images
@@ -20,5 +24,16 @@ class VenuesController < ApplicationController
 
   def set_venue
     @venue = Venue.find_by(slug: params[:slug])
+  end
+
+  def venue_search
+    Venue.joins(:address).where("lower(name) LIKE ? OR 
+                                 lower(city) LIKE ? OR 
+                                 lower(state) LIKE ? OR 
+                                 lower(zip) LIKE ?", 
+                                 params[:name], 
+                                 params[:city], 
+                                 params[:state], 
+                                 params[:zip])
   end
 end
