@@ -20,6 +20,8 @@ Rails.application.routes.draw do
     end
     resources :attachments, only: [:destroy]
   end
+  match '/404', to: 'errors/not_found#show', via: :all
+  match '/500', to: 'errors/internal_server_error#show', via: :all
   get '/auth/:provider/callback', to: 'omniauth#create'
   root 'static#index'
   # For details on the DSL available within this file, see https://guides.rubyonrails.org/routing.html

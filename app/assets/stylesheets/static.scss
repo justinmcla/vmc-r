@@ -1,6 +1,10 @@
 // Place all the styles related to the Static controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: https://sass-lang.com/
+html {
+  width: 100%;
+}
+
 body {
     overflow: hidden;
     background: url(landing.png) no-repeat center center fixed;
@@ -80,4 +84,34 @@ input:focus {
     text-align: center;
     margin-left: 1rem;
     margin-right: 1rem;
+}
+
+h1, h3 {
+  color: #0ff;
+}
+
+#nested_container {
+  background-color: rgba(0,0,0,0.75);
+  max-width: 75%;
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+
+  @media screen and (max-width: 991.98px) {
+    display: flex;
+    flex-direction: column;
+    width: 100%;    
+  }
+
+  p {
+    color: #e1e1e1;
+  }
+
+  a { 
+    color: #e1e1e1;
+  }
+
+  a:hover {
+    color: #0ff;
+    text-decoration: none;
+  }
 }

@@ -1,0 +1,11 @@
+<%= content_tag(:div, class: 'container text-center') do %>
+  <%= image_tag 'VMC.png', class: 'mx-auto d-block my-3' %>
+  <h1>Oops... Something's missing here.</h1>
+  <br><br>
+  <%= content_tag(:div, class: 'container', id: 'nested_container') do %>
+  <h3>Venue Managers</h3>
+  <p>Try heading <%=link_to "home", admin_path %>?</p>
+  <h3>Looking for a Venue?</h3>
+  <p>Try our venue search page here!</p>
+  <% end %>
+<% end %>
