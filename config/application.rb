@@ -17,5 +17,6 @@ module VmcR
     # the framework and any gems in your application.
 
     config.action_mailer.preview_path = "#{Rails.root}/lib/mailer_previews"
+    config.exceptions_app = self.routes
   end
 end
