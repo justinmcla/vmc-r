@@ -1,7 +1,7 @@
 Rails.application.routes.draw do
   resources :users, only: [:create]
   resources :sessions, only: [:new, :create, :destroy]
-  resources :venues, only: [:show, :update], param: :slug
+  resources :venues, only: [:index, :show, :update], param: :slug
   namespace :admin do
     get '/', to: 'admin#index'
     get '/settings', to: 'admin#show'
