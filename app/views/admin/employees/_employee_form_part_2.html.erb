@@ -1,0 +1,27 @@
+<div class = 'form-row'>
+  
+  <% start_date_locals = {
+    f:          f,
+    attribute:  :start_date,
+    label:      'Start Date',
+    classes:    'form-group col-md-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/date', locals: start_date_locals %>
+
+</div>
+
+<div class = 'form-row'>
+
+  <% end_date_locals = {
+    f:          f,
+    attribute:  :end_date,
+    label:      'End Date',
+    classes:    'form-group col-md-3',
+    required:   false
+  } %>
+
+  <%= render partial: 'shared/forms/date', locals: end_date_locals %>
+
+</div>

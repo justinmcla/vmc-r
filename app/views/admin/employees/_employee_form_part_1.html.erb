@@ -1,0 +1,13 @@
+<div class = 'form-row'>
+
+  <% employee_name_locals = {
+    f:          f,
+    label:      'Employee Name',
+    attribute:  :name,
+    required:   true,
+    classes:    'form-group col-md-3'
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: employee_name_locals %>
+
+</div>

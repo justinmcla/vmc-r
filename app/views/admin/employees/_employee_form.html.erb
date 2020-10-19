@@ -1,0 +1,22 @@
+<%= render partial: 'shared/errors', locals: { resource: @employee } %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @employee ] do |f| %>
+
+    <!-- EMPLOYEE NAME -->
+    <%= render partial: 'employee_form_part_1', locals: { f: f } %>
+
+    <!-- START & END date -->
+    <%= render partial: 'employee_form_part_2', locals: { f: f } %>
+
+    <!-- HOURLY RATE -->
+    <%= render partial: 'employee_form_part_3', locals: { f: f } %>
+
+    <br>
+
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

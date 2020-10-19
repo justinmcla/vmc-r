@@ -1,0 +1,37 @@
+<div class = 'form-row'>
+
+  <% event_name_locals = {
+    f:          f,
+    attribute:  :name,
+    label:      'Event Name',
+    classes:    'form-group col-lg-6',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: event_name_locals %>
+
+</div>
+
+<div class = 'form-row'>
+
+  <% event_type_locals = {
+    f:          f,
+    attribute:  :event_type,
+    label:      'Event Type',
+    options:    %w(Performance Lecture/Workshop Concert Reception/Fundraiser),
+    classes:    'form-group col-lg-3',
+  } %>
+
+  <%= render partial: 'shared/forms/option_select', locals: event_type_locals %>
+
+  <% date_locals = {
+    f: f,
+    attribute: :date,
+    label: 'Date',
+    classes: 'form-group col-lg-3',
+    required: true
+  } %>
+
+  <%= render partial: 'shared/forms/date', locals: date_locals %>
+
+</div>

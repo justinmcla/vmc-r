@@ -1,0 +1,15 @@
+<div class = 'col'>
+
+  <%= display_address(@organizer) %>
+
+  <p>Type: <%= @organizer.organization_type %></p>
+  
+  <% @organizer.contacts.each do |contact| %>
+  
+    <p><%= contact.via %>: <%= contact.value %><br>
+  
+    <%= link_to "Delete Contact", admin_organizer_contact_path(@organizer, contact), method: 'delete' %></p>
+  
+  <% end %>
+
+</div>

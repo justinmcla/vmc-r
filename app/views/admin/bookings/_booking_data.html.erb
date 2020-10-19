@@ -1,0 +1,25 @@
+<h3><%= @booking.name %></h3>
+
+<p><%= @booking.venue.name %><br>
+
+<%= @booking.date.strftime("%B %-d, %Y") %> at <%= @booking.event_time.strftime("%l:%M %p") %></p>
+
+
+<h3><%= @booking.organizer.name %></h3>
+
+<p>Organizer</p>
+
+
+<h3><%= @booking.event_type %></h3>
+
+<p>Type</p>
+
+
+<h3><%= @booking.attendance %></h3>
+
+<p>Attendance</p>
+
+
+<h3>Notes</h3>
+
+<p><%= @booking.description.blank? ? "No notes." : @booking.description %></p>

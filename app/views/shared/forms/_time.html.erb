@@ -1,0 +1,24 @@
+<!-- 
+Form value must be explicitly assigned using .strftime
+when using flatpickr, otherwise the default time will be
+taken from the date portion of the datetime type.
+
+To avoid a nilClass error, the form value is only 
+explicitly assigned when a time exists in the resource's time column.
+-->
+
+<div class = '<%= classes %>'>
+  <%= f.label attribute, label %>
+
+  <% if resource.send(attribute) %>
+
+    <%= f.text_field attribute, data: { behavior: 'timepickr' }, 
+    value: resource.send(attribute).strftime('%H:%M:%S'), class: 'form-control' %>
+
+  <% else %>
+
+    <%= f.text_field attribute, data: { behavior: 'timepickr' }, 
+    class: 'form-control' %>
+
+  <% end %>
+</div>

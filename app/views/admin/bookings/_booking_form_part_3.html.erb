@@ -1,0 +1,36 @@
+<div class = 'form-row'>
+
+  <% access_time_locals = {
+    f:          f,
+    resource:   @booking,
+    attribute:  :access_time,
+    label:      'Access Time',
+    classes:    'form-group col-lg-2'
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/time', locals: access_time_locals %>
+
+  <% event_time_locals = {
+    f:          f,
+    resource:   @booking,
+    attribute:  :event_time,
+    label:      'Event Time',
+    classes:    'form-group col-lg-2'
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/time', locals: event_time_locals %>
+
+  <% exit_time_locals {
+    f:          f,
+    resource:   @booking,
+    attribute:  :exit_time,
+    label:      'Exit Time',
+    classes:    'form-group col-lg-2',
+    required:   true
+  }>
+
+  <%= render partial: 'shared/forms/time', locals: exit_time_locals %> 
+
+</div>

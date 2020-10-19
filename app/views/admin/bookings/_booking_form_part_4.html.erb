@@ -1,0 +1,37 @@
+<div class = 'form-row'>
+
+  <% attendance_locals = {
+    f:          f,
+    attribute:  :attendance,
+    label:      'Attendance',
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/number', locals: attendance_locals %>
+  
+  <% daily_rate_locals = {
+    f:          f,
+    attribute:  :daily_rate,
+    label:      'Daily Rate',
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/number', locals: daily_rate_locals %>
+
+</div>
+
+<div class = 'form-row'>
+
+  <% description_locals = {
+    f:          f,
+    attribute:  :description,
+    label:      'Notes',
+    classes:    'form-group col-lg-6',
+    required:   false
+  } %>
+
+  <%= render partial: 'shared/forms/textarea', locals: description_locals %>
+
+</div>

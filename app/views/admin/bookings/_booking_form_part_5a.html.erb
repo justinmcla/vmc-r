@@ -1,0 +1,30 @@
+<div class = 'form-row'>
+
+  <% recurring_locals = {
+    f:          f,
+    attribute:  :recurring,
+    label:      'Recurring'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: recurring_locals %>
+
+  <% catering_locals = {
+    f:          f,
+    attribute:  :catering,
+    label:      'Catering'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: catering_locals %>
+
+  <% alcohol_locals = {
+    f:          f,
+    attribute:  :alcohol,
+    label:      'Alcohol'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: alcohol_locals %>
+
+</div>

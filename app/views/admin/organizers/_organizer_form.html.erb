@@ -1,0 +1,24 @@
+<%= render partial: 'shared/errors', locals: { resource: @organizer } %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @organizer ] do |f| %>
+
+    <!-- ORGANIZER NAME & TYPE -->
+    <%= render partial: 'organizer_form_part_1', locals: { f: f } %>
+
+    <!-- ORGANIZER URL -->
+    <%= render partial: 'organizer_form_part_2', locals: { f: f } %>
+    
+    <%= render partial: 'shared/address', locals: { resource: @organizer, f: f } %>
+    <%= render partial: 'shared/contact', locals: { f: f } %>
+
+    <%= render partial: 'shared/point_of_contact', locals: { f: f} %>
+
+    <br>
+
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

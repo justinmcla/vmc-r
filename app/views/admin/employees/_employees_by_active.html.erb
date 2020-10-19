@@ -1,0 +1,17 @@
+<h3>Active Employees</h3>
+
+<% current_user.employees.active.sort_by { |employee| employee.name }.each do |employee| %>
+
+    <%= link_to employee.name, admin_employee_path(employee) %><br>
+
+<% end %>
+
+<br>
+
+<h3>Inactive Employees</h3>
+
+<% current_user.employees.inactive.sort_by { |employee| employee.name }.each do |employee| %>
+
+  <%= link_to employee.name, admin_employee_path(employee) %><br>
+  
+<% end %>

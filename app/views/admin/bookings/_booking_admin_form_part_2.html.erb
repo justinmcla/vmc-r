@@ -1,0 +1,7 @@
+<h4>Shift Coverage</h4>
+
+<%= f.collection_check_boxes(:employee_ids, current_user.employees, :id, :name) do |employee| %>
+
+  <%= employee.check_box + ' ' + employee.label %><br>
+
+<% end %>

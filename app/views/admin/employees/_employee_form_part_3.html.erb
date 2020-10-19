@@ -1,0 +1,13 @@
+<div class = 'form-row'>
+
+  <% hourly_rate_locals = {
+    f:          f,
+    label:      'Hourly Rate',
+    attribute:  :rate,
+    classes:    'form-group col-md-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: hourly_rate_locals %>
+
+</div>

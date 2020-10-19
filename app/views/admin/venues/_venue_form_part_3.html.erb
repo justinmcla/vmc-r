@@ -1,0 +1,23 @@
+<div class = 'form-row'>
+
+  <% greenroom_locals = {
+    f:          f,
+    attribute:  :greenrooms,
+    label:      'Greenrooms',
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/number', locals: greenroom_locals %>
+
+  <% dressing_room_locals = {
+    f:          f,
+    attribute:  :dressing_rooms,
+    label:      'Dressing Rooms',
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/number', locals: dressing_room_locals %>
+
+</div>

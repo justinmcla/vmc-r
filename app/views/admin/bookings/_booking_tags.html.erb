@@ -1,0 +1,23 @@
+<h3>Tags</h3>
+
+<ul>
+
+  <%= content_tag(:li, "Recurring") if @booking.recurring? %>
+
+  <%= content_tag(:li, "Catering") if @booking.catering %>
+
+  <%= content_tag(:li, "Alcohol") if @booking.alcohol %>
+  
+  <%= content_tag(:li, "Stage Lighting") if @booking.lighting %>
+  
+  <%= content_tag(:li, "Spotlight") if @booking.spotlight %>
+  
+  <%= content_tag(:li, "Amplified Sound") if @booking.sound %>
+  
+  <%= content_tag(:li, "Microphones") if @booking.microphones %>
+  
+  <%= content_tag(:li, "Road Closure") if @booking.road_closure %>
+  
+  <%= content_tag(:li, "Event Security") if @booking.security %>
+
+</ul>

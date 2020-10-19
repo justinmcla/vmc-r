@@ -1,0 +1,33 @@
+<%= render partial: 'shared/errors', locals: { resource: @task} %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @task ] do |f| %>
+
+    <% name_locals = {
+      f:          f,
+      attribute:  :name,
+      label:      'Name',
+      classes:    'form-group col-lg-6',
+      required:   true
+    } %>
+
+    <%= render partial: 'shared/forms/text', locals: name_locals %>
+
+    <% notes_locals = {
+      f:          f,
+      attribute:  :notes,
+      label:      'Notes',
+      classes:    'form-group col-lg-6',
+      required:   false
+    } %>
+
+    <%= render partial: 'shared/forms/text', locals: notes_locals %>
+
+    <br>
+
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

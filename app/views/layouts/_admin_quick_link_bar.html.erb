@@ -1,0 +1,22 @@
+<h4>Quick Links</h4>
+
+<div class = 'link-list'>
+
+  <%= link_to "Inventories", admin_inventories_path %><br>
+
+  <div class = "dropdown">
+
+      <a class = "dropdown-toggle" href = "#" id = "dropdownMenuButton" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >New Resource</a>
+
+      <div class = "dropdown-menu" aria-labelledby = "dropdownMenuButton">
+
+        <a class = "dropdown-item" href = <%= new_admin_venue_path %>>Venue</a>
+        <a class = "dropdown-item" href = <%= new_admin_employee_path %>>Employee</a>
+        <a class = "dropdown-item" href = <%= new_admin_organizer_path %>>Organizer</a>
+        <a class = "dropdown-item" href = <%= new_admin_booking_path %>>Booking</a>
+        
+      </div>
+
+  </div>
+
+</div>

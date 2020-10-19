@@ -1,0 +1,17 @@
+<div class = 'col'>
+
+  <h3>Shift History</h3>
+
+  <p>
+
+  <% @employee.bookings.sort_by { |b| b.date }.each do |booking| %>
+
+    <%= link_to "#{booking.date.strftime("%m/%d/%Y")} - #{booking.name}", admin_booking_path(booking) %><br>
+
+  <% end %>
+
+  <%= 'No shift history.' if @employee.bookings.empty? %>
+  
+  </p>
+
+</div>

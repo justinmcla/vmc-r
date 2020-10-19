@@ -1,0 +1,13 @@
+<div class = 'form-row'>
+
+  <% quantity_locals = {
+    f:          f,
+    attribute:  :quantity,
+    label:      'Quantity',
+    classes:    'form-group col-lg-6',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/number', locals: quantity_locals %>
+
+</div>

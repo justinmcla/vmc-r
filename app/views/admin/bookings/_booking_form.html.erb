@@ -1,0 +1,28 @@
+<%= render partial: 'shared/errors', locals: { resource: @booking } %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @booking ] do |f| %>
+
+    <!-- VENUE & ORGANIZER select -->
+    <%= render partial: 'booking_form_part_1', locals: { f: f } %>
+
+    <!-- EVENT NAME, TYPE, & DATE -->
+    <%= render partial: 'booking_form_part_2', locals: { f: f } %>
+
+    <!-- ACCESS, EVENT, & EXIT time -->
+    <%= render partial: 'booking_form_part_3', locals: { f: f } %>
+
+    <!-- ATTENDANCE, RATE, & NOTES -->
+    <%= render partial: 'booking_form_part_4', locals: { f: f } %>
+    
+    <!-- BOOKING TAGS -->    
+    <%= render partial: 'booking_form_part_5a', locals: { f: f } %>
+    <%= render partial: 'booking_form_part_5b', locals: { f: f } %>
+    <%= render partial: 'booking_form_part_5c', locals: { f: f } %>
+    
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

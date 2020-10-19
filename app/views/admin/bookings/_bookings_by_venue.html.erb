@@ -1,0 +1,23 @@
+<div>
+
+  <% current_user.venues.each do |venue| %>
+
+    <h3><%= link_to venue.name, admin_venue_path(venue) %></h3>
+
+    <p>
+
+    <% @bookings.sort_by { |b| b.date }.each do |booking| %>
+
+      <% if booking.venue == venue %>
+      
+        <%= link_to "#{booking.date.strftime("%-m/%-d/%Y")} - #{booking.name}", admin_booking_path(booking) %><br>
+
+      <% end %>
+      
+    <% end %>
+
+    </p>
+
+  <% end %>
+
+</div>

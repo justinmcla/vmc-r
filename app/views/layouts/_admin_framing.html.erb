@@ -1,0 +1,22 @@
+<%= render 'layouts/admin_nav' %>
+
+<div class = "console-bars">
+
+  <%= content_tag(:div, class: 'quick-link-bar') do %>
+
+    <%= render 'layouts/admin_quick_link_bar' %>
+
+  <% end %>
+
+  <%= content_tag(:div, class: 'venue-overview') do %>
+
+    <%= yield %>
+
+  <% end %>
+
+  <%= content_tag(:div, class: 'feature-bar') do %>
+
+    <%= render 'layouts/admin_feature_bar' %>
+
+  <% end %>
+</div>

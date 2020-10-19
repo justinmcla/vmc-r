@@ -1,0 +1,15 @@
+<h3>Administration</h3>
+
+<%= form_for [ :admin, @booking ] do |f| %>
+
+  <!-- BOOKING STATUS -->
+  <%= render partial: 'booking_admin_form_part_1', locals: { f: f } %>
+
+  <!-- BOOKING SHIFT COVERAGE -->
+  <%= render partial: 'booking_admin_form_part_2', locals: { f: f } %>
+
+  <br>
+
+  <%= f.submit "Save", class: 'btn' %>
+
+<% end %>

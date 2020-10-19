@@ -1,0 +1,25 @@
+<%= render partial: 'shared/errors', locals: { resource: @item } %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @venue, @inventory, @item ] do |f| %>
+
+    <!-- ITEM NAME -->
+    <%= render partial: 'item_form_part_1', locals: { f: f } %>
+
+    <!-- ITEM CATEGORY -->
+    <%= render partial: 'item_form_part_2', locals: { f: f } %>
+
+    <!-- ITEM QUANTITY -->
+    <%= render partial: 'item_form_part_3', locals: { f: f } %>
+
+    <!-- ITEM NOTES -->
+    <%= render partial: 'item_form_part_4', locals: { f: f } %>
+
+    <br>
+
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

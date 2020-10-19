@@ -1,0 +1,25 @@
+<div class = 'form-row'>
+
+  <% venue_select_locals = {
+    f:                      f,
+    attribute:              :venue_id,
+    label:                  'Venue',
+    collection_source:      current_user.venues.all,
+    resource_attribute_id:  @booking.venue_id,
+    classes:                'form-group col-lg-3',
+  } %>
+
+  <%= render partial: 'shared/forms/collection_select', locals: venue_select_locals %>
+
+  <% organizer_select_locals = {
+    f:                      f,
+    attribute:              :organizer_id,
+    label:                  'Organizer',
+    collection_source:      current_user.organizers.all,
+    resource_attribute_id:  @booking.organizer_id,
+    classes:                'form-group col-lg-3'
+  } %>
+
+  <%= render partial: 'shared/forms/collection_select', locals: organizer_select_locals %>
+
+</div>

@@ -1,0 +1,23 @@
+<div class = 'form-row'>
+
+  <% name_locals = {
+    f:          f,
+    label:      'Organization Name',
+    attribute:  :name,
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: name_locals %>
+
+  <% type_locals = {
+    f:          f,
+    label:      'Type',
+    attribute:  :organization_type,
+    options:    %w(Commerical Non-Profit Internal),
+    classes:    'form-group col-lg-3'
+  } %>
+
+  <%= render partial: 'shared/forms/option_select', locals: type_locals %>
+  
+</div>

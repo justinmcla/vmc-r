@@ -1,0 +1,14 @@
+<% next_booking = next_booking(venue) %>
+<% last_booking = last_booking(venue) %>
+
+<div class = 'col-md-3 venue-block-3'>
+
+  <p>Next Booking:<br>
+
+  <%= link_to "#{next_booking.name} on #{next_booking.date.strftime("%B %e, %Y")}", admin_booking_path(next_booking) if next_booking %><br>
+
+  Last Booking:<br>
+
+  <%= link_to "#{last_booking.name} on #{last_booking.date.strftime("%B %e, %Y")}", admin_booking_path(last_booking) if last_booking %></p>
+
+</div>

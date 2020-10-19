@@ -1,0 +1,13 @@
+<div class = 'form-row'>
+
+  <% name_locals = {
+    f:          f,
+    label:      'Venue Name',
+    attribute:  :name,
+    classes:    'form-group col-lg-6',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: name_locals %>
+
+</div>

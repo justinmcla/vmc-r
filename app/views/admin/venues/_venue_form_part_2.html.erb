@@ -1,0 +1,23 @@
+<div class = 'form-row'>
+
+  <% configuration_locals = {
+    f:          f,
+    label:      'Configuration',
+    attribute:  :configuration,
+    options:    ['Proscenium', 'Arena', 'Black Box', 'Flexibile', 'Studio', 'Thrust'],
+    classes:    'form-group col-lg-3'
+  } %>
+
+  <%= render partial: 'shared/forms/option_select', locals: configuration_locals %>
+
+  <% seats_locals = {
+    f:          f,
+    attribute:  :seats,
+    label:      'Seats',
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/number', locals: seats_locals %>
+
+</div>

@@ -1,0 +1,14 @@
+<div class = 'form-row'>
+
+  <% images_locals = {
+    f:          f,
+    attribute:  :images,
+    label:      'Upload Images (must be < 1 MB and .PNG, .JPG, or .JPEG',
+    multiple:   true,
+    accept:     'image/png, image/jpeg',
+    classes:    'form-group col-lg-6'
+  } %>
+
+  <%= render partial: 'shared/forms/file', locals: images_locals %>
+
+</div>

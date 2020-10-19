@@ -1,0 +1,30 @@
+<%= render partial: 'shared/errors', locals: { resource: @venue } %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @venue ] do |f| %>
+
+    <!-- VENUE NAME -->
+    <%= render partial: 'venue_form_part_1', locals: { f: f } %>
+
+    <!-- VENUE CONFIGURATION, SEATS -->
+    <%= render partial: 'venue_form_part_2', locals: { f: f } %>
+
+    <!-- VENUE GREENROOMS, GREENROOMS -->
+    <%= render partial: 'venue_form_part_3', locals: { f: f } %>
+
+    <%= render partial: 'shared/address', locals: { resource: @venue, f: f } %>
+
+    <br>
+
+    <h3>Venue Images</h3>
+
+    <%= render partial: 'venue_form_part_4', locals: { f: f } %>
+
+    <br>
+
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

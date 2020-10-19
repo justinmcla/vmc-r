@@ -1,0 +1,6 @@
+<div class = '<%= classes %>'>
+  <%= f.label attribute, label %>
+  <%= f.select attribute, 
+      options_from_collection_for_select(collection_source, :id, :name, resource_attribute_id), 
+      {}, class: 'form-control' %>
+</div>

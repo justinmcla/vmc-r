@@ -1,0 +1,13 @@
+<div class = 'form-row'>
+
+  <% category_locals = {
+    f:          f,
+    attribute:  :category,
+    label:      'Item Category',
+    classes:    'form-group col-lg-6',
+    required:   false
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: category_locals %>
+
+</div>

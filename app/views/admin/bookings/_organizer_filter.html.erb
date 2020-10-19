@@ -1,0 +1,9 @@
+<p>Filter by Organizer</p>
+
+<%= form_tag(admin_bookings_path, method: 'get') do %>
+
+  <%= text_field_tag :query, nil %>
+  
+  <%= submit_tag "Filter", class: 'btn' %>
+
+<% end %>

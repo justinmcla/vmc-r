@@ -1,0 +1,30 @@
+<div class = 'form-row'>
+
+  <% microphones_locals = {
+    f:          f,
+    attribute:  :microphones,
+    label:      'Microphones'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: microphones_locals %>
+
+  <% security_locals = {
+    f:          f,
+    attribute:  :security,
+    label:      'Security'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: security_locals %>
+
+  <% road_closure_locals = {
+    f:          f,
+    attribute:  :road_closure,
+    label:      'Road Closure'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: road_closure_locals %>
+
+</div>

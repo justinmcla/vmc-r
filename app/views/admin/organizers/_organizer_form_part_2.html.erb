@@ -1,0 +1,13 @@
+<div class = 'form-row'>
+
+  <% url_locals = {
+    f:          f,
+    label:      'Website',
+    attribute:  :url,
+    classes:    'form-group col-lg-6',
+    required:   false
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: url_locals %>
+
+</div>

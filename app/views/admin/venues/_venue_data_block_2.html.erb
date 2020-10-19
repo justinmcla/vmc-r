@@ -1,0 +1,15 @@
+<h3>Bookings</h3>
+
+<% if @venue.bookings.any? %>
+
+  <% @venue.bookings.sort_by { |b| b.date }.each do |booking| %>
+
+    <%= link_to "#{booking.organizer.name} - #{booking.date}", admin_booking_path(booking) %><br>
+
+  <% end %>
+
+<% end %>
+
+<br>
+
+<%= button_to "Create Booking", new_admin_booking_path, method: 'get', class: 'btn' %>

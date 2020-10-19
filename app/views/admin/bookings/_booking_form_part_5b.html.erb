@@ -1,0 +1,30 @@
+<div class = 'form-row'>
+
+  <% lighting_locals = {
+    f:          f,
+    attribute:  :lighting,
+    label:      'Lighting'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: lighting_locals %>
+
+  <% spotlight_locals = {
+    f:          f,
+    attribute:  :spotlight,
+    label:      'Spotlight'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: spotlight_locals %>
+
+  <% sound_locals = {
+    f:          f,
+    attribute:  :sound,
+    label:      'Sound'
+    classes:    'form-group col-lg-2'
+  } %>
+
+  <%= render partial: 'shared/forms/boolean_select', locals: sound_locals %>
+
+</div>

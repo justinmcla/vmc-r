@@ -1,0 +1,23 @@
+<%= render partial: 'shared/errors', locals: { resource: @inventory } %>
+
+<div class = 'container'>
+
+  <%= form_for [ :admin, @venue, @inventory ] do |f| %>
+
+    <% inventory_locals = {
+      f: f,
+      attribute: :name,
+      label: 'Inventory Name',
+      classes: 'form-group col-lg-6',
+      required: true
+    } %>
+
+    <%= render partial: 'shared/forms/text', locals: inventory_locals %>
+
+    <br>
+
+    <%= f.submit class: 'btn' %>
+
+  <% end %>
+
+</div>

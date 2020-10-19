@@ -1,0 +1,12 @@
+<div class = 'form-row'>
+
+  <% notes_locals = {
+    f:          f,
+    attribute:  :notes,
+    label:      'Notes',
+    classes:    'form-group col-lg-6'
+  } %>
+
+  <%= render partial: 'shared/forms/textarea', locals: notes_locals %>
+
+</div>
