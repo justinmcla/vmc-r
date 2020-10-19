@@ -1,11 +1,33 @@
 <h1>Update Account</h1>
+
 <br>
-<%= content_tag(:div, class: 'col-lg-6') do %>
-<%= form_for current_user, url: admin_user_path(current_user), method: 'patch' do |f| %>
-    <%= f.label :name, "Name" %><br>
-    <%= f.text_field :name, placeholder: "Name", required: true, class: 'form-control' %><br>
-    <%= f.label :email, "Email Address" %><br>
-    <%= f.email_field :email, placeholder: "Email Address", required: true, class: 'form-control' %><br>
+
+<div class = 'container'>
+
+  <%= form_for current_user, url: admin_user_path(current_user), method: 'patch' do |f| %>
+
+    <% name_locals = {
+      f:          f,
+      label:      'Name',
+      attribute:  :name,
+      classes:    'form-group col-lg-6',
+      required:   true
+    } %>
+
+    <%= render partial: 'shared/forms/text', locals: name_locals %>
+
+    <% email_locals = {
+      f:          f,
+      label:      'Email Address',
+      attribute:  :email,
+      classes:    'form-group col-lg-6',
+      required:   true
+    } %>
+
+    <%= render partial: 'shared/forms/email', locals: email_locals %>
+
     <%= f.submit "Update", class: "btn" %>
-<% end %>
-<% end %>
+  
+  <% end %>
+
+</div>

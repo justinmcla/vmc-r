@@ -1,52 +1,29 @@
 <h1>Booking Information</h1>
+
 <br>
-<%= content_tag(:div, class: 'row') do %>
-  <%= content_tag(:div, class: 'col') do %>
-    <h3><%= @booking.name %></h3>
-    <p><%= @booking.venue.name %><br>
-    <%= @booking.date.strftime("%B %-d, %Y") %> at <%= @booking.event_time.strftime("%l:%M %p") %></p>
-    <h3><%= @booking.organizer.name %></h3>
-    <p>Organizer</p>
-    <h3><%= @booking.event_type %></h3>
-    <p>Type</p>
-    <h3><%= @booking.attendance %></h3>
-    <p>Attendance</p>
-    <h3>Notes</h3>
-    <p><%= @booking.description.blank? ? "No notes." : @booking.description %></p>
-    <h3>Tags</h3>
-    <ul>
-      <%= content_tag(:li, "Recurring") if @booking.recurring? %>
-      <%= content_tag(:li, "Catering") if @booking.catering %>
-      <%= content_tag(:li, "Alcohol") if @booking.alcohol %>
-      <%= content_tag(:li, "Stage Lighting") if @booking.lighting %>
-      <%= content_tag(:li, "Spotlight") if @booking.spotlight %>
-      <%= content_tag(:li, "Amplified Sound") if @booking.sound %>
-      <%= content_tag(:li, "Microphones") if @booking.microphones %>
-      <%= content_tag(:li, "Road Closure") if @booking.road_closure %>
-      <%= content_tag(:li, "Event Security") if @booking.security %>
-    </ul>
-  <% end %>
-  <%= content_tag(:div, class: 'col') do %>
-    <h3>Administration</h3>
-    <%= form_for [ :admin, @booking ] do |f| %>
-      <h4>Status</h4>
-      <%= f.check_box :contract %>
-      <%= f.label :contract, "Contract Signed?" %><br>
-      <%= f.check_box :deposit %>
-      <%= f.label :deposit, "Deposit Paid?" %><br>
-      <%= f.check_box :paid %>
-      <%= f.label :paid, "Paid in Full?" %><br>
-      <br>
-      <h4>Shift Coverage</h4>
-      <%= f.collection_check_boxes(:employee_ids, current_user.employees, :id, :name) do |employee| %>
-        <%= employee.check_box + ' ' + employee.label %><br>
-      <% end %>
-      <br>
-      <%= f.submit "Save", class: 'btn' %>
-    <% end %>
-  <% end %>
-  <%= content_tag(:div, class: 'col') do %>
+
+<div class = 'row'>
+
+  <div class = 'col'>
+
+    <%= render 'booking_data' %>
+
+    <%= render 'booking_tags' %>
+
+  </div>
+
+  <div class = 'col'>
+
+    <%= render 'booking_admin_form' %>
+
+  </div>
+
+  <div class = 'col'>
+
     <%= button_to "Edit Booking", edit_admin_booking_path(@booking), method: 'get', class: 'btn' %><br>
+  
     <%= button_to "Delete Booking", admin_booking_path(@booking), method: 'delete', class: 'btn' %>
+  
   <% end %>
-<% end %>
+
+</div>

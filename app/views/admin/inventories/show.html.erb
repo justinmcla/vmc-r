@@ -1,33 +1,28 @@
+<!-- "Venue Name > Inventory Name" -->
 <h1><%= link_to @inventory.venue.name, admin_venue_path(@inventory.venue) %> > <%= @inventory.name %></h1>
-<br>
-<%= content_tag(:div, class: 'row') do %>
-  <%= content_tag(:div, class: 'col-md-2') do %>
-    <%= button_to "Edit Settings", edit_admin_venue_inventory_path(@venue, @inventory), method: 'get', class: 'btn' %><br>
-  <% end %>
-  <%= content_tag(:div, class: 'col-md-2') do %>
-    <%= button_to "Delete Inventory", admin_venue_inventory_path(@venue, @inventory), method: 'delete', class: 'btn' %>
-  <% end %>
-<% end %>
 
-<table>
-    <thead>
-        <th>Name</th>
-        <th>Quantity</th>
-        <th>Category</th>
-        <th colspan="3">Notes</th>
-    </thead>
-    <tbody>
-        <% @inventory.items.each do |item| %>
-            <tr>
-                <td><%= item.name %></td>
-                <td><%= item.quantity %></td>
-                <td><%= item.category %></td>
-                <td><%= item.notes %></td>
-                <td><%= link_to "Edit", edit_admin_venue_inventory_item_path(@venue, @inventory, item) %></td>
-                <td><%= link_to "Delete", admin_venue_inventory_item_path(@venue, @inventory, item), method: 'delete' %></td>
-            </tr>
-        <% end %>
-    </tbody>
-</table>
 <br>
-<%= button_to "Add Item", new_admin_venue_inventory_item_path(@venue, @inventory), method: 'get', class: 'btn' %>
+
+<div class = 'row'>
+
+  <div class = 'col-lg-6'>
+
+    <%= render 'inventory_table' %>
+
+    <br>
+
+    <%= button_to "Add Item", new_admin_venue_inventory_item_path(@venue, @inventory), method: 'get', class: 'btn' %>
+  
+  </div>
+
+  <div class = 'col-lg-6'>
+
+    <%= button_to "Edit Settings", edit_admin_venue_inventory_path(@venue, @inventory), method: 'get', class: 'btn' %>
+      
+    <br>
+
+    <%= button_to "Delete Inventory", admin_venue_inventory_path(@venue, @inventory), method: 'delete', class: 'btn' %>
+
+  </div>
+
+</div>

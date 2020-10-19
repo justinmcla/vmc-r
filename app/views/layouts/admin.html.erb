@@ -1,72 +1,13 @@
 <% content_for :stylesheet do %>
+
   <%= stylesheet_link_tag "admin", media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <% end %>
 
 <% content_for :framing do %>
-  <nav class="navbar navbar-expand-lg">
-    <a class="navbar-brand" href=<%= admin_path %>>VMC</a>
-    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNavAltMarkup" aria-controls="navbarNavAltMarkup" aria-expanded="false" aria-label="Toggle navigation">
-      <span class="navbar-toggler-icon"></span>
-    </button>
-    <div class="collapse navbar-collapse" id="navbarNavAltMarkup">
-      <div class="navbar-nav">
-        <%= link_to "Bookings", admin_bookings_path, :class => 'nav-link' %>
-        <%= link_to "Organizers", admin_organizers_path, :class => 'nav-link' %>
-        <%= link_to "Employees", admin_employees_path, :class => 'nav-link' %>
-        <%= link_to "Account", admin_settings_path, :class => 'nav-link' %>
-        <%= link_to "Logout", session_path(session[:slug]), :method => 'delete', :class => 'nav-link' %>
-      </div>
-    </div>
-  </nav>
 
-  <div class = "console-bars">
-    <%= content_tag(:div, class: 'quick-link-bar') do %>
-      <h4>Quick Links</h4>
-        <%= content_tag(:div, class: 'link-list') do %>
-          <%= link_to "Inventories", admin_inventories_path %><br>
-          <div class = "dropdown">
-              <a class = "dropdown-toggle" href = "#" id = "dropdownMenuButton" data-toggle = "dropdown" aria-haspopup = "true" aria-expanded = "false" >New Resource</a>
-              <div class = "dropdown-menu" aria-labelledby = "dropdownMenuButton">
-                <a class = "dropdown-item" href = <%= new_admin_venue_path %>>Venue</a>
-                <a class = "dropdown-item" href = <%= new_admin_employee_path %>>Employee</a>
-                <a class = "dropdown-item" href = <%= new_admin_organizer_path %>>Organizer</a>
-                <a class = "dropdown-item" href = <%= new_admin_booking_path %>>Booking</a>
-              </div>
-          </div>
-        <% end %>
-    <% end %>
+  <%= render 'layouts/admin_framing' %>
 
-    <%= content_tag(:div, class: 'venue-overview') do %>
-      <%= yield %>
-    <% end %>
-
-    <%= content_tag(:div, class: 'feature-bar') do %>
-      <h4>Tasks</h4>
-      <% current_user.tasks.each do |task| %>
-        <%= link_to task.name, edit_admin_task_path(task) %><br>
-        - <%= task.notes %><br>
-      <% end %>
-      <br>
-      <%= button_to "New Task", new_admin_task_path, method: 'get', class: 'btn' %>
-      <br>
-      <h4>Next Booking</h4>
-      <% next_booking = current_user.bookings.select { |b| b.date > Date.today }.sort_by { |b| b.date }.first %>
-      <% if next_booking %>
-        <%= link_to next_booking.name, admin_booking_path(next_booking) %><br>
-        <%= next_booking.venue.name %><br>
-        <%= next_booking.date.strftime("%-m/%-d/%Y") %><br>
-      <% end %>
-      <br>
-      <h4>Last Booking</h4>
-      <% last_booking = current_user.bookings.select { |b| b.date < Date.today }.sort_by { |b| b.date }.last %>
-      <% if last_booking %>
-        <%= link_to last_booking.name, admin_booking_path(last_booking) %><br>
-        <%= last_booking.venue.name %><br>
-        <%= last_booking.date.strftime("%-m/%-d/%Y") %><br>
-      <% end %>
-      <br>
-    <% end %>
-  </div>
 <% end %>
 
 <%= render template: 'layouts/application'%>

@@ -1,5 +1,9 @@
 <h1>Edit Task</h1>
+
 <br>
-<%= render 'task' %>
+
+<%= render 'task_form' %>
+
 <br>
+
 <%= button_to "Mark Complete", admin_task_path(@task), method: 'delete', class: "btn" %>

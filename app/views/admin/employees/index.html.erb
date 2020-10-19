@@ -1,13 +1,9 @@
 <h1>Employees</h1>
+
 <br>
+
 <%= button_to "Add Employee", new_admin_employee_path, method: 'get', class: 'btn' %>
+
 <br>
-<h3>Active Employees</h3>
-<% current_user.employees.select { |e| e.active }.sort_by { |e| e.name }.each do |employee| %>
-    <%= link_to employee.name, admin_employee_path(employee) %><br>
-<% end %>
-<br>
-<h3>Inactive Employees</h3>
-<% current_user.employees.select { |e| !e.active }.sort_by { |e| e.name }.each do |employee| %>
-  <%= link_to employee.name, admin_employee_path(employee) %><br>
-<% end %>
+
+<%= render 'employees_by_active' %>

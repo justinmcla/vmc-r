@@ -1,9 +1,17 @@
 <% content_for :stylesheet do %>
+
   <%= stylesheet_link_tag 'venues', media: 'all', 'data-turbolinks-track': 'reload' %>
+
 <% end %>
+
 <% content_for :framing do %>
-  <%= content_tag(:div, class: 'container') do %>
+
+  <div class = 'container'>
+
     <%= yield %>
-  <% end %>
+
+  </div>
+
 <% end %>
+
 <%= render template: 'layouts/application' %>
