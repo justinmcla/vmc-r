@@ -22,7 +22,7 @@
 
   <%= render partial: 'shared/forms/time', locals: event_time_locals %>
 
-  <% exit_time_locals {
+  <% exit_time_locals = {
     f:          f,
     resource:   @booking,
     attribute:  :exit_time,
