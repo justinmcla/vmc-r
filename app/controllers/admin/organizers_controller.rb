@@ -13,9 +13,9 @@ class Admin::OrganizersController < Admin::AdminController
     @organizer = current_user.organizers.build(post_params)
     if @organizer.save
       current_user.organizers << @organizer
-      redirect_to admin_path
+      redirect_to admin_path, notice: "Organizer saved successfully!"
     else
-      render :new
+      redirect_to new_admin_organizer_path, alert: @organizer.errors.full_messages
     end
   end
 
@@ -31,7 +31,11 @@ class Admin::OrganizersController < Admin::AdminController
 
   def update
     @organizer.assign_attributes(post_params)
-    @organizer.save ? (redirect_to admin_organizer_path(@organizer)) : (render :edit)
+    resource_save(
+      @organizer, 
+      admin_organizer_path(@organizer), 
+      edit_admin_organizer_path(@organizer)
+    )
   end
 
   def destroy
@@ -46,24 +50,26 @@ class Admin::OrganizersController < Admin::AdminController
   end
 
   def post_params
-    params.require(:organizer).permit(:name, :organization_type, :url,
-                                      address_attributes: [
-                                                :id,
-                                                :address_1,
-                                                :address_2,
-                                                :city, :state, :zip
-                                            ], point_of_contacts_attributes: [
-                                                :id,
-                                                :name,
-                                                contacts_attributes: [
-                                                    :id,
-                                                    :via,
-                                                    :value
-                                                ]
-                                            ], contacts_attributes: [
-                                                :id,
-                                                :via,
-                                                :value
-                                            ])
-    end
+    params.require(:organizer).permit(
+      :name, 
+      :organization_type, 
+      :url,
+      address_attributes: [
+        :id,
+        :address_1,
+        :address_2,
+        :city, :state, :zip ], 
+      point_of_contacts_attributes: [
+        :id,
+        :name,
+        contacts_attributes: [
+          :id,
+          :via,
+          :value ]], 
+      contacts_attributes: [
+          :id,
+          :via,
+          :value ])
+  end
+
 end
