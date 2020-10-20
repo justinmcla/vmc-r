@@ -1,0 +1,21 @@
+<% if flash[:alert] %>
+
+  <div class="alert alert-danger" role="alert">
+
+    <% if flash[:alert].is_a? String %>
+
+      <%= flash[:alert] %>
+
+    <% else %>
+
+      <% flash[:alert].each do |alert| %>
+
+        <%= alert %><br>
+
+      <% end %>
+
+    <% end %>
+
+  </div>
+  
+<% end %>
