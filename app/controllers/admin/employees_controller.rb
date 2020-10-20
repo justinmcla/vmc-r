@@ -12,7 +12,7 @@ class Admin::EmployeesController < Admin::AdminController
   def create
     @employee = current_user.employees.build(post_params)
     @employee.active = params[:employee][:end_date].blank?
-    @employee.save ? (redirect_to admin_employees_path) : (render :new)
+    resource_save(@employee, admin_employees_path, new_admin_employee_path)
   end
 
   def edit
@@ -21,7 +21,7 @@ class Admin::EmployeesController < Admin::AdminController
   def update
     @employee.assign_attributes(post_params)
     @employee.active = params[:employee][:end_date].blank?
-    @employee.save ? (redirect_to admin_employee_path(@employee)) : (render :edit)
+    resource_save(@employee, admin_employee_path(@employee), edit_admin_employee_path(@employee))
   end
 
   def destroy

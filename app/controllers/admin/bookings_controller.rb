@@ -7,11 +7,11 @@ class Admin::BookingsController < Admin::AdminController
 
   def create
     @booking = current_user.bookings.build(post_params)
-    @booking.save ? (redirect_to admin_bookings_path) : (render :new)
+    resource_save(@booking, admin_bookings_path, new_admin_booking_path)
   end
 
   def index
-    params[:query] ? (@bookings = current_user.bookings.by_organizer(params[:query]) ) : (@bookings = current_user.bookings.all )
+    @bookings = params[:query] ? current_user.bookings.by_organizer(params[:query]) : current_user.bookings.all
   end
 
   def show
@@ -22,7 +22,7 @@ class Admin::BookingsController < Admin::AdminController
 
   def update
     @booking.assign_attributes(post_params)
-    @booking.save ? (redirect_to admin_booking_path(@booking)) : (render :edit) 
+    resource_save(@booking, admin_booking_path(@booking), edit_admin_booking_path(@booking))
   end
 
   def destroy

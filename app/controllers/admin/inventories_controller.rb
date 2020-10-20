@@ -8,7 +8,7 @@ class Admin::InventoriesController < Admin::AdminController
 
   def create
     @inventory = @venue.inventories.build(post_params)
-    @inventory.save ? (redirect_to admin_venue_path(@venue)) : (render :new)
+    resource_save(@inventory, admin_venue_path(@venue), new_admin_venue_inventory_path(@venue)
   end
 
   def index
@@ -23,7 +23,11 @@ class Admin::InventoriesController < Admin::AdminController
 
   def update
     @inventory.assign_attributes(post_params)
-    @inventory.save ? (redirect_to admin_venue_inventory_path(@venue, @inventory)) : (render :edit) 
+    resource_save(
+      @inventory, 
+      admin_venue_inventory_path(@venue, @inventory), 
+      edit_admin_venue_inventory_path(@venue, @inventory)
+    )
   end
 
   def destroy

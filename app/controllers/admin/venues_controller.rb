@@ -8,7 +8,7 @@ class Admin::VenuesController < Admin::AdminController
 
   def create
     @venue = current_user.venues.build(post_params)
-    @venue.save ? (redirect_to admin_path) : (render :new)
+    resource_save(@venue, admin_path, new_admin_venue_path)
   end
 
   def show
@@ -20,7 +20,7 @@ class Admin::VenuesController < Admin::AdminController
   def update
     @venue.assign_attributes(update_params)
     params[:venue][:images].each { |image| @venue.images.attach(image) } if params[:venue][:images]
-    @venue.save ? (redirect_to admin_path) : (render :edit)
+    resource_save(@venue, admin_path, edit_admin_venue_path(@venue))
   end
 
   def destroy
@@ -35,33 +35,35 @@ class Admin::VenuesController < Admin::AdminController
   end
 
   def post_params
-    params.require(:venue).permit(:name, 
-                                  :configuration, 
-                                  :seats, 
-                                  :greenrooms, 
-                                  :dressing_rooms, 
-                                  images: [],
-                                  address_attributes: [
-                                          :id, 
-                                          :address_1, 
-                                          :address_2, 
-                                          :city, 
-                                          :state, 
-                                          :zip])
+    params.require(:venue).permit(
+      :name, 
+      :configuration, 
+      :seats, 
+      :greenrooms, 
+      :dressing_rooms, 
+      images: [],
+      address_attributes: [
+        :id, 
+        :address_1, 
+        :address_2, 
+        :city, 
+        :state, 
+        :zip ])
   end
 
   def update_params
-    params.require(:venue).permit(:name,
-                                  :configuration,
-                                  :seats,
-                                  :greenrooms,
-                                  :dressing_rooms,
-                                  address_attributes: [
-                                      :id,
-                                      :address_1,
-                                      :address_2,
-                                      :city,
-                                      :state,
-                                      :zip])
+    params.require(:venue).permit(
+      :name,
+      :configuration,
+      :seats,
+      :greenrooms,
+      :dressing_rooms,
+      address_attributes: [
+        :id,
+        :address_1,
+        :address_2,
+        :city,
+        :state,
+        :zip ])
   end
 end

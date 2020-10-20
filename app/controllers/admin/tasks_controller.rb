@@ -7,7 +7,7 @@ class Admin::TasksController < Admin::AdminController
 
   def create
     @task = current_user.tasks.build(post_params)
-    @task.save ? (redirect_to admin_path) : (render :new)
+    resource_save(@task, admin_path, new_admin_task_path)
   end
 
   def edit
@@ -15,7 +15,7 @@ class Admin::TasksController < Admin::AdminController
 
   def update
     @task.assign_attributes(post_params)
-    @task.save ? (redirect_to admin_path) : (render :edit)
+    resource_save(@task, admin_path, edit_admin_task_path(@task))
   end
 
   def destroy
