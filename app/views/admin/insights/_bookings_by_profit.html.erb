@@ -1,0 +1,21 @@
+<h3>Booking Profitability</h3>
+<table>
+  <thead>
+    <tr>
+      <th>Booking Name</th>
+      <th>Organizer</th>
+      <th>Date</th>
+      <th>Contract Value</th>
+    </tr>
+  </thead>
+  <tbody>
+<% current_user.bookings.includes(:organizer).sort_by { |booking| booking.contract_value }.reverse!.each do |booking| %>
+  <tr>
+    <td><%= link_to booking.name, admin_booking_path(booking) %></td>
+    <td><%= booking.organizer.name %></td>
+    <td><%= booking.date.strftime('%B %-d, %Y') %>
+    <td>$<%= '%.2f' % booking.contract_value %></td>
+  </tr>
+<% end %>
+</tbody>
+</table>
