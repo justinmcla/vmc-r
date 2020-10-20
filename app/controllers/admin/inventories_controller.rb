@@ -8,7 +8,7 @@ class Admin::InventoriesController < Admin::AdminController
 
   def create
     @inventory = @venue.inventories.build(post_params)
-    resource_save(@inventory, admin_venue_path(@venue), new_admin_venue_inventory_path(@venue)
+    resource_save(@inventory, admin_venue_path(@venue), new_admin_venue_inventory_path(@venue))
   end
 
   def index
