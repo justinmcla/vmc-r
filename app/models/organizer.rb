@@ -16,4 +16,8 @@ class Organizer < ApplicationRecord
   accepts_nested_attributes_for :contacts
   accepts_nested_attributes_for :address
 
+  scope :by_type, -> (organization_type) {
+    where("organization_type LIKE ?", "#{organization_type}")
+  }
+
 end
