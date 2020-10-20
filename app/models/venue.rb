@@ -26,6 +26,10 @@ class Venue < ApplicationRecord
 
   accepts_nested_attributes_for :address
 
+  scope :by_configuration, -> (configuration) {
+    where("configuration LIKE ?", "#{configuration}") 
+  }
+
   def to_param
       slug
   end
