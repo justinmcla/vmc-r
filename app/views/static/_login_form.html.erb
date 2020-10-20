@@ -1,0 +1,31 @@
+<div>
+
+  <div class="card-header" id="headingOne">
+    <h5 class="mb-0">
+      <button class="btn btn-link" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">LOGIN</button>
+    </h5>
+  </div>
+
+  <div id="collapseOne" class="collapse show" aria-labelledby="headingOne" data-parent="#accordion">
+    <div class="card-body">
+
+      <%= form_with url: sessions_path, method: 'post' do |f| %>
+
+        <%= f.label :email, "Email Address", class: "sr-only" %><br>
+        <%= f.email_field :email, placeholder: "Email Address", required: true %><br>
+
+        <%= f.label :password, "Password", class: "sr-only" %><br>
+        <%= f.password_field :password, placeholder: "Password", required: true %><br><br>
+
+        <%= f.submit "Log In", class: "submit-button" %>
+        
+      <% end %>
+
+      <br>
+
+      <%= link_to (image_tag("btn_google_signin_light_normal_web.png")), "/auth/google_oauth2" %>
+
+    </div>
+  </div>
+
+</div>
