@@ -15,6 +15,7 @@ require('flatpickr/dist/flatpickr.css')
 document.addEventListener("turbolinks:load", () => {
     $('[data-toggle="tooltip"]').tooltip()
     $('[data-toggle="popover"]').popover()
+    $('[data-toggle="modal"]').modal()
     flatpickr("[data-behavior='flatpickr']", {
         altInput: true,
         altFormat: "F j, Y",
