@@ -1,0 +1,43 @@
+<div class = 'form-row'>
+
+  <% city_locals = {
+    f:          af,
+    attribute:  :city,
+    label:      'City',
+    classes:    'form-group col-lg-3',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: city_locals %>
+
+  <% state_locals = {
+    f:          af,
+    attribute:  :state,
+    label:      'State',
+    classes:    'form-group col-lg-1',
+    options:    %w(AL AK AZ AR CA 
+                   CO CT DC DE FL 
+                   GA HI ID IL IN 
+                   IA KS KY LA ME 
+                   MD MA MI MN MS 
+                   MO MT NE NV NH 
+                   NJ NM NY NC ND 
+                   OH OK OR PA RI 
+                   SC SD TN TX UT 
+                   VT VA WA WV WI 
+                   WY)
+  } %>
+
+  <%= render partial: 'shared/forms/option_select', locals: state_locals %>
+
+  <% zip_locals = {
+    f:          af,
+    attribute:  :zip,
+    label:      'Zip Code',
+    classes:    'form-group col-lg-2',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: zip_locals %>
+
+</div>

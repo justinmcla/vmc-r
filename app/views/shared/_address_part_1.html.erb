@@ -1,0 +1,27 @@
+<div class = 'form-row'>
+
+  <% address_line_1_locals = {
+    f:          af,
+    attribute:  :address_1,
+    label:      'Address Line 1',
+    classes:    'form-group col-lg-6',
+    required:   true
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: address_line_1_locals %>
+
+</div>
+
+<div class = 'form-row'>
+
+  <% address_line_2_locals = {
+    f:          af,
+    attribute:  :address_2,
+    label:      'Address Line 2',
+    classes:    'form-group col-lg-6',
+    required:   false
+  } %>
+
+  <%= render partial: 'shared/forms/text', locals: address_line_2_locals %>
+
+</div>

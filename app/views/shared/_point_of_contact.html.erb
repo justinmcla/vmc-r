@@ -1,10 +1,21 @@
 <h3>Point of Contact</h3>
+
 <%= f.fields_for :point_of_contacts do |pcf| %>
-  <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-md-6') do %>
-      <%= pcf.label :name, "Name" %>
-      <%= pcf.text_field :name, class: 'form-control', required: true %>
-    <% end %>
-  <% end %>
+
+  <div class = 'form-row'>
+
+    <% name_locals = {
+      f:          pcf,
+      attribute:  :name,
+      label:      'Name',
+      classes:    'form-group col-md-6',
+      required:   true
+    } %>
+
+    <%= render partial: 'shared/forms/text', locals: name_locals %>
+
+  </div>
+
   <%= render partial: 'shared/contact', locals: { f: pcf } %>
+
 <% end %>
