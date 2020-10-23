@@ -3,17 +3,11 @@ class Venue < ApplicationRecord
   before_create :set_slug
 
   validates :name, presence: true
-  validates :seats, presence: true, numericality: { 
-    only_integer: true 
-  }
+  validates :seats, presence: true, numericality: { only_integer: true }
+  validates :greenrooms, presence: true, numericality: { only_integer: true }
+  validates :dressing_rooms, presence: true, numericality: { only_integer: true }
   validates :configuration, presence: true, inclusion: { 
-    in: ['Proscenium', 'Arena', 'Thrust', 'Black Box', 'Flexible', 'Studio'] 
-  }
-  validates :greenrooms, presence: true, numericality: { 
-    only_integer: true 
-  }
-  validates :dressing_rooms, presence: true, numericality: {
-    only_integer: true 
+    in: ['Proscenium', 'Arena', 'Thrust', 'Black Box', 'Flexible', 'Studio', 'Outdoor'] 
   }
   validate :image_check
 
