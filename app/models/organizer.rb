@@ -1,9 +1,7 @@
 class Organizer < ApplicationRecord
 
   validates :name, presence: true
-  validates :organization_type, inclusion: { 
-    in: %w(Commercial Non-Profit Internal) 
-  }
+  validates :organization_type, inclusion: { in: %w(Commercial Non-Profit Internal) }
 
   has_many :bookings
   has_many :venues, through: :bookings
