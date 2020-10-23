@@ -32,12 +32,13 @@ class Admin::EmployeesController < Admin::AdminController
   private
 
   def post_params
-    params.require(:employee).permit(:name, 
-                                     :start_date, 
-                                     :end_date, 
-                                     :active, 
-                                     :rate, 
-                                     :user_id)
+    params.require(:employee).permit(
+      :name, 
+      :start_date, 
+      :end_date, 
+      :active, 
+      :rate, 
+      :user_id)
   end
 
   def set_employee
