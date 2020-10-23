@@ -2,7 +2,7 @@
 
 <%= form_tag(admin_bookings_path, method: 'get') do %>
 
-  <%= text_field_tag :query, nil %>
+  <%= select_tag :query, options_from_collection_for_select(current_user.organizers, :id, :name), include_blank: true %>
   
   <%= submit_tag "Filter", class: 'btn' %>
 
