@@ -1,56 +1,12 @@
-<%= content_tag(:div, class: 'row') do %>
-  <%= content_tag(:div, class: 'col-lg-6') do %>
-    <h1><%= @venue.name %></h1>
-    <% if @venue.address %>
-    <p><%= @venue.address.address_1 %><br>
-        <% if !@venue.address.address_2.blank? %>
-        <%= @venue.address.address_2 %>
-        <br>
-        <% end %>
-        <%= @venue.address.city %>, <%= @venue.address.state %> <%= @venue.address.zip %></p>
-    <% end %>
-    <h3><%= @venue.configuration %></h3>
-    <p>Configuration</p>
-    <h3><%= @venue.seats %></h3>
-    <p>Seats</p>
-    <h3><%= @venue.dressing_rooms %></h3>
-    <p>Dressing Rooms</p>
-    <h3><%= @venue.greenrooms %></h3>
-    <p>Greenrooms</p>
-    <h3>Book the <%= @venue.name %></h3>
-    <%= form_tag(venue_path(@venue), method: 'patch') do %>
-      <%= label_tag :name %>
-      <%= text_field_tag :name, nil, class: 'form-control', required: true %><br>
-      <%= label_tag :email %>
-      <%= email_field_tag :email, nil, class: 'form-control', required: true  %><br>
-      <%= label_tag :message %>
-      <%= text_area_tag :message, nil, class: 'form-control', required: true %><br>
-      <%= submit_tag "Submit", class: 'btn' %>
-      <br><br>
-    <% end %>
-  <% end %>
-  <% if @images.any? %>
-    <%= content_tag(:div, class: 'col-lg-6') do %>
-      <%= content_tag(:div, class: 'carousel slide', id: 'carouselControls', data: { ride: 'carousel' }) do %>
-        <%= content_tag(:div, class: 'carousel-inner') do %>
-          <%= content_tag(:div, class: 'carousel-item active') do %>
-            <%= image_tag @images.first.variant(resize_to_limit: [600, 600]), class: 'd-block mx-auto w-100' %>
-          <% end %>
-          <% @images.drop(1).each do |image| %>
-            <%= content_tag(:div, class: 'carousel-item') do %>
-              <%= image_tag image.variant(resize_to_limit: [600, 600]), class: 'd-block mx-auto w-100' %>
-            <% end %>
-          <% end %>
-        <% end %>
-        <%= content_tag(:a, class: 'carousel-control-prev', href: '#carouselControls', role: 'button', data: { slide: 'prev' }) do %>
-          <%= content_tag(:span, nil, class: 'carousel-control-prev-icon', aria: { hidden: 'true' }) %>
-          <%= content_tag(:span, 'Previous', class: 'sr-only') %>
-        <% end %>
-        <%= content_tag(:a, class: 'carousel-control-next', href: '#carouselControls', role: 'button', data: { slide: 'next' }) do %>
-          <%= content_tag(:span, nil, class: 'carousel-control-next-icon', aria: { hidden: 'true' }) %>
-          <%= content_tag(:span, 'Next', class: 'sr-only') %>
-        <% end %>
-      <% end %>
-    <% end %>
-  <% end %>
-<% end %>
+<div class = 'row'>
+  <div class = 'col-lg-6'>
+
+    <%= render 'venue_info' %>
+
+    <%= render 'venue_query_form' %>
+
+  </div>
+
+  <%= render 'venue_images' if @images.any? %>
+
+</div>

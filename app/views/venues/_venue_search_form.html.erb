@@ -1,0 +1,38 @@
+<%= form_tag venues_path, method: 'get' do %>
+
+  <div class = 'form-row'>
+
+    <div class = 'form-group col-lg-6'>
+      <%= label_tag :name, "Venue Name" %>
+      <%= text_field_tag :name, nil, class: 'form-control', placeholder: 'Enter "all" to see all venues.' %>
+    </div>
+
+    <div class = 'form-group col-lg-2'>
+      <%= label_tag :city, "City" %>
+      <%= text_field_tag :city, nil, class: 'form-control' %>
+    </div>
+
+    <div class = 'form-group col-lg-1'>
+      <%= label_tag :state, "State" %>
+      <%= select_tag :state, options_for_select(%w(AL AK AZ AR CA 
+                                CO CT DC DE FL 
+                                GA HI ID IL IN 
+                                IA KS KY LA ME 
+                                MD MA MI MN MS 
+                                MO MT NE NV NH 
+                                NJ NM NY NC ND 
+                                OH OK OR PA RI 
+                                SC SD TN TX UT 
+                                VT VA WA WV WI WY)), { class: 'form-control', include_blank: true } %>
+    </div>
+
+    <div class = 'form-group col-lg-2'>
+      <%= label_tag :zip, "Zip" %>
+      <%= text_field_tag :zip, nil, class: 'form-control' %>
+    </div>
+
+    <%= submit_tag 'Submit', class: 'btn' %>
+
+  </div>
+  
+<% end %>

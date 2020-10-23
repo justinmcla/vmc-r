@@ -1,54 +1,11 @@
-<h1>Venue Search</h1>
-<br>
-<%= form_tag venues_path, method: 'get' do %>
-  <%= content_tag(:div, class: 'form-row') do %>
-    <%= content_tag(:div, class: 'form-group col-lg-6') do %>
-      <%= label_tag :name, "Venue Name" %>
-      <%= text_field_tag :name, nil, class: 'form-control' %>
-    <% end %>
-    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
-      <%= label_tag :city, "City" %>
-      <%= text_field_tag :city, nil, class: 'form-control' %>
-    <% end %>
-    <%= content_tag(:div, class: 'form-group col-lg-1') do %>
-      <%= label_tag :state, "State" %>
-      <%= select_tag :state, options_for_select(%w(AL AK AZ AR CA 
-                                CO CT DC DE FL 
-                                GA HI ID IL IN 
-                                IA KS KY LA ME 
-                                MD MA MI MN MS 
-                                MO MT NE NV NH 
-                                NJ NM NY NC ND 
-                                OH OK OR PA RI 
-                                SC SD TN TX UT 
-                                VT VA WA WV WI WY)), { class: 'form-control', include_blank: true } %>
-    <% end %>
-    <%= content_tag(:div, class: 'form-group col-lg-2') do %>
-      <%= label_tag :zip, "Zip" %>
-      <%= text_field_tag :zip, nil, class: 'form-control' %>
-    <% end %>
-    <%= submit_tag 'Submit', class: 'btn' %>
-  <% end %>
-<% end %>
+<%= link_to (image_tag 'VMC.png'), root_path, class: 'venue-search' %>
+
+<h1 class = 'venue-search'>Venue Search</h1>
+
 <br>
 
-<table class = 'table table-striped'>
-  <thead>
-    <tr>
-      <th>Venue Name</th>
-      <th>City</th>
-      <th>State</th>
-      <th>Zip</th>
-    </tr>
-  </thead>
-  <tbody>
-    <% @venues.each do |venue| %>
-      <tr>
-        <td><%= link_to venue.name, venue_path(venue) %></td>
-        <td><%= venue.address.city %></td>
-        <td><%= venue.address.state %></td>
-        <td><%= venue.address.zip %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+<%= render 'venue_search_form' %>
+
+<br>
+
+<%= render 'venue_list' %>

@@ -1,0 +1,20 @@
+<table class = 'table table-striped'>
+  <thead>
+    <tr>
+      <th>Venue Name</th>
+      <th>City</th>
+      <th>State</th>
+      <th>Zip</th>
+    </tr>
+  </thead>
+  <tbody>
+    <% @venues.each do |venue| %>
+      <tr>
+        <td><%= link_to venue.name, venue_path(venue) %></td>
+        <td><%= venue.address.city %></td>
+        <td><%= venue.address.state %></td>
+        <td><%= venue.address.zip %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
