@@ -11,7 +11,7 @@ class Admin::BookingsController < Admin::AdminController
   end
 
   def index
-    @bookings = params[:query] ? current_user.bookings.by_organizer(params[:query]) : current_user.bookings.all
+    @bookings = params[:query].blank? ? current_user.bookings : current_user.bookings.by_organizer(params[:query])
   end
 
   def show
@@ -27,7 +27,7 @@ class Admin::BookingsController < Admin::AdminController
 
   def destroy
     @booking.destroy
-    redirect_to admin_path
+    redirect_to admin_bookings_path
   end
 
   private
@@ -37,15 +37,16 @@ class Admin::BookingsController < Admin::AdminController
   end
 
   def post_params
-    params.require(:booking).permit(:name, :event_type, :date, 
-                                    :event_time, :access_time, 
-                                    :exit_time, :recurring,
-                                    :description, :attendance, 
-                                    :catering, :alcohol, :lighting, 
-                                    :spotlight, :sound, :microphones, 
-                                    :security, :road_closure, 
-                                    :daily_rate, :venue_id,
-                                    :organizer_id, :contract, :deposit, 
-                                    :paid, employee_ids: [])
+    params.require(:booking).permit(
+      :name, :event_type, :date, 
+      :event_time, :access_time, 
+      :exit_time, :recurring,
+      :description, :attendance, 
+      :catering, :alcohol, :lighting, 
+      :spotlight, :sound, :microphones, 
+      :security, :road_closure, 
+      :daily_rate, :venue_id,
+      :organizer_id, :contract, :deposit, 
+      :paid, employee_ids: [])
   end
 end

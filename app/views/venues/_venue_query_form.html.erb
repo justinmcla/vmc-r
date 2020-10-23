@@ -1,0 +1,18 @@
+<h3>Book the <%= @venue.name %></h3>
+
+<%= form_tag(venue_path(@venue), method: 'patch') do %>
+
+  <%= label_tag :name %>
+  <%= text_field_tag :name, nil, class: 'form-control', required: true %><br>
+
+  <%= label_tag :email %>
+  <%= email_field_tag :email, nil, class: 'form-control', required: true  %><br>
+
+  <%= label_tag :message %>
+  <%= text_area_tag :message, nil, class: 'form-control', required: true %><br>
+
+  <%= submit_tag "Submit", class: 'btn' %>
+
+  <br><br>
+  
+<% end %>

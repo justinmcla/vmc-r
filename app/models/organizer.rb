@@ -1,9 +1,7 @@
 class Organizer < ApplicationRecord
 
   validates :name, presence: true
-  validates :organization_type, inclusion: { 
-    in: %w(Commercial Non-Profit Internal) 
-  }
+  validates :organization_type, inclusion: { in: %w(Commercial Non-Profit Internal) }
 
   has_many :bookings
   has_many :venues, through: :bookings
@@ -15,5 +13,9 @@ class Organizer < ApplicationRecord
   accepts_nested_attributes_for :point_of_contacts
   accepts_nested_attributes_for :contacts
   accepts_nested_attributes_for :address
+
+  scope :by_type, -> (organization_type) {
+    where("organization_type LIKE ?", "#{organization_type}")
+  }
 
 end

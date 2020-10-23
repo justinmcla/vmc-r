@@ -4,6 +4,12 @@
 
 <%= @booking.date.strftime("%B %-d, %Y") %> at <%= @booking.event_time.strftime("%l:%M %p") %></p>
 
+<p>
+Access Time: <%= @booking.access_time.strftime("%l:%M %p") %><br>
+Event Time: <%= @booking.event_time.strftime("%l:%M %p") %><br>
+Exit Time: <%= @booking.exit_time.strftime("%l:%M %p") %>
+</p>
+
 
 <h3><%= @booking.organizer.name %></h3>
 

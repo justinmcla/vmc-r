@@ -1,0 +1,6 @@
+<h1>Booking Insights</h1>
+
+<br>
+
+<%= 'Create bookings in order to view insights.' unless current_user.bookings.any? %>
+<%= render 'bookings_by_profit' if current_user.bookings.any? %>
