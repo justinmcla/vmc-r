@@ -1,5 +1,7 @@
 class Address < ApplicationRecord
 
+  validates :address_1, presence: true
+  validates :city, presence: true
   validates :state, inclusion: { 
     in: %w(AL AK AZ AR CA CO 
            CT DC DE FL GA HI 
