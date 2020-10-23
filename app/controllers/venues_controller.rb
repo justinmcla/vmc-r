@@ -27,13 +27,26 @@ class VenuesController < ApplicationController
   end
 
   def venue_search
-    Venue.joins(:address).where("lower(name) LIKE ? OR 
-                                 lower(city) LIKE ? OR 
-                                 lower(state) LIKE ? OR 
-                                 lower(zip) LIKE ?", 
-                                 params[:name], 
-                                 params[:city], 
-                                 params[:state], 
-                                 params[:zip])
-  end
+  
+    return Venue.all if params[:name] && params[:name].downcase == 'all'
+
+    sql = <<~SQL
+      name LIKE ? OR 
+      city LIKE ? OR 
+      state LIKE ? OR 
+      zip LIKE ?
+    SQL
+
+    params.transform_values! do |value|
+      "%#{value}%" unless value.blank?
+    end
+
+    Venue.joins(:address).where(
+      sql, 
+      "#{params[:name]}", 
+      "#{params[:city]}", 
+      "#{params[:state]}", 
+      "#{params[:zip]}"
+    )
+end
 end
