@@ -4,10 +4,4 @@
 
 <h4>Attached Images</h4>
 
-<% @venue.images.each do |image| %>
-
-  <%= link_to image.filename, image %><br>
-
-  <%= link_to "Delete", admin_attachment_path(image), method: 'delete' %><br><br>
-  
-<% end %>
+<%= render 'venue_data_block_image_list' if @venue.images.any? %>

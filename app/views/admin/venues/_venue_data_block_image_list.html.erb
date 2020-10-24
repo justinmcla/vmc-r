@@ -1,0 +1,7 @@
+<%= form_with url: admin_attachment_path(@venue), method: 'delete' do |f| %>
+  <%= f.collection_check_boxes :images, @venue.images, :id, :filename, {}, {} do |builder| %>
+    <%= builder.check_box %> <%= builder.label %> <%= link_to 'View', rails_blob_path(builder.object, disposition: 'inline') %><br>
+  <% end %>
+  <br>
+  <%= f.submit 'Delete Image(s)', class: 'btn' %>
+<% end %>
