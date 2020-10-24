@@ -17,6 +17,7 @@ class Venue < ApplicationRecord
   has_many :organizers, through: :bookings
   has_many :inventories
   has_many_attached :images
+  has_many_attached :files
 
   accepts_nested_attributes_for :address
 
