@@ -2,5 +2,13 @@
 
 <br>
 
+<p>Filter by Type</p>
+<%= form_tag(admin_insights_path, method: 'get') do %>
+  <%= select_tag :query, options_for_select(%w(Performance Lecture/Workshop Concert Reception/Fundraiser)), include_blank: true %>
+  <%= submit_tag 'Filter', class: 'btn' %>
+<% end %>
+
+<br>
+
 <%= 'Create bookings in order to view insights.' unless current_user.bookings.any? %>
 <%= render 'bookings_by_profit' if current_user.bookings.any? %>

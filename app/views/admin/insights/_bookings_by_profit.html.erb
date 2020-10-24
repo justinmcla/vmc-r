@@ -9,7 +9,7 @@
     </tr>
   </thead>
   <tbody>
-<% current_user.bookings.includes(:organizer).sort_by { |booking| booking.contract_value }.reverse!.each do |booking| %>
+<% @bookings.includes(:organizer).sort_by { |booking| booking.contract_value }.reverse!.each do |booking| %>
   <tr>
     <td><%= link_to booking.name, admin_booking_path(booking) %></td>
     <td><%= booking.organizer.name %></td>

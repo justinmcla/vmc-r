@@ -14,12 +14,13 @@ class Booking < ApplicationRecord
   belongs_to :venue
   belongs_to :organizer
   has_and_belongs_to_many :employees
+  has_many_attached :files
 
   scope :by_organizer, -> (query_id) { 
     joins(:organizer).where( "organizers.id = ?", query_id ) 
   }
   scope :by_event_type, -> (event_type) {
-    where( "event_type LIKE ?", "%#{event_type}%")
+    where( "event_type = ?", event_type )
   }
   scope :recurring,     -> { where(recurring: true) }
   scope :catering,      -> { where(catering: true) }
