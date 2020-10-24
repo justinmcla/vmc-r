@@ -22,6 +22,7 @@ class Admin::BookingsController < Admin::AdminController
 
   def update
     @booking.assign_attributes(post_params)
+    params[:booking][:files].each { |file| @booking.files.attach(file) } if params[:booking][:files]
     resource_save(@booking, admin_booking_path(@booking), edit_admin_booking_path(@booking))
   end
 
