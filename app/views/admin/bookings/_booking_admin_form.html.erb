@@ -2,7 +2,11 @@
 
 <h3>Administration</h3>
 
-<p>Value: $<%= '%2.f' % @booking.contract_value %></p>
+<%= render 'booking_admin_form_file_list' if @booking.files.any?%>
+
+<br>
+
+<p>Contract Value: $<%= '%2.f' % @booking.contract_value %></p>
 
 <%= form_for [ :admin, @booking ] do |f| %>
 
@@ -11,6 +15,9 @@
 
   <!-- BOOKING SHIFT COVERAGE -->
   <%= render partial: 'booking_admin_form_part_2', locals: { f: f } %>
+
+  <!-- FILE UPLOADS -->
+  <%= render partial: 'booking_admin_form_part_3', locals: { f: f } %>
 
   <br>
 
