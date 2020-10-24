@@ -1,14 +1,17 @@
 class Admin::AttachmentsController < Admin::AdminController
-  before_action :set_attachment
 
   def destroy
-    @attachment.purge
-    redirect_to admin_venue_path(@attachment.record)
+    delete_selected(:files) if params[:files]
+    delete_selected(:images) if params[:images]
+    redirect_back fallback_location: admin_path
   end
 
   private
 
-  def set_attachment
-    @attachment = ActiveStorage::Attachment.find(params[:id])
+  def delete_selected(params_key)
+    params[params_key].reject(&:blank?).each do |attached|
+      ActiveStorage::Attachment.find(attached).purge
+    end
   end
+
 end
