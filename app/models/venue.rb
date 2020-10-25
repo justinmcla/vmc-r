@@ -29,6 +29,10 @@ class Venue < ApplicationRecord
       slug
   end
 
+  def booking_capacity
+    '%.2f' % (self.bookings.current_year.count / 365.0 * 100)
+  end
+
   private
 
   def set_slug

@@ -12,3 +12,10 @@
 
 <%= 'Create bookings in order to view insights.' unless current_user.bookings.any? %>
 <%= render 'bookings_by_profit' if current_user.bookings.any? %>
+
+<br>
+
+<h3>Booking Capacities by Venue</h3>
+<% current_user.venues.each do |venue| %>
+  <%= link_to venue.name, admin_venue_path(venue) %>: <%= venue.booking_capacity %>%<br>
+<% end %>
