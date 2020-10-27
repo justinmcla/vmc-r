@@ -5,16 +5,12 @@ class SessionsController < ApplicationController
   def create
     @user = User.find_by(email: params[:email])
     if @user && @user.google_uid
-      flash[:alert] = 'This account was created with Google. Please sign in with Google.'
-      redirect_to root_path
+      redirect_to root_path, alert: 'This account was created with Google. Please sign in with Google.'
     elsif @user && @user.authenticate(params[:password])
-      @user.slug ||= SecureRandom.uuid
-      @user.save
       session[:slug] = @user.slug
       redirect_to admin_path
     else
-      flash[:alert] = 'Invalid email/password.'
-      redirect_to root_path
+      redirect_to root_path, alert: 'Invalid email/password.'
     end
   end
 

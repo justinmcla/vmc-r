@@ -9,8 +9,7 @@ class UsersController < ApplicationController
       session[:slug] = @user.slug
       redirect_to admin_path
     else
-      flash[:alert] = @user.errors.to_a
-      redirect_to root_path
+      redirect_to root_path, alert: @user.errors.to_a
     end
   end
 
