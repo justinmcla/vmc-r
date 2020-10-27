@@ -16,14 +16,14 @@
 <br>
 
 <h3>Booking Capacities by Venue</h3>
-<% current_user.venues.each do |venue| %>
+<% @venues.each do |venue| %>
   <%= link_to venue.name, admin_venue_path(venue) %>: <%= venue.booking_capacity %>%<br>
 <% end %>
 
 <br>
 
 <h3>Frequent Organizers by Venue</h3>
-<% current_user.venues.each do |venue| %>
+<% @venues.each do |venue| %>
   <% if venue.bookings.count > 0 %>
     <%= link_to venue.name, admin_venue_path(venue) %>: 
     <%= link_to venue.most_frequent_organizer.name, admin_organizer_path(venue.most_frequent_organizer) %> 
