@@ -36,7 +36,7 @@ class Admin::ItemsController < Admin::AdminController
 
   def set_item
     @item = @inventory.items.find_by_id(params[:id])
-    redirect_to admin_venue_inventory_path(@venue, @inventory)) unless @item
+    redirect_to admin_venue_inventory_path(@venue, @inventory) unless @item
   end
 
   def set_venue_and_inventory
