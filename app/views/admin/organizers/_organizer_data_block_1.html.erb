@@ -12,4 +12,17 @@
   
   <% end %>
 
+  <h4>Venue History</h4>
+
+  <p>
+
+  <% @organizer.venues.uniq.each do |venue| %>
+
+    <%= link_to venue.name, admin_venue_path(venue) %><br>
+  
+  <% end %>
+
+
+
+
 </div>
