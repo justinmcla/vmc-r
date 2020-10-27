@@ -33,6 +33,16 @@ class Venue < ApplicationRecord
     '%.2f' % (self.bookings.current_year.count / 365.0 * 100)
   end
 
+  def most_frequent_organizer
+    frequencies = self.organizers.inject(Hash.new(0)) { |k, v| k[v] += 1; k }
+    self.organizers.max_by { |v| frequencies[v] }
+  end
+
+  def most_frequent_organizer_percent
+    organizer_bookings = self.bookings.where(organizer: self.most_frequent_organizer).count
+    organizer_bookings / self.bookings.count * 100
+  end
+
   private
 
   def set_slug
