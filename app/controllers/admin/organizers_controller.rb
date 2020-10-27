@@ -47,6 +47,7 @@ class Admin::OrganizersController < Admin::AdminController
 
   def set_organizer
     @organizer = Organizer.find_by_id(params[:id])
+    redirect_to admin_organizers_path unless @organizer
   end
 
   def post_params

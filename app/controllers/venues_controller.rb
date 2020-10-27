@@ -17,13 +17,14 @@ class VenuesController < ApplicationController
     }
     @admin = @venue.user
     VenueMailer.with(sender: @sender, admin: @admin, venue: @venue).booking_query.deliver_now
-    redirect_to venue_path(@venue)
+    redirect_to venue_path(@venue), notice: 'Message sent!'
   end
 
   private
 
   def set_venue
     @venue = Venue.find_by(slug: params[:slug])
+    redirect_to venues_path unless @venue
   end
 
   def venue_search

@@ -35,6 +35,7 @@ class Admin::BookingsController < Admin::AdminController
 
   def set_booking
     @booking = Booking.find_by_id(params[:id])
+    redirect_to admin_bookings_path unless @booking
   end
 
   def post_params

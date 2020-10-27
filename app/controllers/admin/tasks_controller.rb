@@ -27,6 +27,7 @@ class Admin::TasksController < Admin::AdminController
 
   def set_task
     @task = current_user.tasks.find_by_id(params[:id])
+    redirect_to admin_path unless @task
   end
 
   def post_params

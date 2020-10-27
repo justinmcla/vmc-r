@@ -43,5 +43,6 @@ class Admin::EmployeesController < Admin::AdminController
 
   def set_employee
     @employee = current_user.employees.find_by_id(params[:id])
+    redirect_to admin_employees_path unless @employee
   end
 end

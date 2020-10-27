@@ -32,6 +32,7 @@ class Admin::VenuesController < Admin::AdminController
 
   def set_venue
     @venue = current_user.venues.find_by(slug: params[:slug])
+    redirect_to admin_venues_path unless @venue
   end
 
   def post_params
