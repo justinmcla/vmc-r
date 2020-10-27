@@ -43,6 +43,7 @@ group :development, :test do
   gem 'rails-controller-testing'
   # Use DotENV to load auth keys
   gem 'dotenv-rails'
+  gem 'rubocop', require: false
 end
 
 group :development do

@@ -7,12 +7,6 @@ Venue Management Console - Rails edition
 This is a rebuild of Venue Manager, originally built in Sinatra.
 Manages venues, bookings, organizers, employees, etc.
 
-Features coming soon:
-* budget management
-* employee scheduling
-* file uploads
-* messaging
-
 ## Ruby version
 2.6.1
 
