@@ -1,5 +1,6 @@
 class Admin::InventoriesController < Admin::AdminController
   before_action :set_venue
+  skip_before_action :set_venue, only: [:index]
   before_action :set_inventory, only: [:show, :edit, :update, :destroy]
 
   def new
