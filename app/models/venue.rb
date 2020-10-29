@@ -40,7 +40,7 @@ class Venue < ApplicationRecord
 
   def most_frequent_organizer_percent
     organizer_bookings = self.bookings.where(organizer: self.most_frequent_organizer).count
-    organizer_bookings / self.bookings.count * 100
+    organizer_bookings / self.bookings.count.to_f * 100
   end
 
   private
