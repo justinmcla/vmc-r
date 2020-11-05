@@ -32,14 +32,14 @@ class VenuesController < ApplicationController
     return Venue.all if params[:name] && params[:name].downcase == 'all'
 
     sql = <<~SQL
-      name LIKE ? OR 
-      city LIKE ? OR 
-      state LIKE ? OR 
+      lower(name) LIKE ? OR 
+      lower(city) LIKE ? OR 
+      lower(state) LIKE ? OR 
       zip LIKE ?
     SQL
 
     params.transform_values! do |value|
-      "%#{value}%" unless value.blank?
+      "%#{value.downcase}%" unless value.blank?
     end
 
     Venue.joins(:address).where(
