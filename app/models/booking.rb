@@ -8,7 +8,9 @@ class Booking < ApplicationRecord
   validates :event_time, presence: true, format: { with: /\d\d\:\d\d\:\d\d/ }
   validates :access_time, presence: true, format: { with: /\d\d\:\d\d\:\d\d/ }
   validates :exit_time, presence: true, format: { with: /\d\d\:\d\d\:\d\d/ }
-  validates :attendance, presence: true, numericality: { only_integer: true }
+  validates :attendance, presence: true, numericality: { 
+    only_integer: true, greater_than_or_equal_to: 0 
+  }
   validates :daily_rate, presence: true, numericality: true
 
   belongs_to :venue

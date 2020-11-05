@@ -3,9 +3,15 @@ class Venue < ApplicationRecord
   before_create :set_slug
 
   validates :name, presence: true
-  validates :seats, presence: true, numericality: { only_integer: true }
-  validates :greenrooms, presence: true, numericality: { only_integer: true }
-  validates :dressing_rooms, presence: true, numericality: { only_integer: true }
+  validates :seats, presence: true, numericality: { 
+    only_integer: true, greater_than_or_equal_to: 0 
+  }
+  validates :greenrooms, presence: true, numericality: { 
+    only_integer: true, greater_than_or_equal_to: 0 
+  }
+  validates :dressing_rooms, presence: true, numericality: { 
+    only_integer: true, greater_than_or_equal_to: 0 
+  }
   validates :configuration, presence: true, inclusion: { 
     in: ['Proscenium', 'Arena', 'Thrust', 'Black Box', 'Flexible', 'Studio', 'Outdoor'] 
   }
